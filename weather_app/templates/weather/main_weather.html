@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django Weather App</title>
+
+    <!-- Main Style CSS  -->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet"/>
+
+</head>
+
+<body>
+
+<div class="current_weather_container">
+    <div class="current_icon">
+        <img src="{{ weather.image }}">
+    </div>
+    <div class ="current_condition">
+        <h1>{{ weather.condition }}</h1>
+    </div>
+    <div class="current_location">
+        <h3>{{ weather.location }}</h3>
+    </div>
+    <div class="current_temperature">
+        <h1>{{ weather.current_temp }}°C</h1>
+    </div>
+    <div class="change_location">
+        <h4>Change Location</h4>
+        <div class="xs_location_icon">
+
+        </div>
+    </div>
+
+    <div class ="current_precipitation">
+        <p>Precipitation: {{ weather.precipitation }}mm</p>
+    </div>
+
+    <div class = "current_wind_spd">
+        <p>Wind Speed: {{ weather.wind_speed_mph }}mph</p>
+    </div>
+
+    <div class = "current_humidity">
+        <p>Humidity: {{ weather.humidity }}%</p>
+    </div>
+</div>
+
+
+<div class = "five_day_forecast_container">
+    <div class="day_1">
+        <br>
+        <span>Today</span>
+        <p>{{ forecast.day_0.0 }}<br><br> Max {{ forecast.day_0.6 }}°C <br> Min {{ forecast.day_0.7 }}°C </p>
+    </div>
+
+    <div class="day_2">
+        <br>
+        <span>WEEKDAY</span>
+        <p>{{ forecast.day_1.0 }}<br><br> Max {{ forecast.day_1.6 }}°C <br> Min {{ forecast.day_1.7 }}°C </p>
+    </div>
+
+    <div class="day_3">
+        <br>
+        <span>WEEKDAY</span>
+        <p>{{ forecast.day_2.0 }}<br><br> Max {{ forecast.day_2.6 }}°C <br> Min {{ forecast.day_2.7 }}°C </p>
+    </div>
+
+    <div class="day_4">
+        <br>
+        <span>WEEKDAY</span>
+        <p>{{ forecast.day_3.0 }}<br><br> Max {{ forecast.day_3.6 }}°C <br> Min {{ forecast.day_3.7 }}°C </p>
+    </div>
+
+    <div class="day_5">
+        <br>
+        <span>WEEKDAY</span>
+        <p>{{ forecast.day_4.0 }}<br><br> Max {{ forecast.day_4.6 }}°C <br> Min {{ forecast.day_4.7 }}°C </p>
+    </div>
+
+
+</div>
+
+</body>
+</html>
