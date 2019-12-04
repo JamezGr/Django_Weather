@@ -1,3 +1,27 @@
 body {
+
+ font-family: verdana;
+
+}
+
+div.current_weather_container {
+  text-align: left;
+}
+
+div.five_day_forecast_container {
   text-align: center;
+}
+
+
+
+div.current_condition {
+    font-size:44px;
+    font-weight: lighter;
+}
+
+div.current_temperature {
+    text.align:left;
+    font-size:96px;
+    font-weight: bold;
+
 }

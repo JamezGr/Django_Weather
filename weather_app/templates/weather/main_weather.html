@@ -18,14 +18,17 @@
     <div class="current_icon">
         <img src="{{ weather.image }}">
     </div>
-    <div class ="current_condition">
-        <h1>{{ weather.condition }}</h1>
+
+    <div class="current_temperature">
+        {{ weather.current_temp }}°
     </div>
+
+    <div class ="current_condition">
+        {{ weather.condition }}
+    </div>
+
     <div class="current_location">
         <h3>{{ weather.location }}</h3>
-    </div>
-    <div class="current_temperature">
-        <h1>{{ weather.current_temp }}°C</h1>
     </div>
     <div class="change_location">
         <h4>Change Location</h4>
