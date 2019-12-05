@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .date_to_string_conversion import convert_date
+
 import requests
 import urllib.parse
 import configparser
@@ -49,7 +51,7 @@ class WeatherForecast:
         # TODO: include Weather Condition for Each Day
         while current_day < 5:
             five_day_weather['day_' + str(current_day)] = [
-                weather_json['data']['weather'][current_day]['date'],
+                convert_date(weather_json['data']['weather'][current_day]['date']),
                 weather_json['data']['weather'][current_day]['astronomy'][0]['sunrise'],
                 weather_json['data']['weather'][current_day]['astronomy'][0]['sunset'],
                 weather_json['data']['weather'][current_day]['astronomy'][0]['moonrise'],

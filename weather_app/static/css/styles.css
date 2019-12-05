@@ -4,6 +4,10 @@ body {
 
 }
 
+div.current_location {
+    text-align: right;
+}
+
 div.current_weather_container {
   text-align: left;
 }
@@ -11,8 +15,6 @@ div.current_weather_container {
 div.five_day_forecast_container {
   text-align: center;
 }
-
-
 
 div.current_condition {
     font-size:44px;
