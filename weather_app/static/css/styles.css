@@ -10,15 +10,19 @@ div.current_location {
     font-weight: bold;
 }
 
-div.current_weather container {
-  text-align: left;
+div.current_weather {
+   position: fixed;
+   margin-left: 170px;
+   text-align: left;
    display: inline-block;
 
 }
 
-div.five_day_forecast container {
-  text-align: center;
-  position:absolute;
+div.five_day_forecast {
+   text-align: center;
+   margin-top: 420px;
+   margin-left: 110px;
+   position: fixed;
    display: inline-block;
 
 }
@@ -26,6 +30,23 @@ div.five_day_forecast container {
 div.row {
   margin-top: 40px;
 
+}
+
+div.date_text {
+  font-weight: bold;
+  font-size: 22px;
+
+}
+
+div.col-sm {
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+
+}
+
+div.forecast_temp {
+    text-align: center;
 }
 
 div.current_condition {

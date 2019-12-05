@@ -33,24 +33,23 @@
     </div>
 
     <div class ="current_condition">
-        {{ weather.condition }}
+        <p>{{ weather.condition }}</p>
     </div>
 
     <div class="change_location">
-        <br>
         Change Location
     </div>
 
     <div class ="current_precipitation">
-        <p><br>Precipitation: {{ weather.precipitation }}mm</p>
+        <br>Precipitation: {{ weather.precipitation }}mm
     </div>
 
     <div class = "current_wind_spd">
-        <p>Wind Speed: {{ weather.wind_speed_mph }}mph</p>
+        Wind Speed: {{ weather.wind_speed_mph }}mph
     </div>
 
     <div class = "current_humidity">
-        <p>Humidity: {{ weather.humidity }}%</p>
+        Humidity: {{ weather.humidity }}%
     </div>
 </div>
 
@@ -59,32 +58,53 @@
     <div class="row">
         <div class="day_1 col-sm">
             <br>
-            <span>Today</span>
-            <p>Max {{ forecast.day_0.6 }}°C <br> Min {{ forecast.day_0.7 }}°C </p>
+            <div class ="day_1 date_text">
+                <span>Today</span>
+                <br>
+                <div class="forecast_temp">{{ forecast.day_0.6 }}°C </div>
+            </div>
+
+            <div class="forecast_temp"></div>
         </div>
+
 
         <div class="day_2 col-sm">
             <br>
-            <span>{{ forecast.day_1.0 }}</span>
-            <p>Max {{ forecast.day_1.6 }}°C <br> Min {{ forecast.day_1.7 }}°C </p>
+            <div class ="day_2 date_text">
+                <span>{{ forecast.day_1.0 }}</span>
+                <br>
+                <div class="forecast_temp">{{ forecast.day_1.6 }}°C </div>
+            </div>
         </div>
+
 
         <div class="day_3 col-sm">
             <br>
-            <span>{{ forecast.day_2.0 }}</span>
-            <p>Max {{ forecast.day_2.6 }}°C <br> Min {{ forecast.day_2.7 }}°C </p>
+            <div class ="day_3 date_text">
+                <span>{{ forecast.day_2.0 }}</span>
+                <br>
+                <div class="forecast_temp">{{ forecast.day_2.6 }}°C </div>
+            </div>
         </div>
+
 
         <div class="day_4 col-sm">
             <br>
-            <span>{{ forecast.day_3.0 }}</span>
-            <p>Max {{ forecast.day_3.6 }}°C <br> Min {{ forecast.day_3.7 }}°C </p>
+            <div class ="day_4 date_text">
+                <span>{{ forecast.day_3.0 }}</span>
+                <br>
+                <div class="forecast_temp">{{ forecast.day_3.6 }}°C</div>
+            </div>
         </div>
+
 
         <div class="day_5 col-sm">
             <br>
-            <span>{{ forecast.day_4.0 }}</span>
-            <p>Max {{ forecast.day_4.6 }}°C <br> Min {{ forecast.day_4.7 }}°C </p>
+            <div class ="day_5 date_text">
+                <span>{{ forecast.day_4.0 }}</span>
+                <br>
+                <div class="forecast_temp">{{ forecast.day_4.6 }}°C</div>
+            </div>
         </div>
     </div>
 
