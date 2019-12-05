@@ -6,24 +6,36 @@ body {
 
 div.current_location {
     text-align: right;
+    font-size: 22px;
+    font-weight: bold;
 }
 
-div.current_weather_container {
+div.current_weather container {
   text-align: left;
+   display: inline-block;
+
 }
 
-div.five_day_forecast_container {
+div.five_day_forecast container {
   text-align: center;
+  position:absolute;
+   display: inline-block;
+
+}
+
+div.row {
+  margin-top: 40px;
+
 }
 
 div.current_condition {
-    font-size:44px;
+    font-size:34px;
     font-weight: bold;
 }
 
 div.current_temperature {
     text.align:left;
-    font-size:96px;
+    font-size:86px;
     font-weight: bold;
 
 }

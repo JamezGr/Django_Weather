@@ -19,11 +19,11 @@
 <body>
 
 
-<div class="current_location">
-    <h3>{{ weather.location }}</h3>
+<div class="current_location container">
+    {{ weather.location }}
 </div>
 
-<div class="current_weather_container">
+<div class="current_weather container">
     <div class="current_icon">
         <img src="{{ weather.image }}">
     </div>
@@ -37,11 +37,12 @@
     </div>
 
     <div class="change_location">
+        <br>
         Change Location
     </div>
 
     <div class ="current_precipitation">
-        <p>Precipitation: {{ weather.precipitation }}mm</p>
+        <p><br>Precipitation: {{ weather.precipitation }}mm</p>
     </div>
 
     <div class = "current_wind_spd">
@@ -54,35 +55,37 @@
 </div>
 
 
-<div class = "five_day_forecast_container">
-    <div class="day_1">
-        <br>
-        <span>{{ forecast.day_0.0 }}</span>
-        <p>Max {{ forecast.day_0.6 }}°C <br> Min {{ forecast.day_0.7 }}°C </p>
-    </div>
+<div class = "five_day_forecast container">
+    <div class="row">
+        <div class="day_1 col-sm">
+            <br>
+            <span>Today</span>
+            <p>Max {{ forecast.day_0.6 }}°C <br> Min {{ forecast.day_0.7 }}°C </p>
+        </div>
 
-    <div class="day_2">
-        <br>
-        <span>{{ forecast.day_1.0 }}</span>
-        <p>Max {{ forecast.day_1.6 }}°C <br> Min {{ forecast.day_1.7 }}°C </p>
-    </div>
+        <div class="day_2 col-sm">
+            <br>
+            <span>{{ forecast.day_1.0 }}</span>
+            <p>Max {{ forecast.day_1.6 }}°C <br> Min {{ forecast.day_1.7 }}°C </p>
+        </div>
 
-    <div class="day_3">
-        <br>
-        <span>{{ forecast.day_2.0 }}</span>
-        <p>Max {{ forecast.day_2.6 }}°C <br> Min {{ forecast.day_2.7 }}°C </p>
-    </div>
+        <div class="day_3 col-sm">
+            <br>
+            <span>{{ forecast.day_2.0 }}</span>
+            <p>Max {{ forecast.day_2.6 }}°C <br> Min {{ forecast.day_2.7 }}°C </p>
+        </div>
 
-    <div class="day_4">
-        <br>
-        <span>{{ forecast.day_3.0 }}</span>
-        <p>Max {{ forecast.day_3.6 }}°C <br> Min {{ forecast.day_3.7 }}°C </p>
-    </div>
+        <div class="day_4 col-sm">
+            <br>
+            <span>{{ forecast.day_3.0 }}</span>
+            <p>Max {{ forecast.day_3.6 }}°C <br> Min {{ forecast.day_3.7 }}°C </p>
+        </div>
 
-    <div class="day_5">
-        <br>
-        <span>{{ forecast.day_4.0 }}</span>
-        <p>Max {{ forecast.day_4.6 }}°C <br> Min {{ forecast.day_4.7 }}°C </p>
+        <div class="day_5 col-sm">
+            <br>
+            <span>{{ forecast.day_4.0 }}</span>
+            <p>Max {{ forecast.day_4.6 }}°C <br> Min {{ forecast.day_4.7 }}°C </p>
+        </div>
     </div>
 
 
