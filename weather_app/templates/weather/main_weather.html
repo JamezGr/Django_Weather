@@ -10,6 +10,10 @@
     <!-- Main Style CSS  -->
     <link href="{% static 'css/styles.css' %}" rel="stylesheet"/>
 
+    <!-- Bootstrap CSS  -->
+    <link href="{% static 'css/bootstrap/bootstrap.css' %}" rel="stylesheet"/>
+
+
 </head>
 
 <body>
@@ -18,7 +22,6 @@
 <div class="current_location">
     <h3>{{ weather.location }}</h3>
 </div>
-
 
 <div class="current_weather_container">
     <div class="current_icon">
@@ -34,10 +37,7 @@
     </div>
 
     <div class="change_location">
-        <h4>Change Location</h4>
-        <div class="xs_location_icon">
-
-        </div>
+        Change Location
     </div>
 
     <div class ="current_precipitation">
