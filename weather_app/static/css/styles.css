@@ -80,7 +80,7 @@ img.icon_wind {
 }
 
 img.icon_humidity {
-    margin-left: -20px;
+    margin-left: -15px;
 }
 
 div.current_wind_spd {
@@ -159,6 +159,37 @@ span.moon_phase {
     margin-left: -35px;
     font-weight: bold;
 }
+
+img.sunrise-icon {
+    margin-right: -25px;
+
+}
+
+div.sunrise {
+    margin-left: 220px;
+    margin-top: -50px;
+}
+
+span.sunrise-text {
+    font-weight: bold;
+
+}
+
+img.sunset-icon {
+    margin-right: -25px;
+
+}
+
+div.sunset {
+    margin-left: 220px;
+    margin-top: -50px;
+}
+
+span.sunset-text {
+    font-weight: bold;
+
+}
+
 
 img.forecast-icon {
     height:150px;
