@@ -30,52 +30,73 @@
 
 </div>
 
+
 <div class="current_weather container">
-    <div class="current_icon">
-        <img src="{{ weather.image }}">
-    </div>
+    <div class ="current-weather-row row">
+        <div class="current-weather-col col">
+            <div class="current_icon">
+                <img src="{{ weather.image }}">
+            </div>
 
-    <div class="current_temperature">
-        {{ weather.current_temp }}°
-    </div>
+            <div class="current_temperature">
+                {{ weather.current_temp }}°
+            </div>
 
-    <div class ="current_condition">
-        <p>{{ weather.condition }}</p>
-    </div>
+            <div class ="current_condition">
+                <p>{{ weather.condition }}</p>
+            </div>
 
-    <div class ="moon_phase">
-        <div class = "moon_phase_icon">
-            <img class ="icon_location" src="{% static 'img/Weather_Icons/Moon-Waning-Gibbous.svg' %}">
-            <span class ="moon_phase">Moon Phase</span>
+
+                <div class ="current_weather_info">
+                    <div class="current_weather_info row">
+                        <div class="current_precipitation col col-lg-3">
+                            <div class="precipitation_icon">
+                                <img class ="icon_location x-small-icon" src="{% static 'img/raindrop-drop-svgrepo-com.svg' %}">
+                                <div class="precipitation-text" align="center">
+                                    <b>PRECIPITATION </b><br>
+                                    <div class="precipitation">
+                                        {{ weather.precipitation }}MM
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class = "current_wind_spd col col-lg-2">
+                        <div class="wind_icon">
+                            <img class ="icon_wind small-icon" src="{% static 'img/wind_icon.svg' %}">
+                            <div class="wind-text" align="center">
+                                <b>WIND</b> <br> {{ weather.wind_speed_mph }} MPH
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class = "current_humidity col col-lg-2">
+                        <div class="humidity_icon">
+                            <img class ="icon_humidity x-small-icon" src="{% static 'img/humidity.svg' %}">
+                            <div class="humidity-text" align="center">
+                                <b>HUMIDITY</b><br>
+                                <div class="humidity" align="center">{{ weather.humidity }}%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
 
-
-    <div class ="current_weather_info">
-        <div class="current_weather_info row">
-            <div class="current_precipitation col col-lg-2">
-                <div class="precipitation_icon">
-                    <img class ="icon_location x-small-icon" src="{% static 'img/raindrop-drop-svgrepo-com.svg' %}">
-                    <b>PRECIPITATION </b><br> {{ weather.precipitation }}MM
-                </div>
-            </div>
-
-            <div class = "current_wind_spd col col-lg-2">
-                <div class="wind_icon">
-                    <img class ="icon_wind small-icon" src="{% static 'img/wind_icon.svg' %}">
-                    <b>WIND</b> <br> {{ weather.wind_speed_mph }} MPH
-                </div>
-            </div>
-
-
-            <div class = "current_humidity col col-lg-2">
-                <div class="humidity_icon">
-                    <img class ="icon_humidity x-small-icon" src="{% static 'img/humidity.svg' %}">
-                    <b>HUMIDITY</b><br> {{ weather.humidity }}%
+        <div class="current-weather-extra-col col">
+            <div class ="moon_phase" align="right">
+                <div class = "moon_phase_icon">
+                    <img class ="icon_location" src="{% static 'img/Weather_Icons/Moon-Waning-Gibbous.svg' %}">
+                    <span class ="moon_phase">Moon Phase</span>
                 </div>
             </div>
         </div>
+
+
     </div>
+
 </div>
 
 

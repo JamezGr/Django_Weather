@@ -34,11 +34,63 @@ img.x-small-icon {
 div.current_weather_info {
     font-size: 14px;
     font-align: center;
-    margin-top: -30px;
+    margin-top: -10px;
+}
+
+div.current-weather-extra-col {
+    margin-top: 80px;
+    margin-right: 160px;
+
+}
+
+
+div.current_precipitation {
+    margin-right: 60px;
+
+    }
+
+div.precipitation-text {
+
+    margin-top: -20px;
+    margin-left: 25px;
+}
+
+div.wind-text {
+    margin-top: -20px;
+    margin-left: -30px;
+
+}
+
+div.humidity-text {
+    margin-top: -20px;
+    margin-left: 10px
+}
+
+div.humidity {
+    margin-left: 25px;
+}
+
+div.precipitation {
+    margin-left: 35px;
+}
+
+img.icon_wind {
+    margin-left: -40px;
+
+}
+
+img.icon_humidity {
+    margin-left: -20px;
+}
+
+div.current_wind_spd {
+    margin-top: -3px;
+    margin-left: 30px;
+
 }
 
 div.current_humidity {
-    margin-left: -50px;
+    margin-left: -10px;
 
 }
 
