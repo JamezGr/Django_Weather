@@ -19,8 +19,16 @@
 <body>
 
 
-<div class="current_location container">
+<div class="current-location container">
     {{ weather.location }}
+
+     <div class="change_location">
+        <div class="location_icon">
+            <img class ="icon_location small-icon" src="{% static 'img/Media_Viewer_Icon_-_Location.svg' %}">
+            Change Location
+        </div>
+    </div>
+
 </div>
 
 <div class="current_weather container">
@@ -36,12 +44,13 @@
         <p>{{ weather.condition }}</p>
     </div>
 
-    <div class="change_location">
-        <div class="location_icon">
-            <img class ="icon_location small-icon" src="{% static 'img/Media_Viewer_Icon_-_Location.svg' %}">
-            Change Location
+    <div class ="moon_phase">
+        <div class = "moon_phase_icon">
+            <img class ="icon_location" src="{% static 'img/Weather_Icons/Moon-Waning-Gibbous.svg' %}">
+            <span class ="moon_phase">Moon Phase</span>
         </div>
     </div>
+
 
     <div class ="current_weather_info">
         <div class="current_weather_info row">
