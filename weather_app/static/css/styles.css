@@ -1,3 +1,5 @@
+html { height: 100%; }
+
 body {
 
  font-family: verdana;
@@ -12,15 +14,30 @@ div.current_location {
 
 div.current_weather {
    position: fixed;
-   margin-left: 170px;
+   margin-left: 180px;
    text-align: left;
    display: inline-block;
 
 }
 
-img.icon {
-    height:28px;
-    width:28px;
+img.small-icon {
+    height:25px;
+    width:25px;
+}
+
+img.x-small-icon {
+    height:20px;
+    width:20px;
+}
+
+div.current_weather_info {
+    font-size: 14px;
+    font-align: center;
+}
+
+div.current_humidity {
+    margin-left: -50px;
+
 }
 
 div.five_day_forecast {
@@ -54,6 +71,7 @@ div.col-sm {
 div.forecast_temp {
     text-align: center;
     font-weight: normal;
+    font-size: 22px;
     color: black;
 }
 
@@ -71,7 +89,7 @@ div.current_temperature {
 
 div.change_location {
     text.align:left;
-    font-size:18px;
+    font-size:15px;
     font-weight:bold;
 }
 

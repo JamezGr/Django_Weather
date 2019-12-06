@@ -38,21 +38,35 @@
 
     <div class="change_location">
         <div class="location_icon">
-            <img class ="icon_location icon" src="{% static 'img/Media_Viewer_Icon_-_Location.svg' %}">
+            <img class ="icon_location small-icon" src="{% static 'img/Media_Viewer_Icon_-_Location.svg' %}">
             Change Location
         </div>
     </div>
 
-    <div class ="current_precipitation">
-        <br>Precipitation: {{ weather.precipitation }}mm
-    </div>
+    <div class ="current_weather_info">
+        <div class="current_weather_info row">
+            <div class="current_precipitation col col-lg-2">
+                <div class="precipitation_icon">
+                    <img class ="icon_location x-small-icon" src="{% static 'img/raindrop-drop-svgrepo-com.svg' %}">
+                    <b>PRECIPITATION </b><br> {{ weather.precipitation }}MM
+                </div>
+            </div>
 
-    <div class = "current_wind_spd">
-        Wind Speed: {{ weather.wind_speed_mph }}mph
-    </div>
+            <div class = "current_wind_spd col col-lg-2">
+                <div class="wind_icon">
+                    <img class ="icon_wind small-icon" src="{% static 'img/wind_icon.svg' %}">
+                    <b>WIND</b> <br> {{ weather.wind_speed_mph }} MPH
+                </div>
+            </div>
 
-    <div class = "current_humidity">
-        Humidity: {{ weather.humidity }}%
+
+            <div class = "current_humidity col col-lg-2">
+                <div class="humidity_icon">
+                    <img class ="icon_humidity x-small-icon" src="{% static 'img/humidity.svg' %}">
+                    <b>HUMIDITY</b><br> {{ weather.humidity }}%
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -66,8 +80,6 @@
                 <br>
                 <div class="forecast_temp">{{ forecast.day_0.6 }}°C </div>
             </div>
-
-            <div class="forecast_temp"></div>
         </div>
 
 
