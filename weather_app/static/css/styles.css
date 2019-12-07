@@ -21,28 +21,50 @@ div.current_weather {
 
 }
 
+img.x-small-icon {
+    height:20px;
+    width:20px;
+}
+
 img.small-icon {
     height:25px;
     width:25px;
 }
 
-img.x-small-icon {
-    height:20px;
-    width:20px;
+img.medium-icon {
+    height:40px;
+    width:40px;
 }
 
 div.current_weather_info {
     font-size: 14px;
     font-align: center;
     margin-top: -10px;
+    position: fixed;
+}
+
+div.precipitation_icon {
+    margin-right:20px;
+    position: fixed;
+}
+
+div.wind_icon {
+    position: fixed;
+    margin-left: 100px;
+}
+
+div.humidity_icon {
+    margin-left:300px;
+    position: fixed;
 }
 
 div.current-weather-extra-col {
     margin-top: 80px;
-    margin-right: 160px;
+    margin-right: 50px;
+    margin-left: 600px;
+    position: fixed;
 
 }
-
 
 div.current_precipitation {
     margin-right: 60px;
@@ -56,14 +78,14 @@ div.precipitation-text {
 }
 
 div.wind-text {
-    margin-top: -20px;
     margin-left: -30px;
+    margin-top: 5px;
+    position: fixed;
 
 }
 
 div.humidity-text {
-    margin-top: -20px;
-    margin-left: 10px
+    position: fixed;
 }
 
 div.humidity {
@@ -75,22 +97,25 @@ div.precipitation {
 }
 
 img.icon_wind {
-    margin-left: -40px;
-
+    margin-left: -55px;
+    position: fixed;
 }
 
 img.icon_humidity {
-    margin-left: -15px;
+    margin-left: -25px;
+    position: fixed;
 }
 
 div.current_wind_spd {
     margin-top: -3px;
-    margin-left: 30px;
+    margin-left: 130px;
+    position: fixed;
 
 }
 
 div.current_humidity {
     margin-left: -10px;
+    position: fixed;
 
 }
 
@@ -151,7 +176,7 @@ div.change_location {
 }
 
 div.moon_phase {
-    margin-left:-40px;
+    margin-left: 180px;
     margin-top: -50px;
 }
 
@@ -166,7 +191,7 @@ img.sunrise-icon {
 }
 
 div.sunrise {
-    margin-left: 220px;
+    margin-left: 110px;
     margin-top: -50px;
 }
 
@@ -175,14 +200,29 @@ span.sunrise-text {
 
 }
 
-img.sunset-icon {
-    margin-right: -25px;
+div.moonrise {
+    margin-left: 145px;
+    margin-top: -20px;
+}
+
+span.moonrise-text {
+    font-weight: bold;
+
+}
+
+div.moonset {
+    margin-left: 305px;
+    margin-top: -40px;
+}
+
+span.moonset-text {
+    font-weight: bold;
 
 }
 
 div.sunset {
-    margin-left: 220px;
-    margin-top: -50px;
+    margin-left: 270px;
+    margin-top: -100px;
 }
 
 span.sunset-text {
@@ -190,6 +230,10 @@ span.sunset-text {
 
 }
 
+img.sunset-icon {
+    margin-right: -25px;
+
+}
 
 img.forecast-icon {
     height:150px;

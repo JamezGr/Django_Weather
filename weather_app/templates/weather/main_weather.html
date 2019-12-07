@@ -86,28 +86,42 @@
         </div>
 
         <div class="current-weather-extra-col col">
-            <div class ="moon_phase" align="right">
+            <div class ="moon_phase">
                 <div class = "moon_phase_icon">
                     <img class ="icon_location" src="{% static 'img/Weather_Icons/Moon-Waning-Gibbous.svg' %}">
-                    <span class ="moon_phase">Moon Phase</span>
+                    <span class ="moon_phase"> Moon Phase</span>
                 </div>
             </div>
 
             <div class="sunrise">
                 <div class="sunrise-icon">
                     <img class="sunrise-icon" src="{% static 'img/Weather_Icons/Sunrise.svg' %}">
-                    <span class ="sunrise-text">Sunrise: 07:07am</span>
+                    <span class ="sunrise-text">{{ forecast.day_0.1 }}</span>
                 </div>
             </div>
 
             <div class="sunset">
                 <div class="sunset-icon">
                     <img class="sunset-icon" src="{% static 'img/Weather_Icons/Sunset.svg' %}">
-                    <span class ="sunset-text">Sunset: 16:48pm</span>
+                    <span class ="sunset-text">{{ forecast.day_0.2 }}</span>
                 </div>
             </div>
 
+            <div class="moonrise">
+                <div class="moonrise-icon">
+                    <img class="moonrise-icon medium-icon" src="{% static 'img/Weather_Icons/Moonrise.svg' %}">
+                    <span class ="moonrise-text">{{ forecast.day_0.3 }}</span>
 
+                </div>
+            </div>
+
+            <div class="moonset">
+                <div class="moonset-icon">
+                    <img class="moonset-icon medium-icon" src="{% static 'img/Weather_Icons/Moonset.svg' %}">
+                    <span class ="moonset-text">{{ forecast.day_0.4 }}</span>
+
+                </div>
+            </div>
 
         </div>
 
