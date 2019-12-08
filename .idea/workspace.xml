@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="17726260-43b1-4d8d-90a3-2284fcfc2ec3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/weather_app/templates/weather/main_weather.html" beforeDir="false" afterPath="$PROJECT_DIR$/weather_app/templates/weather/main_weather.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weather_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/weather_app/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weather_app/weather_code_to_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/weather_app/weather_code_to_image.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/weather_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="732">
-              <caret line="67" selection-start-line="67" selection-end-line="67" />
+            <state relative-caret-position="300">
+              <caret line="20" column="147" lean-forward="true" selection-start-line="20" selection-start-column="105" selection-end-line="20" selection-end-column="147" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -53,11 +52,29 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/config.ini">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="39" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/weather_app/templates/weather/main_weather.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="45" column="40" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
+            <state relative-caret-position="1437">
+              <caret line="139" column="92" selection-start-line="139" selection-start-column="92" selection-end-line="139" selection-end-column="92" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/weather_app/static/css/bootstrap/bootstrap.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="6128" column="8" selection-start-line="6128" selection-start-column="1" selection-end-line="6128" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -65,8 +82,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/weather_app/weather_code_to_image.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="762">
-              <caret line="131" column="85" selection-start-line="131" selection-start-column="85" selection-end-line="131" selection-end-column="85" />
+            <state relative-caret-position="747">
+              <caret line="146" column="35" selection-start-line="146" selection-start-column="35" selection-end-line="146" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -115,9 +132,16 @@
       <find>icon_wind</find>
       <find>wind_icon</find>
       <find>wind</find>
+      <find>{</find>
+      <find>}</find>
+      <find>['</find>
+      <find>tooltip</find>
     </findStrings>
     <replaceStrings>
       <replace>current-location</replace>
+      <replace>[</replace>
+      <replace>]</replace>
+      <replace>['img/Weather_Icons/</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -139,8 +163,8 @@
         <option value="$PROJECT_DIR$/weather_app/static/css/bootstrap/bootstrap.css" />
         <option value="$PROJECT_DIR$/weather_app/static/css/styles.css" />
         <option value="$PROJECT_DIR$/weather_app/date_to_string_conversion.py" />
-        <option value="$PROJECT_DIR$/weather_app/weather_code_to_image.py" />
         <option value="$PROJECT_DIR$/weather_app/views.py" />
+        <option value="$PROJECT_DIR$/weather_app/weather_code_to_image.py" />
         <option value="$PROJECT_DIR$/weather_app/templates/weather/main_weather.html" />
       </list>
     </option>
@@ -177,6 +201,27 @@
               <item name="live_weather" type="b2602c69:ProjectViewProjectNode" />
               <item name="live_weather" type="462c0819:PsiDirectoryNode" />
               <item name="weather_app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="live_weather" type="b2602c69:ProjectViewProjectNode" />
+              <item name="live_weather" type="462c0819:PsiDirectoryNode" />
+              <item name="weather_app" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="live_weather" type="b2602c69:ProjectViewProjectNode" />
+              <item name="live_weather" type="462c0819:PsiDirectoryNode" />
+              <item name="weather_app" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="live_weather" type="b2602c69:ProjectViewProjectNode" />
+              <item name="live_weather" type="462c0819:PsiDirectoryNode" />
+              <item name="weather_app" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -231,7 +276,7 @@
     <frame x="50" y="27" width="1870" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.16392544" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16392544" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -314,13 +359,6 @@
     <entry file="file://$PROJECT_DIR$/weather_app/static/img/Media_Viewer_Icon_-_Location.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="39" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/weather_app/date_to_string_conversion.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -335,13 +373,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/weather_app/static/css/bootstrap/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="543" column="10" selection-start-line="543" selection-start-column="1" selection-end-line="543" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/live_weather/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -349,17 +380,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/weather_app/static/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="69" column="23" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/weather_app/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="39" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weather_app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="147" lean-forward="true" selection-start-line="20" selection-start-column="105" selection-end-line="20" selection-end-column="147" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weather_app/static/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="69" column="23" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -372,25 +420,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/weather_app/weather_code_to_image.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="762">
-          <caret line="131" column="85" selection-start-line="131" selection-start-column="85" selection-end-line="131" selection-end-column="85" />
+        <state relative-caret-position="747">
+          <caret line="146" column="35" selection-start-line="146" selection-start-column="35" selection-end-line="146" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/weather_app/views.py">
+    <entry file="file://$PROJECT_DIR$/weather_app/static/css/bootstrap/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="732">
-          <caret line="67" selection-start-line="67" selection-end-line="67" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="232">
+          <caret line="6128" column="8" selection-start-line="6128" selection-start-column="1" selection-end-line="6128" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/weather_app/templates/weather/main_weather.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="45" column="40" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
+        <state relative-caret-position="1437">
+          <caret line="139" column="92" selection-start-line="139" selection-start-column="92" selection-end-line="139" selection-end-column="92" />
         </state>
       </provider>
     </entry>
