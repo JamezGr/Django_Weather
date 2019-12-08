@@ -24,6 +24,7 @@ div.current_weather {
 img.x-small-icon {
     height:20px;
     width:20px;
+    -webkit-filter: invert(100%);
 }
 
 img.small-icon {
@@ -39,7 +40,7 @@ img.medium-icon {
 div.current_weather_info {
     font-size: 14px;
     font-align: center;
-    margin-top: -85px;
+    margin-top: -55px;
     margin-left: 340px;
     position: fixed;
 }
@@ -60,7 +61,7 @@ div.humidity_icon {
 }
 
 div.current-weather-extra-col {
-    margin-top: 80px;
+    margin-top: 70px;
     margin-right: 50px;
     margin-left: 600px;
     position: fixed;
@@ -100,6 +101,7 @@ div.precipitation {
 img.icon_wind {
     margin-left: -55px;
     position: fixed;
+    -webkit-filter: invert(100%);
 }
 
 img.icon_humidity {
@@ -137,7 +139,7 @@ div.row {
 div.date_text {
   font-weight: normal;
   font-size: 22px;
-  color: #303030;
+  color: #000000;
 
 }
 
@@ -160,12 +162,14 @@ div.forecast_temp {
 div.current_condition {
     font-size:34px;
     font-weight: bold;
+    margin-left: 20px;
 }
 
 div.current_temperature {
     text.align:left;
     font-size:86px;
     font-weight: bold;
+    margin-left: 20px;
 
 }
 
@@ -177,8 +181,9 @@ div.change_location {
 }
 
 div.moon_phase {
-    margin-left: 180px;
+    margin-left: 190px;
     margin-top: -100px;
+
 }
 
 span.moon_phase {
@@ -188,6 +193,7 @@ span.moon_phase {
 
 img.sunrise-icon {
     margin-right: -25px;
+    -webkit-filter: invert(100%);
 
 }
 
@@ -214,6 +220,7 @@ span.moonrise-text {
 div.moonset {
     margin-left: 305px;
     margin-top: -40px;
+
 }
 
 span.moonset-text {
@@ -233,6 +240,7 @@ span.sunset-text {
 
 img.sunset-icon {
     margin-right: -25px;
+    -webkit-filter: invert(100%);
 
 }
 
@@ -244,6 +252,25 @@ img.forecast-icon {
 }
 
 div.current_weather {
+    height: 300px;
     margin-top: 10px;
+    margin-left: 120px;
+    background-image: url('../img/Background/flat_camping-02_2x.jpg')
 }
 
+div.current_weather {
+    color: white;
+}
+
+img.icon_moon {
+    -webkit-filter: invert(100%);
+
+}
+
+img.moonset-icon {
+    -webkit-filter: invert(100%);
+}
+
+img.moonrise-icon {
+    -webkit-filter: invert(100%);
+}

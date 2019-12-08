@@ -57,7 +57,7 @@ class WeatherForecast:
                 weather_json['data']['weather'][current_day]['astronomy'][0]['sunset'],
                 weather_json['data']['weather'][current_day]['astronomy'][0]['moonrise'],
                 weather_json['data']['weather'][current_day]['astronomy'][0]['moonset'],
-                weather_json['data']['weather'][current_day]['astronomy'][0]['moon_phase'],
+                'img/Weather_Icons/' + weather_json['data']['weather'][current_day]['astronomy'][0]['moon_phase']+'.svg',
                 weather_json['data']['weather'][current_day]['maxtempC'],
                 weather_json['data']['weather'][current_day]['mintempC'],
                 weather_json['data']['weather'][current_day]['hourly'][0]['weatherDesc'][0]['value'],
