@@ -17,7 +17,7 @@ def index(request):
     location = urllib.parse.quote(location)
 
     weather_response = requests.get(
-        'http://api.worldweatheronline.com/premium/v1/weather.ashx?key=' + api_key + '&q=' + location + '&num_of_days=5&tp=3&format=json')
+        'http://api.worldweatheronline.com/premium/v1/weather.ashx?key=' + api_key + '&q=' + location + '&num_of_days=5&isDayTime&tp=24&format=json')
     json = weather_response.json()
 
     current_weather = {
@@ -58,7 +58,9 @@ class WeatherForecast:
                 weather_json['data']['weather'][current_day]['astronomy'][0]['moonset'],
                 weather_json['data']['weather'][current_day]['astronomy'][0]['moon_phase'],
                 weather_json['data']['weather'][current_day]['maxtempC'],
-                weather_json['data']['weather'][current_day]['mintempC']
+                weather_json['data']['weather'][current_day]['mintempC'],
+                weather_json['data']['weather'][current_day]['hourly'][0]['weatherDesc'][0]['value'],
+                weather_json['data']['weather'][current_day]['hourly'][0]['weatherCode']
             ]
 
             current_day += 1
