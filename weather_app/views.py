@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .date_to_string_conversion import convert_date
+from .weather_code_to_image import condition
 
 import requests
 import urllib.parse
@@ -60,7 +61,7 @@ class WeatherForecast:
                 weather_json['data']['weather'][current_day]['maxtempC'],
                 weather_json['data']['weather'][current_day]['mintempC'],
                 weather_json['data']['weather'][current_day]['hourly'][0]['weatherDesc'][0]['value'],
-                weather_json['data']['weather'][current_day]['hourly'][0]['weatherCode']
+                condition(weather_json['data']['weather'][current_day]['hourly'][0]['weatherCode'])
             ]
 
             current_day += 1
