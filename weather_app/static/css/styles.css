@@ -255,7 +255,14 @@ div.current_weather {
     height: 300px;
     margin-top: 10px;
     margin-left: 120px;
-    background-image: url('../img/Background/night_rain_background.png')
+    background-image: url('../img/Background/night_rain_background.png');
+    -moz-animation: fadein 1s;
+
+}
+
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
 div.current_weather {
