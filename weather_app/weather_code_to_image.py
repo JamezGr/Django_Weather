@@ -90,19 +90,19 @@ def condition(weather_code):
         return ['img/Weather_Icons/Cloud-Rain-Alt.svg', 'Cloud-Rain-Moon-Alt.svg', 'Light rain']
 
     if weather_code == '293':
-        return ['img/Weather_Icons/img/Weather_Icons/Cloud-Rain-Alt.svg', 'Cloud-Rain-Moon-Alt.svg', 'Patchy light rain']
+        return ['img/Weather_Icons/Cloud-Rain-Alt.svg', 'Cloud-Rain-Moon-Alt.svg', 'Patchy light rain']
 
     if weather_code == '284':
-        return ['img/Weather_Icons/img/Weather_Icons/Cloud-Drizzle.svg', 'Cloud-Drizzle-Moon.svg', 'Heavy freezing drizzle']
+        return ['img/Weather_Icons/Cloud-Drizzle.svg', 'Cloud-Drizzle-Moon.svg', 'Heavy freezing drizzle']
 
     if weather_code == '281':
-        return ['img/Weather_Icons/img/Weather_Icons/Cloud-Drizzle.svg', 'Cloud-Drizzle-Moon.svg', 'Freezing drizzle']
+        return ['img/Weather_Icons/Cloud-Drizzle.svg', 'Cloud-Drizzle-Moon.svg', 'Freezing drizzle']
 
     if weather_code == '266':
-        return ['img/Weather_Icons/img/Weather_Icons/Cloud-Drizzle-Alt.svg', 'Cloud-Drizzle-Moon-Alt.svg', 'Light drizzle']
+        return ['img/Weather_Icons/Cloud-Drizzle-Alt.svg', 'Cloud-Drizzle-Moon-Alt.svg', 'Light drizzle']
 
     if weather_code == '263':
-        return ['img/Weather_Icons/img/Weather_Icons/Cloud-Drizzle-Alt.svg', 'Cloud-Drizzle-Moon-Alt.svg', 'Patchy light drizzle']
+        return ['img/Weather_Icons/Cloud-Drizzle-Alt.svg', 'Cloud-Drizzle-Moon-Alt.svg', 'Patchy light drizzle']
 
     if weather_code == '260':
         return ['img/Weather_Icons/Cloud-Fog-Alt.svg', 'Cloud-Fog-Moon-Alt.svg', 'Freezing fog']

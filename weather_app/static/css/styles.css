@@ -252,20 +252,6 @@ img.forecast-icon {
 }
 
 div.current_weather {
-    height: 300px;
-    margin-top: 10px;
-    margin-left: 120px;
-    background-image: url('../img/Background/night_rain_background.png');
-    -moz-animation: fadein 1s;
-
-}
-
-@-moz-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-div.current_weather {
     color: white;
 }
 
@@ -281,3 +267,31 @@ img.moonset-icon {
 img.moonrise-icon {
     -webkit-filter: invert(100%);
 }
+
+div.current_weather {
+    height: 300px;
+    margin-top: 10px;
+    margin-left: 120px;
+    background-image: url('../img/Background/night_background.jpg');
+
+    -moz-animation: fadein 2s;      /* Firefox < 16 */
+    -webkit-animation: fadein 2s;   /* Safari, Chrome and Opera > 12.1 */
+    -o-animation: fadein 2s;        /* Opera < 12.1 */
+
+}
+
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
