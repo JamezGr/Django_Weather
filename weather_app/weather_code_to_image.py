@@ -12,7 +12,7 @@ def condition(weather_code):
         return ['img/Weather_Icons/Cloud-Rain-Alt.svg', 'Cloud-Rain-Moon-Alt.svg', 'Patchy light rain in area with thunder']
 
     if weather_code == '386':
-        return ['img/Weather_Icons/Cloud-Rain-Alt.svg', 'Cloud-Rain-Moon-Alt.svg', 'Patchy light rain in area with thunder']
+        return ['img/Weather_Icons/Cloud-Rain-Alt.svg', 'Cloud-Rain++-Moon-Alt.svg', 'Patchy light rain in area with thunder']
 
     if weather_code == '377':
         return ['img/Weather_Icons/Cloud-Hail-Alt.svg', 'Cloud-Hail-Moon-Alt.svg', 'Moderate or heavy showers of ice pellets']
