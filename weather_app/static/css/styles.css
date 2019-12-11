@@ -319,7 +319,7 @@ div.current_weather {
     padding-top: 10px;
     padding-right: 10px;
     padding-left: 10px;
-    height: 500px;
+    height: 575px;
     width: 500px;
     margin-top: 10px;
     margin-left: 610px;
@@ -331,6 +331,27 @@ div.current_weather {
     -o-animation: fadein .4s;        /* Opera < 12.1 */
 }
 
-#search-header-text {
-    font-size: 20px;
+
+input[name="search-box-text"] {
+    font-size: 24px;
+    margin-left: 0px;
+    width: 480px;
+}
+
+div.dropdown-content {
+  display: block;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 480px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+div.dropdown-content a {
+  font-size: 18px;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  background-color: #ddd;
 }
