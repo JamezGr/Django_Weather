@@ -32,13 +32,16 @@ def index(request):
     }
 
     five_day_weather = WeatherForecast.get_five_day_weather(location, json)
+    search_results = AutoComplete.get_search_results(location)
 
     # DEBUGGING PURPOSES ONLY::
     print(current_weather)
     print()
     print(five_day_weather)
+    print()
+    print(AutoComplete.get_search_results(location))
 
-    geo_data = {'weather': current_weather, 'forecast': five_day_weather}
+    geo_data = {'weather': current_weather, 'forecast': five_day_weather, 'search_results': search_results}
 
     return render(request, 'weather/main_weather.html', geo_data)
 
@@ -69,5 +72,33 @@ class WeatherForecast:
         return five_day_weather
 
 
-# TODO: Complete
+# TODO: Complete Hourly Forecast
 # class HourForecast:
+
+# TODO: Complete Autocomplete For Search Box
+class AutoComplete:
+    def get_search_results(self):
+        api_key = config.get('SETUP', 'api_key')
+
+        # LOCATION USED FOR TESTING PURPOSES
+        location = 'BS16'
+        location = urllib.parse.quote(location)
+
+        weather_response = requests.get('http://api.worldweatheronline.com/premium/v1/search.ashx?query=' + location + "&num_of_results=3&format=json&key=" + api_key)
+        json = weather_response.json()
+
+        current_result = 0
+        results_found = len(json['search_api']['result'])
+        search_results = {}
+
+        while current_result < results_found:
+            search_results['result_' + str(current_result)] = [
+                json['search_api']['result'][current_result]['areaName'][0]['value'] + ", " +
+                json['search_api']['result'][current_result]['country'][0]['value']
+            ]
+
+            current_result += 1
+
+        return search_results
+
+
