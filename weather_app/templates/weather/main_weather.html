@@ -21,180 +21,184 @@
 
 <body>
 
-
-<div class="current-location container">
+<div id="weather-overlay">
+    <div class="current-location container">
     {{ weather.location }}
      <div class="change_location">
         <div class="location_icon">
-            <img class ="icon_location small-icon" src="{% static 'img/Media_Viewer_Icon_-_Location.svg' %}">
-            Change Location
+            <img class ="icon_location small-icon" onclick="searchBox()" src="{% static 'img/Media_Viewer_Icon_-_Location.svg' %}">
+            <a id="change-location" onclick="searchBox()">Change Location</a>
         </div>
     </div>
 
-</div>
+    <div id ="search-box">
+        <div id="search-header-text">Search for Another Location</div>
+    </div>
+
+    </div>
 
 
-<div class="current_weather container">
-    <div id = "current_weather_box">
-        <div class ="current-weather-row row">
-        <div class="current-weather-col col">
-            <div class="current_icon">
+    <div class="current_weather container">
+        <div id = "current_weather_box">
+            <div class ="current-weather-row row">
+            <div class="current-weather-col col">
+                <div class="current_icon">
 
-            </div>
+                </div>
 
-            <div class="current_temperature">
-                {{ weather.current_temp }}°
-            </div>
+                <div class="current_temperature">
+                    {{ weather.current_temp }}°
+                </div>
 
-            <div class ="current_condition">
-                <p>{{ weather.condition }}</p>
-            </div>
+                <div class ="current_condition">
+                    <p>{{ weather.condition }}</p>
+                </div>
 
 
-                <div class ="current_weather_info">
-                    <div class="current_weather_info row">
-                        <div class="current_precipitation col col-lg-3">
-                            <div class="precipitation_icon">
-                                <img class ="icon_precipitation x-small-icon" src="{% static 'img/raindrop-drop-svgrepo-com.svg' %}">
-                                <div class="precipitation-text" align="center">
-                                    <b>PRECIPITATION </b><br>
-                                    <div class="precipitation">
-                                        <b>{{ weather.precipitation }}MM</b>
+                    <div class ="current_weather_info">
+                        <div class="current_weather_info row">
+                            <div class="current_precipitation col col-lg-3">
+                                <div class="precipitation_icon">
+                                    <img class ="icon_precipitation x-small-icon" src="{% static 'img/raindrop-drop-svgrepo-com.svg' %}">
+                                    <div class="precipitation-text" align="center">
+                                        <b>PRECIPITATION </b><br>
+                                        <div class="precipitation">
+                                            <b>{{ weather.precipitation }}MM</b>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
+                        <div class = "current_wind_spd col col-lg-2">
+                            <div class="wind_icon">
+                                <img class ="icon_wind small-icon" src="{% static 'img/wind_icon.svg' %}">
+                                <div class="wind-text" align="center">
+                                    <b>WIND</b> <br> <b>{{ weather.wind_speed_mph }} MPH </b>
+                                </div>
+
+                            </div>
                         </div>
 
-                    <div class = "current_wind_spd col col-lg-2">
-                        <div class="wind_icon">
-                            <img class ="icon_wind small-icon" src="{% static 'img/wind_icon.svg' %}">
-                            <div class="wind-text" align="center">
-                                <b>WIND</b> <br> <b>{{ weather.wind_speed_mph }} MPH </b>
-                            </div>
 
+                        <div class = "current_humidity col col-lg-2">
+                            <div class="humidity_icon">
+                                <img class ="icon_humidity x-small-icon" src="{% static 'img/humidity.svg' %}">
+                                <div class="humidity-text" align="center">
+                                    <b>HUMIDITY</b><br>
+                                    <div class="humidity" align="center"><b>{{ weather.humidity }}%</b></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
+            <div class="current-weather-extra-col col">
+                <div class ="moon_phase">
+                    <div class = "moon_phase_icon">
+                        <img class ="icon_moon" src="{% static forecast.day_0.5 %}">
+                        <span class ="moon_phase"> Moon Phase</span>
+                    </div>
+                </div>
 
-                    <div class = "current_humidity col col-lg-2">
-                        <div class="humidity_icon">
-                            <img class ="icon_humidity x-small-icon" src="{% static 'img/humidity.svg' %}">
-                            <div class="humidity-text" align="center">
-                                <b>HUMIDITY</b><br>
-                                <div class="humidity" align="center"><b>{{ weather.humidity }}%</b></div>
-                            </div>
-                        </div>
+                <div class="sunrise">
+                    <div class="sunrise-icon">
+                        <img class="sunrise-icon" src="{% static 'img/Weather_Icons/Sunrise.svg' %}">
+                        <span class ="sunrise-text">{{ forecast.day_0.1 }}</span>
+                    </div>
+                </div>
+
+                <div class="sunset">
+                    <div class="sunset-icon">
+                        <img class="sunset-icon" src="{% static 'img/Weather_Icons/Sunset.svg' %}">
+                        <span class ="sunset-text">{{ forecast.day_0.2 }}</span>
+                    </div>
+                </div>
+
+                <div class="moonrise">
+                    <div class="moonrise-icon">
+                        <img class="moonrise-icon medium-icon" src="{% static 'img/Weather_Icons/Moonrise.svg' %}">
+                        <span class ="moonrise-text">{{ forecast.day_0.3 }}</span>
+
+                    </div>
+                </div>
+
+                <div class="moonset">
+                    <div class="moonset-icon">
+                        <img class="moonset-icon medium-icon" src="{% static 'img/Weather_Icons/Moonset.svg' %}">
+                        <span class ="moonset-text">{{ forecast.day_0.4 }}</span>
+
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="current-weather-extra-col col">
-            <div class ="moon_phase">
-                <div class = "moon_phase_icon">
-                    <img class ="icon_moon" src="{% static forecast.day_0.5 %}">
-                    <span class ="moon_phase"> Moon Phase</span>
-                </div>
-            </div>
-
-            <div class="sunrise">
-                <div class="sunrise-icon">
-                    <img class="sunrise-icon" src="{% static 'img/Weather_Icons/Sunrise.svg' %}">
-                    <span class ="sunrise-text">{{ forecast.day_0.1 }}</span>
-                </div>
-            </div>
-
-            <div class="sunset">
-                <div class="sunset-icon">
-                    <img class="sunset-icon" src="{% static 'img/Weather_Icons/Sunset.svg' %}">
-                    <span class ="sunset-text">{{ forecast.day_0.2 }}</span>
-                </div>
-            </div>
-
-            <div class="moonrise">
-                <div class="moonrise-icon">
-                    <img class="moonrise-icon medium-icon" src="{% static 'img/Weather_Icons/Moonrise.svg' %}">
-                    <span class ="moonrise-text">{{ forecast.day_0.3 }}</span>
-
-                </div>
-            </div>
-
-            <div class="moonset">
-                <div class="moonset-icon">
-                    <img class="moonset-icon medium-icon" src="{% static 'img/Weather_Icons/Moonset.svg' %}">
-                    <span class ="moonset-text">{{ forecast.day_0.4 }}</span>
-
-                </div>
-            </div>
         </div>
     </div>
+
+
+    <div class = "five_day_forecast container">
+        <div class="row">
+            <div class="day_1 col-sm">
+                <br>
+                <div class ="day_1 date_text">
+                    <span>Today</span>
+                    <img class ="icon-cloud forecast-icon" src="{% static forecast.day_0.9.0 %}">
+
+                    <div class="forecast_temp">
+                        {{ forecast.day_0.6 }}° | {{ forecast.day_0.7 }}°
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="day_2 col-sm">
+                <br>
+                <div class ="day_2 date_text">
+                    <span>{{ forecast.day_1.0 }}</span>
+                    <img class ="icon-cloud forecast-icon" src="{% static forecast.day_1.9.0 %}">
+
+                    <div class="forecast_temp">
+                        {{ forecast.day_1.6 }}° | {{ forecast.day_1.7 }}°
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="day_3 col-sm">
+                <br>
+                <div class ="day_3 date_text">
+                    <span>{{ forecast.day_2.0 }}</span>
+                    <img class ="icon-cloud forecast-icon" src="{% static forecast.day_2.9.0 %}">
+
+                    <div class="forecast_temp">{{ forecast.day_2.6 }}° | {{ forecast.day_2.7 }}° </div>
+                </div>
+            </div>
+
+
+            <div class="day_4 col-sm">
+                <br>
+                <div class ="day_4 date_text">
+                    <span>{{ forecast.day_3.0 }}</span>
+                    <img class ="icon-cloud forecast-icon" src="{% static forecast.day_3.9.0 %}">
+
+                    <div class="forecast_temp">{{ forecast.day_3.6 }}° | {{ forecast.day_3.7 }}°</div>
+                </div>
+            </div>
+
+
+            <div class="day_5 col-sm">
+                <br>
+                <div class ="day_5 date_text">
+                    <span>{{ forecast.day_4.0 }}</span>
+                    <img class ="icon-cloud forecast-icon" src="{% static forecast.day_4.9.0 %}">
+
+                    <div class="forecast_temp">{{ forecast.day_4.6 }}° | {{ forecast.day_4.7 }}°</div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-
-<div class = "five_day_forecast container">
-    <div class="row">
-        <div class="day_1 col-sm">
-            <br>
-            <div class ="day_1 date_text">
-                <span>Today</span>
-                <img class ="icon-cloud forecast-icon" src="{% static forecast.day_0.9.0 %}">
-
-                <div class="forecast_temp">
-                    {{ forecast.day_0.6 }}° | {{ forecast.day_0.7 }}°
-                </div>
-            </div>
-        </div>
-
-
-        <div class="day_2 col-sm">
-            <br>
-            <div class ="day_2 date_text">
-                <span>{{ forecast.day_1.0 }}</span>
-                <img class ="icon-cloud forecast-icon" src="{% static forecast.day_1.9.0 %}">
-
-                <div class="forecast_temp">
-                    {{ forecast.day_1.6 }}° | {{ forecast.day_1.7 }}°
-                </div>
-            </div>
-        </div>
-
-
-        <div class="day_3 col-sm">
-            <br>
-            <div class ="day_3 date_text">
-                <span>{{ forecast.day_2.0 }}</span>
-                <img class ="icon-cloud forecast-icon" src="{% static forecast.day_2.9.0 %}">
-
-                <div class="forecast_temp">{{ forecast.day_2.6 }}° | {{ forecast.day_2.7 }}° </div>
-            </div>
-        </div>
-
-
-        <div class="day_4 col-sm">
-            <br>
-            <div class ="day_4 date_text">
-                <span>{{ forecast.day_3.0 }}</span>
-                <img class ="icon-cloud forecast-icon" src="{% static forecast.day_3.9.0 %}">
-
-                <div class="forecast_temp">{{ forecast.day_3.6 }}° | {{ forecast.day_3.7 }}°</div>
-            </div>
-        </div>
-
-
-        <div class="day_5 col-sm">
-            <br>
-            <div class ="day_5 date_text">
-                <span>{{ forecast.day_4.0 }}</span>
-                <img class ="icon-cloud forecast-icon" src="{% static forecast.day_4.9.0 %}">
-
-                <div class="forecast_temp">{{ forecast.day_4.6 }}° | {{ forecast.day_4.7 }}°</div>
-            </div>
-        </div>
-    </div>
-
-
-</div>
 
 </body>
 </html>

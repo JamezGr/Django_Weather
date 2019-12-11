@@ -273,15 +273,15 @@ div.current_weather {
     margin-top: 10px;
     margin-left: 120px;
 
-
-    -moz-animation: fadein 2s;      /* Firefox < 16 */
-    -webkit-animation: fadein 2s;   /* Safari, Chrome and Opera > 12.1 */
-    -o-animation: fadein 2s;        /* Opera < 12.1 */
+    -moz-animation: fadein 3s;      /* Firefox < 16 */
+    -webkit-animation: fadein 3s;   /* Safari, Chrome and Opera > 12.1 */
+    -o-animation: fadein 3s;        /* Opera < 12.1 */
 
 }
 
 #current_weather_box {
     background-image: url('../img/Background/day_background.png');
+    opacity: 1; /* Change To .05 for Modal */
     height: 300px;
 }
 
@@ -300,3 +300,37 @@ div.current_weather {
     to   { opacity: 1; }
 }
 
+#weather-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -5;
+    background-color: rgba(0,0,0,0); /* Normal Overlay */
+    /* background-color: rgba(0,0,0,0.8); Transparent Black Overlay */
+
+}
+
+#search-box {
+    display: none;
+    background-color: #ffffff;
+    position: absolute;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    height: 500px;
+    width: 500px;
+    margin-top: 10px;
+    margin-left: 610px;
+    box-shadow: 0 0 5px 5px #2D2D2D;
+    z-index: 1;
+
+    -moz-animation: fadein .4s;      /* Firefox < 16 */
+    -webkit-animation: fadein .4s;   /* Safari, Chrome and Opera > 12.1 */
+    -o-animation: fadein .4s;        /* Opera < 12.1 */
+}
+
+#search-header-text {
+    font-size: 20px;
+}

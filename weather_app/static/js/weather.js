@@ -10,6 +10,7 @@ window.addEventListener('load', function () {
     var condition_text = condition[0]['innerText'];
     var bg_img = document.getElementById("current_weather_box");
 
+
     var sunrise = document.getElementsByClassName("sunrise-icon");
     var sunrise_time = sunrise[0]['lastElementChild']['innerText'];
     var sunrise_hour = parseInt(sunrise_time.slice(0,2));
@@ -77,8 +78,25 @@ window.addEventListener('load', function () {
     // DEBUGGING PURPOSES
     console.log("Condition: " + condition_text);
     console.log(window.getComputedStyle(bg_img).backgroundImage);
+   //  console.log(window.getComputedStyle(overlay).backgroundColor)
     console.log("Hour: " + today.getHours());
     console.log("Sunrise Time: " + sunrise_hour + ':' + sunrise_minute);
     console.log("Sunset Time: " + sunset_hour + ':' + sunset_minute);
 
     })
+
+    const searchBox = () => {
+
+    // Black Transparent Overlay OnClick of Change Location
+    var overlay = document.getElementById("weather-overlay");
+    var bg_img = document.getElementById("current_weather_box");
+    var search_box = document.getElementById("search-box");
+
+    if (overlay.style.background = "rgba(" + 0 + "," + 0 + "," + 0 + "," + 0 + ")") {
+        overlay.style.background = "rgba(" + 0 + "," + 0 + "," + 0 + "," + 0.8 + ")";
+        bg_img.style.opacity = 0.05;
+
+    }
+
+    search_box.style.display = "block";
+}
