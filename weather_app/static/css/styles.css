@@ -281,7 +281,7 @@ div.current_weather {
 }
 
 #current_weather_box {
-    background-image: url('../img/Background/night_background.jpg');
+    background-image: url('../img/Background/day_background.png');
     height: 300px;
 }
 

@@ -12,57 +12,73 @@ window.addEventListener('load', function () {
 
     var sunrise = document.getElementsByClassName("sunrise-icon");
     var sunrise_time = sunrise[0]['lastElementChild']['innerText'];
-    var sunrise_hour = sunrise_time.slice(0,2);
-    var sunrise_minute = sunrise_time.slice(3,5);
+    var sunrise_hour = parseInt(sunrise_time.slice(0,2));
+    var sunrise_minute = parseInt(sunrise_time.slice(3,5));
 
     var sunset = document.getElementsByClassName("sunset-icon");
     var sunset_time = sunset[0]['lastElementChild']['innerText'];
-    var sunset_hour = sunset_time.slice(0,2);
-    var sunset_minute = sunset_time.slice(3,5);
+    var sunset_hour = parseInt(sunset_time.slice(0,2));
+    var sunset_hour = sunset_hour + 12;
 
+    var sunset_minute = parseInt(sunset_time.slice(3,5));
 
-    if (today.getHours() >= 18 || today.getHours < sunrise_hour) {
+    // Sunrise Hour
+    if (today.getHours() == sunrise_hour) {
+        document.getElementById('current_weather_box').style.backgroundImage="url(static/css/img/Background/sunrise_background.png)";
+        console.log('Sunrise');
+    }
+
+    // Sunset Hour
+    if (today.getHours() == sunset_hour) {
+        document.getElementById('current_weather_box').style.backgroundImage="url(static/css/img/Background/sunset_background.png)";
+        console.log('Sunset');
+    }
+
+    // If the Current Time is Between Sunrise Time and Sunset Time
+    if (today.getHours() > sunrise_hour && today.getHours() < sunset_hour) {
         if (condition_text.toLowerCase().includes("rain") || condition_text.toLowerCase().includes("drizzle")) {
-            document.getElementById('current_weather_box').style.backgroundImage="url(static/css/img/Background/night_rain_background.gif)";
+            document.getElementById('current_weather_box').style.backgroundImage="url(static/css/img/Background/day_rain_background.png)";
+            console.log('Day Rain');
         }
         else if (condition_text.toLowerCase().includes("thunder")) {
             document.getElementById('current_weather_box').style.backgroundImage="url(static/css/img/Background/thunder_background.png)";
+            console.log('Thunder');
+        }
+         else if (condition_text.toLowerCase().includes("snow") || condition_text.toLowerCase().includes("sleet") || condition_text.toLowerCase().includes("blizzard")) {
+            document.getElementById('current_weather_box').style.backgroundImage="url(static/css/img/Background/day_snow_background.png)";
+            console.log('Day Snow');
+        }
+        else {
+            document.getElementById('current_weather_box').style.backgroundImage="url(static/css/img/Background/day_background.png)";
+            console.log('Day Time');
+        }
+    }
+
+    // If the Current Time is Past Sunset or Before Sunrise
+    if (today.getHours() > sunset_hour || today.getHours() < sunrise_hour) {
+        if (condition_text.toLowerCase().includes("rain") || condition_text.toLowerCase().includes("drizzle")) {
+            document.getElementById('current_weather_box').style.backgroundImage="url(static/css/img/Background/night_rain_background.gif)";
+            console.log('Night Rain');
+        }
+        else if (condition_text.toLowerCase().includes("thunder")) {
+            document.getElementById('current_weather_box').style.backgroundImage="url(static/css/img/Background/thunder_background.png)";
+            console.log('Thunder');
         }
         else if (condition_text.toLowerCase().includes("snow") || condition_text.toLowerCase().includes("sleet") || condition_text.toLowerCase().includes("blizzard")) {
             document.getElementById('current_weather_box').style.backgroundImage="url(static/css/img/Background/night_snow_background.png)";
+            console.log('Night Snow');
         }
         else {
             document.getElementById('current_weather_box').style.backgroundImage="url(static/css/img/Background/night_background.jpg)";
+            console.log('Night');
         }
     }
 
-    if (today.getHours() == sunrise_hour && today.getMinutes() <= sunrise_minute) {
-        document.getElementById('current_weather_box').style.backgroundImage="url(static/css/img/Background/sunrise_background.png)";
-    }
-
-    // If the Current Time is Past Sunrise
-    else if (today.getHours() >= sunrise_hour && today.getMinutes > sunrise_minute) {
-
-        if (today.getHours() < sunset_hour) {
-            if (condition_text.toLowerCase().includes("rain") || condition_text.toLowerCase().includes("drizzle")) {
-                document.getElementById('current_weather_box').style.backgroundImage="url(static/css/img/Background/day_rain_background.png)";
-            }
-             else if (condition_text.toLowerCase().includes("thunder")) {
-                document.getElementById('current_weather_box').style.backgroundImage="url(static/css/img/Background/thunder_background.png)";
-            }
-            else if (condition_text.toLowerCase().includes("snow") || condition_text.toLowerCase().includes("sleet") || condition_text.toLowerCase().includes("blizzard")) {
-                document.getElementById('current_weather_box').style.backgroundImage="url(static/css/img/Background/day_snow_background.png)";
-            }
-            else {
-                document.getElementById('current_weather_box').style.backgroundImage="url(static/css/img/Background/day_background.jpg)";
-            }
-        }
-    }
-
+    // DEBUGGING PURPOSES
     console.log("Condition: " + condition_text);
     console.log(window.getComputedStyle(bg_img).backgroundImage);
     console.log("Hour: " + today.getHours());
-    console.log(sunrise_hour + ':' + sunrise_minute);
-    console.log(sunset_hour + ':' + sunset_minute);
+    console.log("Sunrise Time: " + sunrise_hour + ':' + sunrise_minute);
+    console.log("Sunset Time: " + sunset_hour + ':' + sunset_minute);
 
     })
