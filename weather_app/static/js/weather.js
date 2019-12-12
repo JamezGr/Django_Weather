@@ -76,18 +76,35 @@ window.addEventListener('load', function () {
     }
 
     // DEBUGGING PURPOSES
-    console.log("Condition: " + condition_text);
-    console.log(window.getComputedStyle(bg_img).backgroundImage);
+    // console.log("Condition: " + condition_text);
+    // console.log(window.getComputedStyle(bg_img).backgroundImage);
     // console.log(window.getComputedStyle(overlay).backgroundColor)
-    console.log("Hour: " + today.getHours());
+    // console.log("Hour: " + today.getHours());
+
+    var search_results = JSON.parse(document.getElementById("results-json").textContent);
+
     console.log("Sunrise Time: " + sunrise_hour + ':' + sunrise_minute);
     console.log("Sunset Time: " + sunset_hour + ':' + sunset_minute);
+    console.log(search_results);
+
 
      $("#search-box-text").click(function(){
         $(".dropdown-content").hide();
-    });
+     });
+
+     $("#search-text").keyup(function(){
+        console.log($("#search-text").val());
+     });
+
+    $('#search-results-text').on('submit', function(event){
+
+        console.log($("#search-text").val());
+        $("search-text").serialize()
 
     });
+
+
+});
 
 
     const searchBox = () => {
@@ -97,20 +114,13 @@ window.addEventListener('load', function () {
     var bg_img = document.getElementById("current_weather_box");
     var search_box = document.getElementById("search-box");
 
+
     if (overlay.style.background = "rgba(" + 0 + "," + 0 + "," + 0 + "," + 0 + ")") {
         overlay.style.background = "rgba(" + 0 + "," + 0 + "," + 0 + "," + 0.8 + ")";
         bg_img.style.opacity = 0.05;
+        search_box.style.display = "block";
 
     }
 
-    search_box.style.display = "block";
-
-
-
-    function sendSearchText(){
-
-
-
-    }
 }
 

@@ -47,6 +47,7 @@
             {% for key, location in search_results.items %}
                 <a href="#" id="search_result"> {{ location.0 }} </a>
             {% endfor %}
+
         </div>
     </div>
 
@@ -212,6 +213,8 @@
             </div>
         </div>
     </div>
+
+    <div id="results-json" style="display:none">{{ search_results }}</div>
 </div>
 
 

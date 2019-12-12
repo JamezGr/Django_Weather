@@ -2,10 +2,12 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .date_to_string_conversion import convert_date
 from .weather_code_to_image import condition
+from django.http import JsonResponse
 
 import requests
 import urllib.parse
 import configparser
+import json as json_
 
 config = configparser.ConfigParser()
 config_settings = config.read('config/config.ini')
@@ -35,6 +37,7 @@ def index(request):
 
     location = request.POST.get('search-box-text')
     search_results = autocomplete(location)
+    search_results = json_.dumps(search_results, sort_keys=True)
     print(location)
 
     # DEBUGGING PURPOSES ONLY::
