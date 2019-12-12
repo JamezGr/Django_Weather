@@ -332,7 +332,7 @@ div.current_weather {
 }
 
 
-input[name="search-box-text"] {
+input[id="search-text"] {
     font-size: 24px;
     margin-left: 0px;
     width: 480px;

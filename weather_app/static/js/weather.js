@@ -78,12 +78,17 @@ window.addEventListener('load', function () {
     // DEBUGGING PURPOSES
     console.log("Condition: " + condition_text);
     console.log(window.getComputedStyle(bg_img).backgroundImage);
-   //  console.log(window.getComputedStyle(overlay).backgroundColor)
+    // console.log(window.getComputedStyle(overlay).backgroundColor)
     console.log("Hour: " + today.getHours());
     console.log("Sunrise Time: " + sunrise_hour + ':' + sunrise_minute);
     console.log("Sunset Time: " + sunset_hour + ':' + sunset_minute);
 
-    })
+     $("#search-box-text").click(function(){
+        $(".dropdown-content").hide();
+    });
+
+    });
+
 
     const searchBox = () => {
 
@@ -99,4 +104,13 @@ window.addEventListener('load', function () {
     }
 
     search_box.style.display = "block";
+
+
+
+    function sendSearchText(){
+
+
+
+    }
 }
+

@@ -16,6 +16,9 @@
     <!-- Main JS-->
     <script type="text/javascript" src="{% static 'js/weather.js' %}"></script>
 
+    <!-- jQuery JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 
 </head>
 
@@ -33,21 +36,17 @@
 
     <div id ="search-box">
         <div id="search-box-text">
-            <input type="text" name="search-box-text" placeholder="Search For Another Location... ">
+            <form action="#" id="search-results-text" method="post">
+                {% csrf_token %}
+                <input type="text" name="search-box-text" id="search-text" placeholder="Search For Another Location...">
+                <input type="submit" value="Submit" style="display: none">
+            </form>
         </div>
 
-        <div class ="dropdown-content" align="left">
-            <a href="#"> {{ search_results.result_0.0 }} </a>
-            <a href="#"> {{ search_results.result_1.0 }} </a>
-            <a href="#"> {{ search_results.result_2.0 }} </a>
-            <a href="#"> {{ search_results.result_3.0 }} </a>
-            <a href="#"> {{ search_results.result_4.0 }} </a>
-            <a href="#"> {{ search_results.result_5.0 }} </a>
-            <a href="#"> {{ search_results.result_6.0 }} </a>
-            <a href="#"> {{ search_results.result_7.0 }} </a>
-            <a href="#"> {{ search_results.result_8.0 }} </a>
-            <a href="#"> {{ search_results.result_9.0 }} </a>
-            
+        <div class ="dropdown-content" align="left" >
+            {% for key, location in search_results.items %}
+                <a href="#" id="search_result"> {{ location.0 }} </a>
+            {% endfor %}
         </div>
     </div>
 
