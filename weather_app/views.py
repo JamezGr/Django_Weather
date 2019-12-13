@@ -60,17 +60,20 @@ def autocomplete(location):
         'http://api.worldweatheronline.com/premium/v1/search.ashx?query=' + location + "&num_of_results=3&format=json&key=" + api_key)
     json = weather_response.json()
 
-    current_result = 0
-    results_found = len(json['search_api']['result'])
-    search_results = {}
+    try:
+        current_result = 0
+        results_found = len(json['search_api']['result'])
+        search_results = {}
 
-    while current_result < results_found:
-        search_results[current_result] = [
-            json['search_api']['result'][current_result]['areaName'][0]['value'] + ", " +
-            json['search_api']['result'][current_result]['country'][0]['value']
-        ]
+        while current_result < results_found:
+            search_results[current_result] = [
+                json['search_api']['result'][current_result]['areaName'][0]['value'] + ", " +
+                json['search_api']['result'][current_result]['country'][0]['value']
+            ]
+            current_result += 1
 
-        current_result += 1
+    except KeyError:
+        search_results = json['data']['error'][0]['msg']
 
     return search_results
 
@@ -129,5 +132,3 @@ class AutoComplete:
             current_result += 1
 
         return search_results
-
-

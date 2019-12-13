@@ -123,4 +123,3 @@ window.addEventListener('load', function () {
     }
 
 }
-
