@@ -3,11 +3,15 @@ from django.http import HttpResponse
 from .date_to_string_conversion import convert_date
 from .weather_code_to_image import condition
 from django.http import JsonResponse
+from django.middleware.csrf import get_token
+from django.core import serializers
+
 
 import requests
 import urllib.parse
 import configparser
 import json as json_
+import requests
 
 config = configparser.ConfigParser()
 config_settings = config.read('config/config.ini')
@@ -15,6 +19,8 @@ config_settings = config.read('config/config.ini')
 
 # Create your views here.
 def index(request):
+    csrf_token = get_token(request)
+
     api_key = config.get('SETUP', 'api_key')
     location = 'London, United Kingdom'
     location = urllib.parse.quote(location)
@@ -35,17 +41,20 @@ def index(request):
 
     five_day_weather = WeatherForecast.get_five_day_weather(location, json)
 
-    location = request.POST.get('search-box-text')
+    location = request.POST.get('searchText')
     search_results = autocomplete(location)
     search_results = json_.dumps(search_results, sort_keys=True)
-    print(location)
 
     # DEBUGGING PURPOSES ONLY::
-    print(current_weather)
-    print()
-    print(five_day_weather)
-    print()
-    print(search_results)
+    # print(current_weather)
+    # print()
+    # print(five_day_weather)
+    # print()
+
+    if request.is_ajax():
+        print("Yes, AJAX!")
+        print(search_results + "\n")
+        print(requests.post("http://127.0.0.1:8000", search_results))
 
     geo_data = {'weather': current_weather, 'forecast': five_day_weather, 'search_results': search_results}
 

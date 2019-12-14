@@ -83,9 +83,13 @@ window.addEventListener('load', function () {
 
     var search_results = JSON.parse(document.getElementById("results-json").textContent);
 
+
     console.log("Sunrise Time: " + sunrise_hour + ':' + sunrise_minute);
     console.log("Sunset Time: " + sunset_hour + ':' + sunset_minute);
-    console.log(search_results);
+    console.log(search_results[0]);
+
+
+    alert("Location Selected is " + search_results[0])
 
 
      $("#search-box-text").click(function(){
@@ -96,12 +100,30 @@ window.addEventListener('load', function () {
         console.log($("#search-text").val());
      });
 
-    $('#search-results-text').on('submit', function(event){
 
-        console.log($("#search-text").val());
-        $("search-text").serialize()
+     $("#search-results-text").keyup(function(e){
+        // console.log($("#search").val());
 
-    });
+        var search_text = $("#search-text").val();
+        var csrftoken = $('input[name=csrfmiddlewaretoken]').val();
+
+
+        $.ajax({
+        type: "POST",
+        url: "http://127.0.0.1:8000/",
+        data:{
+            searchText: search_text,
+            csrfmiddlewaretoken: csrftoken,
+        },
+
+        success: function() {
+            console.log("Typing");
+        }
+
+     });
+     });
+
+
 
 
 });

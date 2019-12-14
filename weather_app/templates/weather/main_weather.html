@@ -35,11 +35,18 @@
     </div>
 
     <div id ="search-box">
-        <div id="search-box-text">
+        <div id="searchText">
             <form action="#" id="search-results-text" method="post">
                 {% csrf_token %}
-                <input type="text" name="search-box-text" id="search-text" placeholder="Search For Another Location...">
+                <input type="text" name="searchText" id="search-text" placeholder="Search For Another Location...">
+                <img class ="search-icon small-icon" onclick="searchBox()" src="{% static 'img/search.svg' %}">
                 <input type="submit" value="Submit" style="display: none">
+
+                <div class="user-location">
+                    <img class ="icon_location small-icon" onclick="searchBox()" src="{% static 'img/Media_Viewer_Icon_-_Location.svg' %}">
+                    <a>Use Your Location</a>
+                </div>
+
             </form>
         </div>
 
@@ -219,4 +226,5 @@
 
 
 </body>
+
 </html>
