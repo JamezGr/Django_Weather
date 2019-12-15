@@ -26,6 +26,7 @@ def index(request):
     search_location = request.POST.get('searchText')
     current_weather = WeatherForecast.get_current_weather(search_location, default_location)
     five_day_weather = WeatherForecast.get_five_day_weather(search_location, default_location)
+    hourly_weather = WeatherForecast.get_hourly_weather(search_location, default_location)
 
     search_results = autocomplete(search_location)
     search_results = json_.dumps(search_results, sort_keys=True)
@@ -44,11 +45,13 @@ def index(request):
             print(search_results)
 
     if request.is_ajax():
-        print("Yes, AJAX!")
         print(search_results + "\n")
-        print(requests.post("http://127.0.0.1:8000", search_results))
+        # print(requests.post("http://127.0.0.1:8000", search_results))
 
-    geo_data = {'weather': current_weather, 'forecast': five_day_weather, 'search_results': search_results}
+    # DEBUG PURPOSES
+    print(hourly_weather)
+
+    geo_data = {'weather': current_weather, 'forecast': five_day_weather, 'search_results': search_results, 'hourly_weather': hourly_weather}
 
     return render(request, 'weather/main_weather.html', geo_data)
 
@@ -75,8 +78,6 @@ def autocomplete(location):
 
     except KeyError:
         search_results = json['data']['error'][0]['msg']
-
-        # isValid = False >>>> Return this Value
 
     return search_results
 
@@ -132,31 +133,80 @@ class WeatherForecast:
 
         return current_weather
 
-
-# TODO: Complete Hourly Forecast
-
-# TODO: Complete Autocomplete For Search Box
-class AutoComplete:
-    def get_search_results(self):
+    def get_hourly_weather(self, location):
         api_key = config.get('SETUP', 'api_key')
+        location = urllib.parse.quote(str(location))
 
-        # LOCATION USED FOR TESTING PURPOSES
-        location = 'BS16'
-        location = urllib.parse.quote(location)
+        current_day = 0
+        hourly_weather = {}
 
-        weather_response = requests.get('http://api.worldweatheronline.com/premium/v1/search.ashx?query=' + location + "&num_of_results=3&format=json&key=" + api_key)
-        json = weather_response.json()
+        weather_response = requests.get('http://api.worldweatheronline.com/premium/v1/weather.ashx?key=' + api_key + '&q=' + location + '&num_of_days=5&isDayTime&format=json')
+        weather_json = weather_response.json()
 
-        current_result = 0
-        results_found = len(json['search_api']['result'])
-        search_results = {}
+        while current_day < 5:
+            hourly_weather[current_day] = [
 
-        while current_result < results_found:
-            search_results['result_' + str(current_result)] = [
-                json['search_api']['result'][current_result]['areaName'][0]['value'] + ", " +
-                json['search_api']['result'][current_result]['country'][0]['value']
+                weather_json['data']['weather'][current_day]['hourly'][0]['weatherCode'],           # Weather Code
+                weather_json['data']['weather'][current_day]['hourly'][0]['tempC'][0] + "°",           # Temperature
+                weather_json['data']['weather'][current_day]['hourly'][0]['chanceofrain'] + "%",       # Rain Probability
+                weather_json['data']['weather'][current_day]['hourly'][0]['precipMM'] + "MM",          # Precipitation MM
+                weather_json['data']['weather'][current_day]['hourly'][0]['windspeedMiles'] + " MPH",  # Wind Speed mph
+                weather_json['data']['weather'][current_day]['hourly'][0]['humidity'] + "%",           # Humidity
+
+                weather_json['data']['weather'][current_day]['hourly'][1]['weatherCode'],
+                weather_json['data']['weather'][current_day]['hourly'][1]['tempC'][0] + "°",
+                weather_json['data']['weather'][current_day]['hourly'][1]['chanceofrain'] + "%",
+                weather_json['data']['weather'][current_day]['hourly'][1]['precipMM'] + "MM",
+                weather_json['data']['weather'][current_day]['hourly'][1]['windspeedMiles'] + " MPH",
+                weather_json['data']['weather'][current_day]['hourly'][1]['humidity'] + "%",
+
+                weather_json['data']['weather'][current_day]['hourly'][2]['weatherCode'],
+                weather_json['data']['weather'][current_day]['hourly'][2]['tempC'][0] + "°",
+                weather_json['data']['weather'][current_day]['hourly'][2]['chanceofrain'] + "%",
+                weather_json['data']['weather'][current_day]['hourly'][2]['precipMM'] + "MM",
+                weather_json['data']['weather'][current_day]['hourly'][2]['windspeedMiles'] + " MPH",
+                weather_json['data']['weather'][current_day]['hourly'][2]['humidity'] + "%",
+
+                weather_json['data']['weather'][current_day]['hourly'][3]['weatherCode'],
+                weather_json['data']['weather'][current_day]['hourly'][3]['tempC'][0] + "°",
+                weather_json['data']['weather'][current_day]['hourly'][3]['chanceofrain'] + "%",
+                weather_json['data']['weather'][current_day]['hourly'][3]['precipMM'] + "MM",
+                weather_json['data']['weather'][current_day]['hourly'][3]['windspeedMiles'] + " MPH",
+                weather_json['data']['weather'][current_day]['hourly'][3]['humidity'] + "%",
+
+
+                weather_json['data']['weather'][current_day]['hourly'][4]['weatherCode'],
+                weather_json['data']['weather'][current_day]['hourly'][4]['tempC'][0] + "°",
+                weather_json['data']['weather'][current_day]['hourly'][4]['chanceofrain'] + "%",
+                weather_json['data']['weather'][current_day]['hourly'][4]['precipMM'] + "MM",
+                weather_json['data']['weather'][current_day]['hourly'][4]['windspeedMiles'] + " MPH",
+                weather_json['data']['weather'][current_day]['hourly'][4]['humidity'] + "%",
+
+                weather_json['data']['weather'][current_day]['hourly'][5]['weatherCode'],
+                weather_json['data']['weather'][current_day]['hourly'][5]['tempC'][0] + "°",
+                weather_json['data']['weather'][current_day]['hourly'][5]['chanceofrain'] + "%",
+                weather_json['data']['weather'][current_day]['hourly'][5]['precipMM'] + "MM",
+                weather_json['data']['weather'][current_day]['hourly'][5]['windspeedMiles'] + " MPH",
+                weather_json['data']['weather'][current_day]['hourly'][5]['humidity'] + "%",
+
+                weather_json['data']['weather'][current_day]['hourly'][6]['weatherCode'],
+                weather_json['data']['weather'][current_day]['hourly'][6]['tempC'][0] + "°",
+                weather_json['data']['weather'][current_day]['hourly'][6]['chanceofrain'] + "%",
+                weather_json['data']['weather'][current_day]['hourly'][6]['precipMM'] + "MM",
+                weather_json['data']['weather'][current_day]['hourly'][6]['windspeedMiles'] + " MPH",
+                weather_json['data']['weather'][current_day]['hourly'][6]['humidity'] + "%",
+
+                weather_json['data']['weather'][current_day]['hourly'][7]['weatherCode'],
+                weather_json['data']['weather'][current_day]['hourly'][7]['tempC'][0] + "°",
+                weather_json['data']['weather'][current_day]['hourly'][7]['chanceofrain'] + "%",
+                weather_json['data']['weather'][current_day]['hourly'][7]['precipMM'] + "MM",
+                weather_json['data']['weather'][current_day]['hourly'][7]['windspeedMiles'] + " MPH",
+                weather_json['data']['weather'][current_day]['hourly'][7]['humidity']  + "%"
+
             ]
 
-            current_result += 1
+            current_day += 1
 
-        return search_results
+        return hourly_weather
+
+
