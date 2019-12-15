@@ -86,10 +86,17 @@ window.addEventListener('load', function () {
 
     console.log("Sunrise Time: " + sunrise_hour + ':' + sunrise_minute);
     console.log("Sunset Time: " + sunset_hour + ':' + sunset_minute);
-    console.log(search_results[0]);
 
+    if (search_results[0] != "Nonette, France") {
+        if (search_results[0] != "U" ) {
+            console.log(search_results[0]);
+            alert("Location Selected is " + search_results[0])
+        }
+    }
 
-    alert("Location Selected is " + search_results[0])
+    if (search_results == "Unable to find any matching weather location to the query submitted!") {
+        alert(search_results)
+    }
 
 
      $("#search-box-text").click(function(){
