@@ -140,6 +140,7 @@ div.date_text {
   font-weight: normal;
   font-size: 22px;
   color: #000000;
+  cursor: pointer;
 
 }
 
@@ -178,6 +179,10 @@ div.change_location {
     text.align:left;
     font-size:15px;
     font-weight:bold;
+}
+
+a {
+    cursor: pointer;
 }
 
 div.moon_phase {

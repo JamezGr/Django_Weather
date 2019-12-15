@@ -19,7 +19,17 @@ config_settings = config.read('config/config.ini')
 
 # Create your views here.
 def index(request):
-    csrf_token = get_token(request)
+
+    # default_location = 'London, United Kingdom'
+    # location = request.POST.get('searchText')
+    # if location is valid
+    # if !request.POST.get('searchText')
+    # location = default_location
+    # else continue
+    # get_current_location(location)
+
+    # class currentWeather
+    # def get_current_weather(location
 
     api_key = config.get('SETUP', 'api_key')
     location = 'London, United Kingdom'
@@ -83,6 +93,8 @@ def autocomplete(location):
 
     except KeyError:
         search_results = json['data']['error'][0]['msg']
+
+        # isValid = False >>>> Return this Value
 
     return search_results
 
