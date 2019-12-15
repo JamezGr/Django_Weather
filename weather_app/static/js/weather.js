@@ -103,6 +103,13 @@ window.addEventListener('load', function () {
         $(".dropdown-content").hide();
      });
 
+
+     $(".search-icon").on("click", function()
+     {
+        $("#search-results-text").submit();
+     });
+
+
      $("#search-text").keyup(function(){
         console.log($("#search-text").val());
      });
@@ -131,10 +138,7 @@ window.addEventListener('load', function () {
      });
 
 
-
-
 });
-
 
     const searchBox = () => {
 
@@ -150,5 +154,6 @@ window.addEventListener('load', function () {
         search_box.style.display = "block";
 
     }
+
 
 }

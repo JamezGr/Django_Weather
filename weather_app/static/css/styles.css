@@ -374,4 +374,5 @@ div.user-location {
 img.search-icon {
     margin-top: -80px;
     margin-right:10px;
+    cursor: pointer;
 }
