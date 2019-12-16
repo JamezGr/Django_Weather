@@ -289,6 +289,21 @@ div.current_weather {
     opacity: 1; /* Change To .05 for Modal */
     height: 300px;
 
+    /* Blur Background Image */
+     /* filter: blur(2px);
+    -webkit-filter: blur(3px); */
+
+}
+
+.hourly-weather {
+    color: white;
+    font-weight: bold;
+    margin-left: 145px;
+    width: 1090px;
+    padding-left:10px;
+    padding-right:10px;
+    position: absolute;
+    z-index: 5;
 }
 
 @-moz-keyframes fadein {
@@ -389,4 +404,34 @@ img.close-icon {
 
 #searchText {
     margin-top:10px;
+}
+
+
+div.hour-weather {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 85px;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(0,0,0,0.5);
+    cursor:pointer;
+
+}
+
+#updated-temperature {
+    font-size:86px;
+    font-weight: bold;
+}
+
+#updated-condition {
+    font-size:34px;
+    font-weight: bold;
+}
+
+#updated-weather-info {
+    margin-left: 850px;
+    margin-top: -150px;
+
 }

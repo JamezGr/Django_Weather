@@ -63,19 +63,82 @@
 
     </div>
 
+    <div class="hourly-weather" style="display:none">
+                <div id="updated-temperature">
+                    8°
+                </div>
+
+                <div id="updated-condition">
+                    Light Rain
+                </div>
+
+                <div id="updated-weather-info">
+                    <div id="rain-probability">
+                        <!-- IMAGE ICON FOR RAIN -->
+                        Chance of Rain: 86%
+                    </div>
+
+                    <div id="precipitation">
+                        Precipitation: 3MM
+                    </div>
+
+                    <div id="wind-speed">
+                        Wind Speed: 0MPH
+                    </div>
+
+                    <div id="humidity">
+                        Humidity: 93%
+                    </div>
+                </div>
+
+
+                <div class="hourly-row row">
+                    <div class="hour-weather hour-one col">
+                        22:00 <br>
+                        8°
+                    </div>
+                    <div class="hour-weather hour-two col">
+                        01:00 <br>
+                        8°
+                    </div>
+                    <div class="hour-weather hour-three col">
+                        04:00 <br>
+                        8°
+                    </div>
+                    <div class="hour-weather hour-four col">
+                        07:00 <br>
+                        9°
+                    </div>
+                    <div class="hour-weather hour-five col">
+                        10:00 <br>
+                        8°
+                    </div>
+                    <div class="hour-weather hour-six col">
+                        13:00 <br>
+                        7°
+                    </div>
+                    <div class="hour-weather hour-seven col">
+                        16:00 <br>
+                        8°
+                    </div>
+                    <div class="hour-weather hour-eight col">
+                        19:00 <br>
+                        8°
+                    </div>
+                </div>
+
+            </div>
+
+
 
     <div class="current_weather container">
         <div id = "current_weather_box">
-            <div class ="current-weather-row row">
+
+            <div class="current-weather-row row" style="display: flex">
             <div class="current-weather-col col">
-                <div class="current_icon">
-
-                </div>
-
                 <div class="current_temperature">
                     {{ weather.current_temp }}°
                 </div>
-
                 <div class ="current_condition">
                     <p>{{ weather.condition }}</p>
                 </div>

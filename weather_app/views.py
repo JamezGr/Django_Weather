@@ -147,7 +147,7 @@ class WeatherForecast:
         while current_day < 5:
             hourly_weather[current_day] = [
                 "Hour 1",
-                weather_json['data']['weather'][current_day]['hourly'][0]['weatherCode'],           # Weather Code
+                weather_json['data']['weather'][current_day]['hourly'][0]['weatherCode'],              # Weather Code
                 weather_json['data']['weather'][current_day]['hourly'][0]['tempC'][0] + "°",           # Temperature
                 weather_json['data']['weather'][current_day]['hourly'][0]['chanceofrain'] + "%",       # Rain Probability
                 weather_json['data']['weather'][current_day]['hourly'][0]['precipMM'] + "MM",          # Precipitation MM
