@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17726260-43b1-4d8d-90a3-2284fcfc2ec3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather_app/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/weather_app/static/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather_app/static/js/weather.js" beforeDir="false" afterPath="$PROJECT_DIR$/weather_app/static/js/weather.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather_app/templates/weather/main_weather.html" beforeDir="false" afterPath="$PROJECT_DIR$/weather_app/templates/weather/main_weather.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weather_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/weather_app/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,11 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/weather_app/static/css/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="968">
-              <caret line="376" column="20" selection-start-line="376" selection-start-column="20" selection-end-line="376" selection-end-column="20" />
+            <state relative-caret-position="728">
+              <caret line="390" column="16" selection-start-line="390" selection-start-column="16" selection-end-line="390" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -33,10 +37,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/weather_app/templates/weather/main_weather.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="217" column="69" selection-start-line="217" selection-start-column="69" selection-end-line="217" selection-end-column="70" />
+            <state relative-caret-position="444">
+              <caret line="39" column="16" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
               <folding>
-                <element signature="n#style#0;n#input#1;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#1;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -46,8 +50,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/weather_app/static/js/weather.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="108" column="43" selection-start-line="108" selection-start-column="43" selection-end-line="108" selection-end-column="43" />
+            <state relative-caret-position="533">
+              <caret line="114" column="13" selection-start-line="114" selection-start-column="13" selection-end-line="114" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -64,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/weather_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="50" column="20" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
+            <state relative-caret-position="898">
+              <caret line="69" column="57" lean-forward="true" selection-start-line="69" selection-start-column="57" selection-end-line="69" selection-end-column="57" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -106,25 +110,14 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>moonset-icon</find>
-      <find>precipi</find>
-      <find>x-small</find>
-      <find>icon-wind</find>
-      <find>sunset</find>
-      <find>icon_wind</find>
-      <find>moon</find>
-      <find>current_weather_info</find>
-      <find>Thunder</find>
       <find>current-weather-extra-col</find>
       <find>day_rain</find>
-      <find>current_weather_box</find>
       <find>location</find>
       <find>text</find>
       <find>change</find>
       <find>Full Moon</find>
       <find>Full Moo</find>
       <find>FullMoon</find>
-      <find>z-index</find>
       <find>dropdown-content</find>
       <find>overlay</find>
       <find>prevent</find>
@@ -136,6 +129,17 @@
       <find>date</find>
       <find>change_location</find>
       <find>search-icon</find>
+      <find>search_box</find>
+      <find>sear</find>
+      <find>search-box</find>
+      <find>z-index</find>
+      <find>current_weather_box</find>
+      <find>over</find>
+      <find>search</find>
+      <find>weather-o</find>
+      <find>search-tex</find>
+      <find>searchText</find>
+      <find>x-small</find>
     </findStrings>
     <replaceStrings>
       <replace>current-location</replace>
@@ -163,18 +167,18 @@
         <option value="$PROJECT_DIR$/weather_app/date_to_string_conversion.py" />
         <option value="$PROJECT_DIR$/weather_app/weather_code_to_image.py" />
         <option value="$PROJECT_DIR$/live_weather/settings.py" />
-        <option value="$PROJECT_DIR$/weather_app/templates/weather/main_weather.html" />
-        <option value="$PROJECT_DIR$/weather_app/static/js/weather.js" />
-        <option value="$PROJECT_DIR$/weather_app/static/css/styles.css" />
         <option value="$PROJECT_DIR$/weather_app/views.py" />
+        <option value="$PROJECT_DIR$/weather_app/static/js/weather.js" />
+        <option value="$PROJECT_DIR$/weather_app/templates/weather/main_weather.html" />
+        <option value="$PROJECT_DIR$/weather_app/static/css/styles.css" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="50" />
+    <option name="x" value="653" />
     <option name="y" value="27" />
-    <option name="width" value="1870" />
-    <option name="height" value="1053" />
+    <option name="width" value="1221" />
+    <option name="height" value="687" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -184,6 +188,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -235,7 +240,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -285,7 +289,7 @@
     <frame x="50" y="27" width="1870" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13760965" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.100877196" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -423,13 +427,6 @@
     <entry file="file://$PROJECT_DIR$/live_weather/wsgi.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/weather_app/static/css/bootstrap/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10965">
-          <caret line="731" selection-start-line="731" selection-end-line="731" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/live_weather/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -437,10 +434,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/weather_app/static/css/styles.css">
+    <entry file="file://$PROJECT_DIR$/weather_app/static/css/bootstrap/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="968">
-          <caret line="376" column="20" selection-start-line="376" selection-start-column="20" selection-end-line="376" selection-end-column="20" />
+        <state relative-caret-position="10965">
+          <caret line="731" selection-start-line="731" selection-end-line="731" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weather_app/weather_code_to_image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="124" selection-start-line="14" selection-start-column="117" selection-end-line="14" selection-end-column="124" />
         </state>
       </provider>
     </entry>
@@ -454,38 +458,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/weather_app/weather_code_to_image.py">
+    <entry file="file://$PROJECT_DIR$/weather_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="124" selection-start-line="14" selection-start-column="117" selection-end-line="14" selection-end-column="124" />
+        <state relative-caret-position="898">
+          <caret line="69" column="57" lean-forward="true" selection-start-line="69" selection-start-column="57" selection-end-line="69" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/weather_app/static/js/weather.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="108" column="43" selection-start-line="108" selection-start-column="43" selection-end-line="108" selection-end-column="43" />
+        <state relative-caret-position="533">
+          <caret line="114" column="13" selection-start-line="114" selection-start-column="13" selection-end-line="114" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/weather_app/templates/weather/main_weather.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="217" column="69" selection-start-line="217" selection-start-column="69" selection-end-line="217" selection-end-column="70" />
+        <state relative-caret-position="444">
+          <caret line="39" column="16" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
           <folding>
-            <element signature="n#style#0;n#input#1;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/weather_app/views.py">
+    <entry file="file://$PROJECT_DIR$/weather_app/static/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="50" column="20" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="728">
+          <caret line="390" column="16" selection-start-line="390" selection-start-column="16" selection-end-line="390" selection-end-column="16" />
         </state>
       </provider>
     </entry>

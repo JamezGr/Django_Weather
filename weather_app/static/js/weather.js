@@ -23,6 +23,8 @@ window.addEventListener('load', function () {
 
     var sunset_minute = parseInt(sunset_time.slice(3,5));
 
+    // Dynamic Weather Background Images
+
     // Sunrise Hour
     if (today.getHours() == sunrise_hour) {
         document.getElementById('current_weather_box').style.backgroundImage="url(static/css/img/Background/sunrise_background.png)";
@@ -82,10 +84,16 @@ window.addEventListener('load', function () {
     // console.log("Hour: " + today.getHours());
 
     var search_results = JSON.parse(document.getElementById("results-json").textContent);
+    var overlay = document.getElementById("weather-overlay");
+    var change_location = document.getElementById("change-location");
+    var search_box = document.getElementById("search-box");
+    var bg_img = document.getElementById("current_weather_box");
+    var close = document.getElementById("close-icon");
 
 
     console.log("Sunrise Time: " + sunrise_hour + ':' + sunrise_minute);
     console.log("Sunset Time: " + sunset_hour + ':' + sunset_minute);
+
 
     if (search_results[0] != "Nonette, France") {
         if (search_results[0] != "U" ) {
@@ -99,8 +107,18 @@ window.addEventListener('load', function () {
     }
 
 
-     $("#search-box-text").click(function(){
-        $(".dropdown-content").hide();
+    // Modal View for Search Box
+    $("#change-location").click(function(e){
+        e.stopPropagation();
+
+        close.addEventListener('click', function(){
+            e.stopPropagation();
+
+            overlay.style.background = "rgba(0, 0, 0, 0) none repeat scroll 0% 0%";
+            search_box.style.display = "none";
+            bg_img.style.opacity = 1;
+
+        })
      });
 
 
@@ -152,8 +170,6 @@ window.addEventListener('load', function () {
         overlay.style.background = "rgba(" + 0 + "," + 0 + "," + 0 + "," + 0.8 + ")";
         bg_img.style.opacity = 0.05;
         search_box.style.display = "block";
-
     }
-
 
 }

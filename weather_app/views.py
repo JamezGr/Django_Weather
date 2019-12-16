@@ -40,6 +40,7 @@ def index(request):
                 updated_location = updated_results[3]
                 current_weather = WeatherForecast.get_current_weather(search_location, updated_location)
                 five_day_weather = WeatherForecast.get_five_day_weather(search_location, updated_location)
+                hourly_weather = WeatherForecast.get_hourly_weather(search_location, updated_location)
 
         except IndexError:
             print(search_results)
@@ -145,7 +146,7 @@ class WeatherForecast:
 
         while current_day < 5:
             hourly_weather[current_day] = [
-
+                "Hour 1",
                 weather_json['data']['weather'][current_day]['hourly'][0]['weatherCode'],           # Weather Code
                 weather_json['data']['weather'][current_day]['hourly'][0]['tempC'][0] + "°",           # Temperature
                 weather_json['data']['weather'][current_day]['hourly'][0]['chanceofrain'] + "%",       # Rain Probability
@@ -153,6 +154,7 @@ class WeatherForecast:
                 weather_json['data']['weather'][current_day]['hourly'][0]['windspeedMiles'] + " MPH",  # Wind Speed mph
                 weather_json['data']['weather'][current_day]['hourly'][0]['humidity'] + "%",           # Humidity
 
+                "Hour 2",
                 weather_json['data']['weather'][current_day]['hourly'][1]['weatherCode'],
                 weather_json['data']['weather'][current_day]['hourly'][1]['tempC'][0] + "°",
                 weather_json['data']['weather'][current_day]['hourly'][1]['chanceofrain'] + "%",
@@ -160,6 +162,7 @@ class WeatherForecast:
                 weather_json['data']['weather'][current_day]['hourly'][1]['windspeedMiles'] + " MPH",
                 weather_json['data']['weather'][current_day]['hourly'][1]['humidity'] + "%",
 
+                "Hour 3",
                 weather_json['data']['weather'][current_day]['hourly'][2]['weatherCode'],
                 weather_json['data']['weather'][current_day]['hourly'][2]['tempC'][0] + "°",
                 weather_json['data']['weather'][current_day]['hourly'][2]['chanceofrain'] + "%",
@@ -167,6 +170,7 @@ class WeatherForecast:
                 weather_json['data']['weather'][current_day]['hourly'][2]['windspeedMiles'] + " MPH",
                 weather_json['data']['weather'][current_day]['hourly'][2]['humidity'] + "%",
 
+                "Hour 4",
                 weather_json['data']['weather'][current_day]['hourly'][3]['weatherCode'],
                 weather_json['data']['weather'][current_day]['hourly'][3]['tempC'][0] + "°",
                 weather_json['data']['weather'][current_day]['hourly'][3]['chanceofrain'] + "%",
@@ -174,7 +178,7 @@ class WeatherForecast:
                 weather_json['data']['weather'][current_day]['hourly'][3]['windspeedMiles'] + " MPH",
                 weather_json['data']['weather'][current_day]['hourly'][3]['humidity'] + "%",
 
-
+                "Hour 5",
                 weather_json['data']['weather'][current_day]['hourly'][4]['weatherCode'],
                 weather_json['data']['weather'][current_day]['hourly'][4]['tempC'][0] + "°",
                 weather_json['data']['weather'][current_day]['hourly'][4]['chanceofrain'] + "%",
@@ -182,6 +186,7 @@ class WeatherForecast:
                 weather_json['data']['weather'][current_day]['hourly'][4]['windspeedMiles'] + " MPH",
                 weather_json['data']['weather'][current_day]['hourly'][4]['humidity'] + "%",
 
+                "Hour 6",
                 weather_json['data']['weather'][current_day]['hourly'][5]['weatherCode'],
                 weather_json['data']['weather'][current_day]['hourly'][5]['tempC'][0] + "°",
                 weather_json['data']['weather'][current_day]['hourly'][5]['chanceofrain'] + "%",
@@ -189,6 +194,7 @@ class WeatherForecast:
                 weather_json['data']['weather'][current_day]['hourly'][5]['windspeedMiles'] + " MPH",
                 weather_json['data']['weather'][current_day]['hourly'][5]['humidity'] + "%",
 
+                "Hour 7",
                 weather_json['data']['weather'][current_day]['hourly'][6]['weatherCode'],
                 weather_json['data']['weather'][current_day]['hourly'][6]['tempC'][0] + "°",
                 weather_json['data']['weather'][current_day]['hourly'][6]['chanceofrain'] + "%",
@@ -196,12 +202,13 @@ class WeatherForecast:
                 weather_json['data']['weather'][current_day]['hourly'][6]['windspeedMiles'] + " MPH",
                 weather_json['data']['weather'][current_day]['hourly'][6]['humidity'] + "%",
 
+                "Hour 8",
                 weather_json['data']['weather'][current_day]['hourly'][7]['weatherCode'],
                 weather_json['data']['weather'][current_day]['hourly'][7]['tempC'][0] + "°",
                 weather_json['data']['weather'][current_day]['hourly'][7]['chanceofrain'] + "%",
                 weather_json['data']['weather'][current_day]['hourly'][7]['precipMM'] + "MM",
                 weather_json['data']['weather'][current_day]['hourly'][7]['windspeedMiles'] + " MPH",
-                weather_json['data']['weather'][current_day]['hourly'][7]['humidity']  + "%"
+                weather_json['data']['weather'][current_day]['hourly'][7]['humidity'] + "%"
 
             ]
 

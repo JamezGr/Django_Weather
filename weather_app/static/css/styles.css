@@ -288,6 +288,7 @@ div.current_weather {
     background-image: url('../img/Background/day_background.png');
     opacity: 1; /* Change To .05 for Modal */
     height: 300px;
+
 }
 
 @-moz-keyframes fadein {
@@ -311,7 +312,7 @@ div.current_weather {
     bottom: 0;
     height: 100%;
     width: 100%;
-    z-index: -5;
+    z-index: -1;
     background-color: rgba(0,0,0,0); /* Normal Overlay */
     /* background-color: rgba(0,0,0,0.8); Transparent Black Overlay */
 
@@ -324,12 +325,13 @@ div.current_weather {
     padding-top: 10px;
     padding-right: 10px;
     padding-left: 10px;
-    height: 100px;
+    height: 140px;
     width: 500px;
     margin-top: 10px;
     margin-left: 610px;
     box-shadow: 0 0 5px 5px #2D2D2D;
-    z-index: 1;
+    z-index: 5;
+    position: absolute;
 
     -moz-animation: fadein .4s;      /* Firefox < 16 */
     -webkit-animation: fadein .4s;   /* Safari, Chrome and Opera > 12.1 */
@@ -340,6 +342,7 @@ input[id="search-text"] {
     font-size: 24px;
     margin-left: 0px;
     width: 480px;
+    z-index: 10;
 }
 
 input[id="search"] {
@@ -354,7 +357,7 @@ div.dropdown-content {
   background-color: #f1f1f1;
   min-width: 480px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  z-index: 5;
 }
 
 div.dropdown-content a {
@@ -371,8 +374,19 @@ div.user-location {
     font-size: 18px;
 
 }
+
 img.search-icon {
     margin-top: -80px;
     margin-right:10px;
     cursor: pointer;
+}
+
+img.close-icon {
+    margin-top: -35px;
+    cursor: pointer;
+
+}
+
+#searchText {
+    margin-top:10px;
 }

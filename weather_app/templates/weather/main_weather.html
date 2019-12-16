@@ -36,6 +36,9 @@
 
     <div id ="search-box">
         <div id="searchText">
+            <div id="close-icon">
+                <img class ="close-icon small-icon" src="{% static 'img/close_icon.svg' %}">
+            </div>
             <form action="#" id="search-results-text" method="post">
                 {% csrf_token %}
                 <input type="text" name="searchText" id="search-text" placeholder="Search For Another Location...">
