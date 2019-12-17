@@ -453,3 +453,10 @@ div.updated_humidity {
     position: fixed;
 
 }
+
+#chartContainer {
+
+    margin-top: -160px;
+    margin-left: 600px;
+
+}
