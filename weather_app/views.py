@@ -147,7 +147,7 @@ class WeatherForecast:
         while current_day < 5:
             hourly_weather[current_day] = [
                 "Hour 1",
-                weather_json['data']['weather'][current_day]['hourly'][0]['weatherCode'],              # Weather Code
+                condition(weather_json['data']['weather'][current_day]['hourly'][0]['weatherCode']),   # Weather Code
                 weather_json['data']['weather'][current_day]['hourly'][0]['tempC'][0] + "°",           # Temperature
                 weather_json['data']['weather'][current_day]['hourly'][0]['chanceofrain'] + "%",       # Rain Probability
                 weather_json['data']['weather'][current_day]['hourly'][0]['precipMM'] + "MM",          # Precipitation MM
@@ -155,7 +155,7 @@ class WeatherForecast:
                 weather_json['data']['weather'][current_day]['hourly'][0]['humidity'] + "%",           # Humidity
 
                 "Hour 2",
-                weather_json['data']['weather'][current_day]['hourly'][1]['weatherCode'],
+                condition(weather_json['data']['weather'][current_day]['hourly'][1]['weatherCode']),
                 weather_json['data']['weather'][current_day]['hourly'][1]['tempC'][0] + "°",
                 weather_json['data']['weather'][current_day]['hourly'][1]['chanceofrain'] + "%",
                 weather_json['data']['weather'][current_day]['hourly'][1]['precipMM'] + "MM",
@@ -163,7 +163,7 @@ class WeatherForecast:
                 weather_json['data']['weather'][current_day]['hourly'][1]['humidity'] + "%",
 
                 "Hour 3",
-                weather_json['data']['weather'][current_day]['hourly'][2]['weatherCode'],
+                condition(weather_json['data']['weather'][current_day]['hourly'][2]['weatherCode']),
                 weather_json['data']['weather'][current_day]['hourly'][2]['tempC'][0] + "°",
                 weather_json['data']['weather'][current_day]['hourly'][2]['chanceofrain'] + "%",
                 weather_json['data']['weather'][current_day]['hourly'][2]['precipMM'] + "MM",
@@ -171,7 +171,7 @@ class WeatherForecast:
                 weather_json['data']['weather'][current_day]['hourly'][2]['humidity'] + "%",
 
                 "Hour 4",
-                weather_json['data']['weather'][current_day]['hourly'][3]['weatherCode'],
+                condition(weather_json['data']['weather'][current_day]['hourly'][3]['weatherCode']),
                 weather_json['data']['weather'][current_day]['hourly'][3]['tempC'][0] + "°",
                 weather_json['data']['weather'][current_day]['hourly'][3]['chanceofrain'] + "%",
                 weather_json['data']['weather'][current_day]['hourly'][3]['precipMM'] + "MM",
@@ -179,7 +179,7 @@ class WeatherForecast:
                 weather_json['data']['weather'][current_day]['hourly'][3]['humidity'] + "%",
 
                 "Hour 5",
-                weather_json['data']['weather'][current_day]['hourly'][4]['weatherCode'],
+                condition(weather_json['data']['weather'][current_day]['hourly'][4]['weatherCode']),
                 weather_json['data']['weather'][current_day]['hourly'][4]['tempC'][0] + "°",
                 weather_json['data']['weather'][current_day]['hourly'][4]['chanceofrain'] + "%",
                 weather_json['data']['weather'][current_day]['hourly'][4]['precipMM'] + "MM",
@@ -187,7 +187,7 @@ class WeatherForecast:
                 weather_json['data']['weather'][current_day]['hourly'][4]['humidity'] + "%",
 
                 "Hour 6",
-                weather_json['data']['weather'][current_day]['hourly'][5]['weatherCode'],
+                condition(weather_json['data']['weather'][current_day]['hourly'][5]['weatherCode']),
                 weather_json['data']['weather'][current_day]['hourly'][5]['tempC'][0] + "°",
                 weather_json['data']['weather'][current_day]['hourly'][5]['chanceofrain'] + "%",
                 weather_json['data']['weather'][current_day]['hourly'][5]['precipMM'] + "MM",
@@ -195,7 +195,7 @@ class WeatherForecast:
                 weather_json['data']['weather'][current_day]['hourly'][5]['humidity'] + "%",
 
                 "Hour 7",
-                weather_json['data']['weather'][current_day]['hourly'][6]['weatherCode'],
+                condition(weather_json['data']['weather'][current_day]['hourly'][6]['weatherCode']),
                 weather_json['data']['weather'][current_day]['hourly'][6]['tempC'][0] + "°",
                 weather_json['data']['weather'][current_day]['hourly'][6]['chanceofrain'] + "%",
                 weather_json['data']['weather'][current_day]['hourly'][6]['precipMM'] + "MM",
@@ -203,7 +203,7 @@ class WeatherForecast:
                 weather_json['data']['weather'][current_day]['hourly'][6]['humidity'] + "%",
 
                 "Hour 8",
-                weather_json['data']['weather'][current_day]['hourly'][7]['weatherCode'],
+                condition(weather_json['data']['weather'][current_day]['hourly'][7]['weatherCode']),
                 weather_json['data']['weather'][current_day]['hourly'][7]['tempC'][0] + "°",
                 weather_json['data']['weather'][current_day]['hourly'][7]['chanceofrain'] + "%",
                 weather_json['data']['weather'][current_day]['hourly'][7]['precipMM'] + "MM",

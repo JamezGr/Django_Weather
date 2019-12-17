@@ -65,65 +65,89 @@
 
     <div class="hourly-weather" style="display:none">
                 <div id="updated-temperature">
-                    8°
+                    {{ hourly_weather.0.2 }}
                 </div>
 
                 <div id="updated-condition">
-                    Light Rain
+                    {{ hourly_weather.0.1.2 }}
                 </div>
 
-                <div id="updated-weather-info">
-                    <div id="rain-probability">
+                <div id="rain-probability">
                         <!-- IMAGE ICON FOR RAIN -->
-                        Chance of Rain: 86%
+                        Chance of Rain: {{ hourly_weather.0.3 }}
                     </div>
 
-                    <div id="precipitation">
-                        Precipitation: 3MM
+
+                <div id="updated-weather-info">
+                    <div class="updated_weather_info row">
+                        <div class="updated_precipitation col col-lg-3">
+                            <div class="precipitation_icon">
+                                <img class ="icon_precipitation x-small-icon" src="{% static 'img/raindrop-drop-svgrepo-com.svg' %}">
+                                <div class="precipitation-text" align="center">
+                                    <b>PRECIPITATION </b><br>
+                                    <div class="precipitation">
+                                        <b>{{ hourly_weather.0.4 }}</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class = "updated_wind_spd col col-lg-2">
+                            <div class="wind_icon">
+                                <img class ="icon_wind small-icon" src="{% static 'img/wind_icon.svg' %}">
+                                <div class="wind-text" align="center">
+                                    <b>WIND</b> <br> <b>{{ hourly_weather.0.5 }} </b>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class = "updated_humidity col col-lg-2">
+                            <div class="humidity_icon">
+                                <img class ="icon_humidity x-small-icon" src="{% static 'img/humidity.svg' %}">
+                                <div class="humidity-text" align="center">
+                                    <b>HUMIDITY</b><br>
+                                    <div class="humidity" align="center"><b>{{ hourly_weather.0.6 }}</b></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div id="wind-speed">
-                        Wind Speed: 0MPH
-                    </div>
-
-                    <div id="humidity">
-                        Humidity: 93%
-                    </div>
                 </div>
 
 
                 <div class="hourly-row row">
                     <div class="hour-weather hour-one col">
                         22:00 <br>
-                        8°
+                        {{ hourly_weather.0.2 }}
                     </div>
                     <div class="hour-weather hour-two col">
                         01:00 <br>
-                        8°
+                        {{ hourly_weather.0.9 }}
                     </div>
                     <div class="hour-weather hour-three col">
                         04:00 <br>
-                        8°
+                        {{ hourly_weather.0.16 }}
                     </div>
                     <div class="hour-weather hour-four col">
                         07:00 <br>
-                        9°
+                        {{ hourly_weather.0.23 }}
                     </div>
                     <div class="hour-weather hour-five col">
                         10:00 <br>
-                        8°
+                        {{ hourly_weather.0.30 }}
                     </div>
                     <div class="hour-weather hour-six col">
                         13:00 <br>
-                        7°
+                        {{ hourly_weather.0.37 }}
                     </div>
                     <div class="hour-weather hour-seven col">
                         16:00 <br>
-                        8°
+                        {{ hourly_weather.0.44 }}
                     </div>
                     <div class="hour-weather hour-eight col">
                         19:00 <br>
-                        8°
+                        {{ hourly_weather.0.51 }}
                     </div>
                 </div>
 
