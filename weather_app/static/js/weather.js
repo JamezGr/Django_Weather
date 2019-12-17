@@ -116,10 +116,28 @@ window.addEventListener('load', function () {
 
             overlay.style.background = "rgba(0, 0, 0, 0) none repeat scroll 0% 0%";
             search_box.style.display = "none";
+
+            if ($('.current-weather-row').css('display') == "none") {
+                $('.hourly-weather').attr('style','opacity: 1');
+                $('.hourly-weather').attr('style','display:block');
+            }
+
             bg_img.style.opacity = 1;
 
         })
      });
+
+
+     $(document).keyup(function(e)  {
+            if(e.key === "Escape") {
+                overlay.style.background = "rgba(0, 0, 0, 0) none repeat scroll 0% 0%";
+                $('.hourly-weather').attr('style','opacity: 1');
+                search_box.style.display = "none";
+                $('.hourly-weather').attr('style','display:block');
+                bg_img.style.opacity = 1;
+            };
+        });
+
 
 
      $(".search-icon").on("click", function()
@@ -167,6 +185,8 @@ window.addEventListener('load', function () {
 
 
     if (overlay.style.background = "rgba(" + 0 + "," + 0 + "," + 0 + "," + 0 + ")") {
+        $('.chartContainer').attr('style','opacity: 0.05');
+        $('.hourly-weather').attr('style','display:none');
         overlay.style.background = "rgba(" + 0 + "," + 0 + "," + 0 + "," + 0.8 + ")";
         bg_img.style.opacity = 0.05;
         search_box.style.display = "block";
