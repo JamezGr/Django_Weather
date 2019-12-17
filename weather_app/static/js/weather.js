@@ -120,6 +120,7 @@ window.addEventListener('load', function () {
             if ($('.current-weather-row').css('display') == "none") {
                 $('.hourly-weather').attr('style','opacity: 1');
                 $('.hourly-weather').attr('style','display:block');
+                $('#chartContainer').css('display', 'block');
             }
 
             bg_img.style.opacity = 1;
@@ -185,7 +186,7 @@ window.addEventListener('load', function () {
 
 
     if (overlay.style.background = "rgba(" + 0 + "," + 0 + "," + 0 + "," + 0 + ")") {
-        $('.chartContainer').attr('style','opacity: 0.05');
+        $('#chartContainer').css('display', 'none');
         $('.hourly-weather').attr('style','display:none');
         overlay.style.background = "rgba(" + 0 + "," + 0 + "," + 0 + "," + 0.8 + ")";
         bg_img.style.opacity = 0.05;

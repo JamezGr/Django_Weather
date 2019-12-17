@@ -52,7 +52,7 @@ def index(request):
     # DEBUG PURPOSES
     print(hourly_weather)
 
-    geo_data = {'weather': current_weather, 'forecast': five_day_weather, 'search_results': search_results, 'hourly_weather': hourly_weather}
+    geo_data = {'weather': current_weather, 'forecast': five_day_weather, 'search_results': search_results, 'hourly_weather': json_.dumps(hourly_weather)}
 
     return render(request, 'weather/main_weather.html', geo_data)
 
@@ -145,7 +145,7 @@ class WeatherForecast:
         weather_json = weather_response.json()
 
         while current_day < 5:
-            hourly_weather[current_day] = [
+            hourly_weather[str(current_day)] = [
                 "Hour 1",
                 condition(weather_json['data']['weather'][current_day]['hourly'][0]['weatherCode']),   # Weather Code
                 weather_json['data']['weather'][current_day]['hourly'][0]['tempC'][0] + "°",           # Temperature
