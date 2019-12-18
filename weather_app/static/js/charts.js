@@ -3,6 +3,18 @@ window.onload = function ()
 var hourly_results = JSON.parse(document.getElementById("hourly-results").innerText);
 console.log(hourly_results)
 
+// Settings To Retrieve Hourly Information Based on Index Of JSON
+updated_hour_stats = {
+    "hour-one": 2,
+    "hour-two": 9,
+    "hour-three": 16,
+    "hour-four": 23,
+    "hour-five": 30,
+    "hour-six": 37,
+    "hour-seven": 44,
+    "hour-eight": 51,
+}
+
 
 var temperature_one = hourly_results[0][2];
 var temperature_two = hourly_results[0][9];
@@ -30,6 +42,22 @@ $("div.wind-text").html("<b>WIND</b> <br> <b>" + hourly_results[0][5]);
 $("div.humidity").html(hourly_results[0][6]);
 $("#rain-probability").html("Chance of Rain: " + hourly_results[0][3]);
 
+
+$('.hour-weather').click(function(e){
+    var selected_class = this.className.split(" ");
+    var selected_hour = selected_class[1];
+
+    console.log(selected_hour);
+
+    if (this.className.toLowerCase().includes(selected_hour)) {
+        $("#updated-temperature").html(hourly_results[0][updated_hour_stats[selected_hour]]);
+        $("#updated-condition").html(hourly_results[0][updated_hour_stats[selected_hour] - 1][2]);
+        $("div.precipitation").html(hourly_results[0][updated_hour_stats[selected_hour] + 2]);
+        $("div.wind-text").html("<b>WIND</b> <br> <b>" + hourly_results[0][updated_hour_stats[selected_hour] + 3]);
+        $("div.humidity").html(hourly_results[0][updated_hour_stats[selected_hour] + 4]);
+        $("#rain-probability").html("Chance of Rain: " + hourly_results[0][updated_hour_stats[selected_hour] + 1]);
+    }
+});
 
 
 temperature_one = temperature_one.substring(0, temperature_one.length - 1);
