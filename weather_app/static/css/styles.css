@@ -464,7 +464,7 @@ div.updated_humidity {
 #chartContainer {
     margin-top: -160px;
     margin-left: 600px;
-    position: absolute;
+    position: fixed;
     z-index: 1;
 }
 

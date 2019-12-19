@@ -94,7 +94,7 @@ $('.col-sm').click(function(e){
     hour_eight = hour_eight.substring(0, hour_eight.length - 1);
 
 
-    createChart(hour_one, hour_two, hour_three, hour_four, hour_five, hour_six, hour_seven, hour_eight)
+    createChart(hour_one, hour_two, hour_three, hour_four, hour_five, hour_six, hour_seven, hour_eight);
 
 
     $('.hourly-weather').attr('style','display:block');
