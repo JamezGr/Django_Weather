@@ -1,5 +1,6 @@
 window.onload = function ()
 {
+
 var hourly_results = JSON.parse(document.getElementById("hourly-results").innerText);
 console.log(hourly_results)
 
@@ -61,9 +62,9 @@ $("div.hour-eight").html("19:00 <br> " + hourly_results[0][51]);
 
 $("#updated-temperature").html(hourly_results[0][2]);
 $("#updated-condition").html(hourly_results[0][1][2]);
-$("div.precipitation").html(hourly_results[0][4]);
+$("div.precipitation").html("<b>" + hourly_results[0][4] + "</b>") ;
 $("div.wind-text").html("<b>WIND</b> <br> <b>" + hourly_results[0][5]);
-$("div.humidity").html(hourly_results[0][6]);
+$("div.humidity").html("<b>" + hourly_results[0][6] + "</b>");
 $("#rain-probability").html("Chance of Rain: " + hourly_results[0][3]);
 
 
@@ -73,6 +74,10 @@ $('.col-sm').click(function(e){
     var selected_day = selected_class[0];
     var updated_day = day_stats[selected_day];
 
+    $('.col-sm').css('border', '0px solid #000000 ');
+    $('.date_text').css('border', '0px solid #000000 ');
+    $('.' + selected_day).css('border', '3px solid #363636 ');
+    $('.date_text').css('border', '0px solid #000000 ');
 
     var hour_one = hourly_results[updated_day][2];
     var hour_two = hourly_results[updated_day][9];
@@ -82,7 +87,6 @@ $('.col-sm').click(function(e){
     var hour_six = hourly_results[updated_day][37];
     var hour_seven = hourly_results[updated_day][44];
     var hour_eight = hourly_results[updated_day][51];
-
 
     hour_one = hour_one.substring(0, hour_one.length - 1);
     hour_two = hour_two.substring(0, hour_two.length - 1);
@@ -114,8 +118,10 @@ $('.col-sm').click(function(e){
 
 
 $("#return-weather").click(function(){
+    $('.col-sm').css('border', '0px solid #000000 ');
     $('.hourly-weather').attr('style','display:none');
     $('.current-weather-row ').attr('style','display:flex');
+
 });
 
 
@@ -123,6 +129,9 @@ function hourUpdate(updated_day) {
     $('.hour-weather').click(function(e){
     var selected_class = this.className.split(" ");
     var selected_hour = selected_class[1];
+
+    $('.hour-weather').css('color', '#ffffff ');
+    $('.' + selected_hour).css('color', '#ffff00 ');
 
     console.log(selected_hour);
     console.log(updated_day);

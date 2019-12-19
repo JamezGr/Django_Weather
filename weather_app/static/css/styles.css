@@ -148,6 +148,13 @@ div.col-sm {
     text-align: center;
     font-weight: bold;
     font-size: 22px;
+    margin-left: 20px;
+
+}
+
+div.date_text {
+    padding-top: 10px;
+    padding-bottom: 10px;
 
 }
 
@@ -484,5 +491,12 @@ div.hourly-row {
     margin-top: 20px;
     margin-left: 800px;
     cursor: pointer;
+
+}
+
+.current-weather-row {
+    -moz-animation: fadein 3s;      /* Firefox < 16 */
+    -webkit-animation: fadein 3s;   /* Safari, Chrome and Opera > 12.1 */
+    -o-animation: fadein 3s;        /* Opera < 12.1 */
 
 }
