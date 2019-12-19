@@ -69,7 +69,11 @@
 
     </div>
 
-    <div class="hourly-weather" style="display:block">
+    <div class="hourly-weather" style="display:none">
+                <div id="return-weather">
+                    Return To Current Weather
+                </div>
+
                 <div id="updated-temperature">
                     0°
                 </div>
@@ -83,7 +87,7 @@
                         Chance of Rain: 0%
                     </div>
 
-                <div id="chartContainer" style="height: 130px; width: 45%; position: absolute"></div>
+                <div id="chartContainer" style="height: 130px; width: 491px;"></div>
                 <div id="updated-weather-info">
                     <div class="updated_weather_info row">
                         <div class="updated_precipitation col col-lg-3">
@@ -148,7 +152,7 @@
     <div class="current_weather container">
         <div id = "current_weather_box">
 
-            <div class="current-weather-row row" style="display: none">
+            <div class="current-weather-row row" style="display: flex">
             <div class="current-weather-col col">
                 <div class="current_temperature">
                     {{ weather.current_temp }}°

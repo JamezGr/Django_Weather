@@ -284,17 +284,12 @@ div.current_weather {
 
 }
 
-div.hourly_weather {
-    -moz-animation: fadein 3s;      /* Firefox < 16 */
-    -webkit-animation: fadein 3s;   /* Safari, Chrome and Opera > 12.1 */
-    -o-animation: fadein 3s;        /* Opera < 12.1 */
-
-}
 
 #current_weather_box {
     background-image: url('../img/Background/day_background.png');
     opacity: 1; /* Change To .05 for Modal */
     height: 300px;
+    margin-top: 30px;
 
     /* Blur Background Image */
      /* filter: blur(2px);
@@ -311,6 +306,12 @@ div.hourly_weather {
     padding-right:10px;
     position: absolute;
     z-index: 5;
+
+    margin-top: 30px;
+
+    -moz-animation: fadein 3s;      /* Firefox < 16 */
+    -webkit-animation: fadein 3s;   /* Safari, Chrome and Opera > 12.1 */
+    -o-animation: fadein 3s;        /* Opera < 12.1 */
 }
 
 @-moz-keyframes fadein {
@@ -464,13 +465,24 @@ div.updated_humidity {
 #chartContainer {
     margin-top: -160px;
     margin-left: 600px;
-    position: fixed;
+    position: absolute;
     z-index: 1;
+
+    height: 130px;
+    width: 491px;
 }
 
 div.hourly-row {
     position: fixed;
     width:1100px;
     margin-top: 40px;
+
+}
+
+#return-weather {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 800px;
+    cursor: pointer;
 
 }

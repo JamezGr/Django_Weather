@@ -94,10 +94,8 @@ $('.col-sm').click(function(e){
     hour_eight = hour_eight.substring(0, hour_eight.length - 1);
 
 
-    createChart(hour_one, hour_two, hour_three, hour_four, hour_five, hour_six, hour_seven, hour_eight);
-
-
     $('.hourly-weather').attr('style','display:block');
+    createChart(hour_one, hour_two, hour_three, hour_four, hour_five, hour_six, hour_seven, hour_eight);
     $('.current-weather-row ').attr('style','display:none');
 
     console.log(selected_day);
@@ -112,6 +110,12 @@ $('.col-sm').click(function(e){
     $("div.hour-seven").html("16:00 <br> " + hourly_results[updated_day][44]);
     $("div.hour-eight").html("19:00 <br> " + hourly_results[updated_day][51]);
 
+});
+
+
+$("#return-weather").click(function(){
+    $('.hourly-weather').attr('style','display:none');
+    $('.current-weather-row ').attr('style','display:flex');
 });
 
 

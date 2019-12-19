@@ -120,7 +120,6 @@ window.addEventListener('load', function () {
             if ($('.current-weather-row').css('display') == "none") {
                 $('.hourly-weather').attr('style','opacity: 1');
                 $('.hourly-weather').attr('style','display:block');
-                $('#chartContainer').css('display', 'block');
             }
 
             bg_img.style.opacity = 1;
