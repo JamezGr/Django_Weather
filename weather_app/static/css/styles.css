@@ -284,6 +284,13 @@ div.current_weather {
 
 }
 
+div.hourly_weather {
+    -moz-animation: fadein 3s;      /* Firefox < 16 */
+    -webkit-animation: fadein 3s;   /* Safari, Chrome and Opera > 12.1 */
+    -o-animation: fadein 3s;        /* Opera < 12.1 */
+
+}
+
 #current_weather_box {
     background-image: url('../img/Background/day_background.png');
     opacity: 1; /* Change To .05 for Modal */
