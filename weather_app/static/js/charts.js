@@ -63,7 +63,7 @@ $("div.hour-eight").html("19:00 <br> " + hourly_results[0][51]);
 $("#updated-temperature").html(hourly_results[0][2]);
 $("#updated-condition").html(hourly_results[0][1][2]);
 $("div.precipitation").html("<b>" + hourly_results[0][4] + "</b>") ;
-$("div.wind-text").html("<b>WIND</b> <br> <b>" + hourly_results[0][5]);
+$("div.wind-updated").html("<b>" + hourly_results[0][5] + "</b>");
 $("div.humidity").html("<b>" + hourly_results[0][6] + "</b>");
 $("#rain-probability").html("Chance of Rain: " + hourly_results[0][3]);
 
@@ -74,10 +74,10 @@ $('.col-sm').click(function(e){
     var selected_day = selected_class[0];
     var updated_day = day_stats[selected_day];
 
-    $('.col-sm').css('border', '0px solid #000000 ');
-    $('.date_text').css('border', '0px solid #000000 ');
-    $('.' + selected_day).css('border', '3px solid #363636 ');
-    $('.date_text').css('border', '0px solid #000000 ');
+    $('.col-sm').css('box-shadow', 'inset 0 0 0 0px black');
+    $('.date_text').css('box-shadow', 'inset 0 0 0 0px black');
+    $('.' + selected_day).css('box-shadow', 'inset 0 0 0 3px black');
+    $('.date_text').css('box-shadow', 'inset 0 0 0 0px black');
 
     var hour_one = hourly_results[updated_day][2];
     var hour_two = hourly_results[updated_day][9];
@@ -99,6 +99,7 @@ $('.col-sm').click(function(e){
 
 
     $('.hourly-weather').attr('style','display:block');
+    $('#chartContainer').attr('style','display:block');
     createChart(hour_one, hour_two, hour_three, hour_four, hour_five, hour_six, hour_seven, hour_eight);
     $('.current-weather-row ').attr('style','display:none');
 

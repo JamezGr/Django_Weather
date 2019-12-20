@@ -2,17 +2,12 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .date_to_string_conversion import convert_date
 from .weather_code_to_image import condition
-from django.http import JsonResponse
-from django.middleware.csrf import get_token
-from django.core import serializers
 
 
-import requests
 import urllib.parse
 import configparser
 import json as json_
 import requests
-import re
 
 config = configparser.ConfigParser()
 config_settings = config.read('config/config.ini')
@@ -130,6 +125,7 @@ class WeatherForecast:
             "condition": json['data']['current_condition'][0]['weatherDesc'][0]['value'],
             "wind_speed_mph": json['data']['current_condition'][0]['windspeedMiles'],
             "precipitation": json['data']['current_condition'][0]['precipMM'],
+            "current_time": json['data']['current_condition'][0]['observation_time']
         }
 
         return current_weather

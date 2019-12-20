@@ -120,6 +120,7 @@ window.addEventListener('load', function () {
             if ($('.current-weather-row').css('display') == "none") {
                 $('.hourly-weather').attr('style','opacity: 1');
                 $('.hourly-weather').attr('style','display:block');
+                $('#chartContainer').attr('style','display:block');
             }
 
             bg_img.style.opacity = 1;
@@ -135,6 +136,11 @@ window.addEventListener('load', function () {
                 search_box.style.display = "none";
                 $('.hourly-weather').attr('style','display:block');
                 bg_img.style.opacity = 1;
+
+                if ($('.current-weather-row').css('display') == "none") {
+                    $('#chartContainer').attr('style','display:block');
+                }
+
             };
         });
 

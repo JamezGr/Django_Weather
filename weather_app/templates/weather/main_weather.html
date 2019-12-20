@@ -100,8 +100,11 @@
                         <div class = "updated_wind_spd col col-lg-2">
                             <div class="wind_icon">
                                 <img class ="icon_wind small-icon" src="{% static 'img/wind_icon.svg' %}">
-                                <div class="wind-text" align="center">
-                                    <b>WIND</b> <br> <b>0 MPH </b>
+                                <div class="wind-text">
+                                    <b>WIND</b> <br>
+                                    <div class="wind-updated" >
+                                        <b>0 MPH </b>
+                                    </div>
                                 </div>
 
                             </div>
@@ -300,6 +303,7 @@
         </div>
     </div>
 
+    <div id="country-time" style="display:none">{{ weather.current_time }} </div>
     <div id="results-json" style="display:none">{{ search_results }}</div>
     <div id="hourly-results" style="display:none">{{ hourly_weather }}</div>
 </div>
