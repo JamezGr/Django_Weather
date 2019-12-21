@@ -527,7 +527,14 @@ div.location_icon {
 }
 
 div.change_location {
-    margin-top: -215px;
+    margin-top: -185px;
     margin-left: 760px;
     color: white;
+}
+
+div.current-location-text {
+    margin-top 10px;
+    margin-left:805px;
+    position: fixed;
+
 }

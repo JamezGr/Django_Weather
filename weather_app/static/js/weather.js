@@ -124,6 +124,10 @@ window.addEventListener('load', function () {
             }
 
             bg_img.style.opacity = 1;
+            $('.current-location-text').css('opacity', 1);
+            $('.change_location').css('opacity', 1);
+            $('.col-sm').css('background-color', 'transparent');
+            $('.date_text').css('background-color', 'transparent');
 
         })
      });
@@ -150,6 +154,21 @@ window.addEventListener('load', function () {
      $(".search-icon").on("click", function()
      {
         $("#search-results-text").submit();
+     });
+
+
+     $(".user-location").on("click", function()
+     {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            let lat = position.coords.latitude;
+            let long = position.coords.longitude;
+
+            $("#search-text").val(lat.toString() + ", " + long.toString());
+            $("#search-results-text").submit();
+            $("#search-text").val("");
+
+            console.log(lat + ", " + long);
+        });
      });
 
 
@@ -194,6 +213,9 @@ window.addEventListener('load', function () {
     if (overlay.style.background = "rgba(" + 0 + "," + 0 + "," + 0 + "," + 0 + ")") {
         $('#chartContainer').css('display', 'none');
         $('.hourly-weather').attr('style','display:none');
+        $('.current-location-text').css('opacity', .05);
+        $('.change_location').css('opacity', .05);
+        $('#search-box').css('opacity', 1);
         overlay.style.background = "rgba(" + 0 + "," + 0 + "," + 0 + "," + 0.8 + ")";
         bg_img.style.opacity = 0.05;
         search_box.style.display = "block";

@@ -27,40 +27,43 @@
 
 <div id="weather-overlay">
     <div class="current-location container">
-    {{ weather.location }}
-     <div class="change_location">
-        <div class="location_icon">
-            <img class ="icon_location small-icon" onclick="searchBox()" src="{% static 'img/Media_Viewer_Icon_-_Location.svg' %}">
-            <a id="change-location" onclick="searchBox()">Change Location</a>
+        <div class="current-location-text">
+            {{ weather.location }}
         </div>
-    </div>
 
-    <div id ="search-box">
-        <div id="searchText">
-            <div id="close-icon">
-                <img class ="close-icon small-icon" src="{% static 'img/close_icon.svg' %}">
+         <div class="change_location">
+            <div class="location_icon">
+                <img class ="icon_location small-icon" onclick="searchBox()" src="{% static 'img/Media_Viewer_Icon_-_Location.svg' %}">
+                <a id="change-location" onclick="searchBox()">Change Location</a>
             </div>
-            <form action="#" id="search-results-text" method="post">
-                {% csrf_token %}
-                <input type="text" name="searchText" id="search-text" placeholder="Search For Another Location...">
-                <img class ="search-icon small-icon" src="{% static 'img/search.svg' %}">
-                <input type="submit" value="Submit" style="display: none">
+        </div>
 
-                <div class="user-location">
-                    <img class ="icon_location small-icon" src="{% static 'img/Media_Viewer_Icon_-_Location-black.svg' %}">
-                    <a>Use Your Location</a>
+        <div id ="search-box">
+            <div id="searchText">
+                <div id="close-icon">
+                    <img class ="close-icon small-icon" src="{% static 'img/close_icon.svg' %}">
                 </div>
+                <form action="#" id="search-results-text" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="searchText" id="search-text" placeholder="Search For Another Location...">
+                    <img class ="search-icon small-icon" src="{% static 'img/search.svg' %}">
+                    <input type="submit" value="Submit" style="display: none">
 
-            </form>
+                    <div class="user-location">
+                        <img class ="icon_location small-icon" src="{% static 'img/Media_Viewer_Icon_-_Location-black.svg' %}">
+                        <a>Use Your Location</a>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class ="dropdown-content" align="left" >
+                {% for key, location in search_results.items %}
+                    <a href="#" id="search_result"> {{ location.0 }} </a>
+                {% endfor %}
+
+            </div>
         </div>
-
-        <div class ="dropdown-content" align="left" >
-            {% for key, location in search_results.items %}
-                <a href="#" id="search_result"> {{ location.0 }} </a>
-            {% endfor %}
-
-        </div>
-    </div>
 
     </div>
 

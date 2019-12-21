@@ -75,9 +75,14 @@ $('.col-sm').click(function(e){
     var updated_day = day_stats[selected_day];
 
     $('.current-location').css('display', 'none');
+    $('.col-sm').css('background-color', 'transparent');
     $('.col-sm').css('box-shadow', 'inset 0 0 0 0px black');
+
     $('.date_text').css('box-shadow', 'inset 0 0 0 0px black');
-    $('.' + selected_day).css('box-shadow', 'inset 0 0 0 3px black');
+    $('.date_text').css('background-color', 'transparent');
+
+    $('.' + selected_day).css('box-shadow', 'inset 0 0 0 3px #e7e7e7');
+    $('.' + selected_day).css('background-color', '#f3f3f3');
     $('.date_text').css('box-shadow', 'inset 0 0 0 0px black');
 
     var hour_one = hourly_results[updated_day][2];
@@ -121,6 +126,8 @@ $('.col-sm').click(function(e){
 
 $("#return-weather").click(function(){
 
+    $('.col-sm').css('background-color', 'transparent');
+    $('.date_text').css('background-color', 'transparent');
     $('.hourly-weather').attr('style','display:none');
     $('.current-weather-row ').attr('style','display:flex');
     $('.col-sm').css('box-shadow', 'inset 0 0 0 0px black');

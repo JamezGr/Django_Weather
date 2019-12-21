@@ -45,7 +45,8 @@ def index(request):
         # print(requests.post("http://127.0.0.1:8000", search_results))
 
     # DEBUG PURPOSES
-    print(hourly_weather)
+    # print(hourly_weather)
+    print(search_results)
 
     geo_data = {'weather': current_weather, 'forecast': five_day_weather, 'search_results': search_results, 'hourly_weather': json_.dumps(hourly_weather)}
 
