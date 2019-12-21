@@ -1,18 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="80" height="80" viewBox="0 0 80 80" id="svg2">
-  <metadata id="metadata17">
-    <rdf:RDF>
-      <cc:Work rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-        <dc:title/>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <defs id="defs15"/>
-  <linearGradient x1="326" y1="-301.07401" x2="326" y2="-329.776" id="a" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1,0,0,-1,-286,-294)">
-    <stop id="stop5" style="stop-color:#ffffff;stop-opacity:0.94999999" offset="0"/>
-    <stop id="stop7" style="stop-color:#ffffff;stop-opacity:1" offset="0.787"/>
-  </linearGradient>
-  <path d="M 61.615,10.966 C 58.705,8.053 55.306,5.795 51.506,4.25 40.071,-0.382 27.046,2.271 18.328,10.978 12.545,16.77 9.353,24.144 9.353,31.769 c 0,7.613 3.19,14.995 8.975,20.781 l 3.182,3.153 c 6.386,6.31 11.893,11.758 16.618,19.331 L 39.966,78 41.816,75.034 C 46.541,67.461 52.048,62.013 58.423,55.71 l 3.191,-3.17 C 73.658,40.496 73.658,23.011 61.615,10.966 z M 49.477,42.641 c -5.25,5.258 -13.76,5.258 -19.011,0 -5.249,-5.24 -5.249,-13.75 0,-19 5.251,-5.24 13.761,-5.24 19.011,0 5.238,5.25 5.238,13.758 0,19 z" id="path11" style="fill:#929497"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #ffffff } 
+	</style>
+	<path id="path11" fill-rule="evenodd" class="shp0" d="M61.61 52.54L58.42 55.71C52.05 62.01 46.54 67.46 41.82 75.03L39.97 78L38.13 75.03C33.4 67.46 27.9 62.01 21.51 55.7L18.33 52.55C12.54 46.76 9.35 39.38 9.35 31.77C9.35 24.14 12.54 16.77 18.33 10.98C27.05 2.27 40.07 -0.38 51.51 4.25C55.31 5.79 58.7 8.05 61.62 10.97C73.66 23.01 73.66 40.5 61.61 52.54ZM49.48 23.64C44.23 18.4 35.72 18.4 30.47 23.64C25.22 28.89 25.22 37.4 30.47 42.64C35.72 47.9 44.23 47.9 49.48 42.64C54.71 37.4 54.71 28.89 49.48 23.64Z" />
 </svg>

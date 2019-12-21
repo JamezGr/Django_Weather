@@ -132,12 +132,13 @@ window.addEventListener('load', function () {
      $(document).keyup(function(e)  {
             if(e.key === "Escape") {
                 overlay.style.background = "rgba(0, 0, 0, 0) none repeat scroll 0% 0%";
-                $('.hourly-weather').attr('style','opacity: 1');
+
                 search_box.style.display = "none";
-                $('.hourly-weather').attr('style','display:block');
                 bg_img.style.opacity = 1;
 
                 if ($('.current-weather-row').css('display') == "none") {
+                    $('.hourly-weather').attr('style','opacity: 1');
+                    $('.hourly-weather').attr('style','display:block');
                     $('#chartContainer').attr('style','display:block');
                 }
 

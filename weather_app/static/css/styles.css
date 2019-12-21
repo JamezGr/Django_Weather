@@ -7,10 +7,18 @@ body {
 }
 
 div.current-location {
-    margin-top: 10px;
+    color: #ffffff;
+    z-index: 1;
+    margin-left: -663px;
+    margin-top: 45px;
     text-align: right;
     font-size: 22px;
     font-weight: bold;
+    position:fixed;
+
+    -moz-animation: fadein 3s;      /* Firefox < 16 */
+    -webkit-animation: fadein 3s;   /* Safari, Chrome and Opera > 12.1 */
+    -o-animation: fadein 3s;        /* Opera < 12.1 */
 }
 
 div.current_weather {
@@ -40,7 +48,7 @@ img.medium-icon {
 div.current_weather_info {
     font-size: 14px;
     font-align: center;
-    margin-top: -35px;
+    margin-top: -105px;
     margin-left: 340px;
     position: fixed;
 }
@@ -178,14 +186,19 @@ div.current_temperature {
     font-size:86px;
     font-weight: bold;
     margin-left: 20px;
+    margin-top: 70px;
 
 }
 
 div.change_location {
-    margin-top: 6px;
+    z-index: 1;
+    color: #000000;
+    margin-top: 60px;
     text.align:left;
     font-size:15px;
     font-weight:bold;
+    margin-left: 180px;
+
 }
 
 a {
@@ -357,8 +370,8 @@ div.current_weather {
     padding-left: 10px;
     height: 140px;
     width: 500px;
-    margin-top: 10px;
-    margin-left: 610px;
+    margin-top: 250px;
+    margin-left: 800px;
     box-shadow: 0 0 5px 5px #2D2D2D;
     z-index: 5;
     position: absolute;
@@ -402,6 +415,7 @@ div.dropdown-content a {
 div.user-location {
     margin-top: -25px;
     font-size: 18px;
+    color: #000000;
 
 }
 
@@ -419,6 +433,8 @@ img.close-icon {
 
 #searchText {
     margin-top:10px;
+    margin-right:10px;
+    position:absolute;
 }
 
 
@@ -499,4 +515,19 @@ div.hourly-row {
     -webkit-animation: fadein 3s;   /* Safari, Chrome and Opera > 12.1 */
     -o-animation: fadein 3s;        /* Opera < 12.1 */
 
+}
+
+div.location_icon {
+    z-index: 1;
+    position: absolute;
+    margin-left: 45px;
+    margin-top: 220px;
+
+
+}
+
+div.change_location {
+    margin-top: -215px;
+    margin-left: 760px;
+    color: white;
 }

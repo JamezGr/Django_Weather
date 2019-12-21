@@ -74,6 +74,7 @@ $('.col-sm').click(function(e){
     var selected_day = selected_class[0];
     var updated_day = day_stats[selected_day];
 
+    $('.current-location').css('display', 'none');
     $('.col-sm').css('box-shadow', 'inset 0 0 0 0px black');
     $('.date_text').css('box-shadow', 'inset 0 0 0 0px black');
     $('.' + selected_day).css('box-shadow', 'inset 0 0 0 3px black');
@@ -119,9 +120,11 @@ $('.col-sm').click(function(e){
 
 
 $("#return-weather").click(function(){
-    $('.col-sm').css('border', '0px solid #000000 ');
+
     $('.hourly-weather').attr('style','display:none');
     $('.current-weather-row ').attr('style','display:flex');
+    $('.col-sm').css('box-shadow', 'inset 0 0 0 0px black');
+    $('.current-location').css('display', 'block');
 
 });
 
@@ -140,9 +143,9 @@ function hourUpdate(updated_day) {
     if (this.className.toLowerCase().includes(selected_hour)) {
         $("#updated-temperature").html(hourly_results[updated_day][updated_hour_stats[selected_hour]]);
         $("#updated-condition").html(hourly_results[updated_day][updated_hour_stats[selected_hour] - 1][2]);
-        $("div.precipitation").html(hourly_results[updated_day][updated_hour_stats[selected_hour] + 2]);
+        $("div.precipitation").html("<b>" + hourly_results[updated_day][updated_hour_stats[selected_hour] + 2] + "</b>");
         $("div.wind-text").html("<b>WIND</b> <br> <b>" + hourly_results[updated_day][updated_hour_stats[selected_hour] + 3]);
-        $("div.humidity").html(hourly_results[updated_day][updated_hour_stats[selected_hour] + 4]);
+        $("div.humidity").html("<b>" + hourly_results[updated_day][updated_hour_stats[selected_hour] + 4] + "</b>");
         $("#rain-probability").html("Chance of Rain: " + hourly_results[updated_day][updated_hour_stats[selected_hour] + 1]);
         }
     });
