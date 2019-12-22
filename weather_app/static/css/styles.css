@@ -48,7 +48,7 @@ img.medium-icon {
 div.current_weather_info {
     font-size: 14px;
     font-align: center;
-    margin-top: -105px;
+    margin-top: -75px;
     margin-left: 340px;
     position: fixed;
 }
@@ -179,6 +179,7 @@ div.current_condition {
     font-size:34px;
     font-weight: bold;
     margin-left: 20px;
+    margin-top: -20px;
 }
 
 div.current_temperature {
@@ -537,4 +538,56 @@ div.current-location-text {
     margin-left:805px;
     position: fixed;
 
+}
+
+div.developer-log {
+
+    margin-left: -580px;
+    margin-top: 95px;
+    cursor: pointer;
+    position: fixed;
+
+}
+
+div.developer-log-text {
+    margin-top: -35px;
+    margin-left: 30px;
+
+}
+
+img.icon-developer {
+    margin-top: -22px;
+}
+
+
+#developer-log {
+    display: none;
+    background-color: #ffffff;
+    position: absolute;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    height: 270px;
+    width: 500px;
+    margin-top: 330px;
+    margin-left: 150px;
+    box-shadow: 0 0 5px 5px #2D2D2D;
+    z-index: 7;
+    position: absolute;
+
+    -moz-animation: fadein .4s;      /* Firefox < 16 */
+    -webkit-animation: fadein .4s;   /* Safari, Chrome and Opera > 12.1 */
+    -o-animation: fadein .4s;        /* Opera < 12.1 */
+}
+
+.log-content-area {
+    margin-top: 10px;
+    overflow-y: scroll;
+    height:200px;
+
+}
+
+#log-close-icon {
+    margin-top: -10px;
+    margin-left: 450px;
 }

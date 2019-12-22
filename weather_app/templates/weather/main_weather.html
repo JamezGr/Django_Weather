@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        <div id ="search-box">
+        <div id="search-box">
             <div id="searchText">
                 <div id="close-icon">
                     <img class ="close-icon small-icon" src="{% static 'img/close_icon.svg' %}">
@@ -64,8 +64,36 @@
 
             </div>
         </div>
-
     </div>
+
+
+    <div id="developer-log">
+            <div class="log-title">
+                <b>DEVELOPER LOG</b>
+            </div>
+
+            <div id="log-close-icon">
+                    <img class ="close-icon small-icon" src="{% static 'img/close_icon.svg' %}">
+                </div>
+
+            <div class="log-content-area">
+                <div class="log-info">
+                    <b>GET </b> / HTTP 1.1
+                </div>
+
+                <div class="log-info">
+                    <b>POST </b> / HTTP 1.1
+                    searchText: None
+                </div>
+
+                <div class="log-info">
+                    <b>POST </b> / HTTP 1.1 location: London, United Kingdom
+                </div>
+
+            </div>
+
+        </div>
+
 
     <div class="hourly-weather" style="display:none">
                 <div id="return-weather">
@@ -115,7 +143,7 @@
 
                         <div class = "updated_humidity col col-lg-2">
                             <div class="humidity_icon">
-                                <img class ="icon_humidity x-small-icon" src="{% static 'img/humidity.svg' %}">
+                                <img class="icon_humidity x-small-icon" src="{% static 'img/humidity.svg' %}">
                                 <div class="humidity-text" align="center">
                                     <b>HUMIDITY</b><br>
                                     <div class="humidity" align="center"><b>0%</b></div>
@@ -237,6 +265,14 @@
                         <span class ="moonset-text">{{ forecast.day_0.4 }}</span>
 
                     </div>
+                </div>
+
+                <div class="developer-log">
+                    <img class="icon-developer small-icon" src="{% static 'img/developer-log-icon.svg' %}">
+                    <div class="developer-log-text">
+                        <b>Developer's Log</b></a>
+                    </div>
+
                 </div>
             </div>
         </div>

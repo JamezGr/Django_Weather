@@ -6,6 +6,10 @@ var dateTime = date + ' ' + time;
 console.log(dateTime)
 
 window.addEventListener('load', function () {
+
+    $( ".log-content-area").append( '<div class="log-info"><b>POST </b> / HTTP 1.1 searchText: ' + $("#search-text").val() + '</div>'
+    + '<div class="log-info"><b>POST </b> / HTTP 1.1 location: ' + $(".current-location-text").text() + '</div>');
+
     var condition = document.getElementsByClassName("current_condition");
     var condition_text = condition[0]['innerText'];
     var bg_img = document.getElementById("current_weather_box");
@@ -165,7 +169,7 @@ window.addEventListener('load', function () {
 
             $("#search-text").val(lat.toString() + ", " + long.toString());
             $("#search-results-text").submit();
-            $("#search-text").val("");
+
 
             console.log(lat + ", " + long);
         });
@@ -194,9 +198,41 @@ window.addEventListener('load', function () {
 
         success: function() {
             console.log("Typing");
+            $( ".log-content-area").append( '<div class="log-info"><b>POST </b> / HTTP 1.1 searchText: ' + $("#search-text").val() + '</div>'
+            + '<div class="log-info"><b>POST </b> / HTTP 1.1 location: ' + $(".current-location-text").text() + '</div>');
         }
 
+        });
      });
+
+     $('.developer-log-text').click(function() {
+        console.log('Developer Log');
+
+        if (overlay.style.background = "rgba(" + 0 + "," + 0 + "," + 0 + "," + 0 + ")") {
+            $('#chartContainer').css('display', 'none');
+            $('.hourly-weather').attr('style','display:none');
+            $('.current-location-text').css('opacity', .05);
+            $('.change_location').css('opacity', .05);
+            $('#search-box').css('opacity', 1);
+            overlay.style.background = "rgba(" + 0 + "," + 0 + "," + 0 + "," + 0.8 + ")";
+            bg_img.style.opacity = 0.05;
+            $('#developer-log').css('display', 'block');
+        }
+     });
+
+
+     $('#log-close-icon').click(function(){
+        console.log('Clicked');
+
+        overlay.style.background = "rgba(0, 0, 0, 0) none repeat scroll 0% 0%";
+        $('#developer-log').css('display', 'none');
+        
+        bg_img.style.opacity = 1;
+        $('.current-location-text').css('opacity', 1);
+        $('.change_location').css('opacity', 1);
+        $('.col-sm').css('background-color', 'transparent');
+        $('.date_text').css('background-color', 'transparent');
+
      });
 
 
