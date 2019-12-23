@@ -15,15 +15,17 @@ developer_log_data = []
 
 # Create your views here.
 def index(request):
+    api_key = config.get('SETUP', 'api_key')
+
     default_location = 'London, United Kingdom'
     default_location = urllib.parse.quote(default_location)
 
     search_location = request.POST.get('searchText')
-    current_weather, current_log_data = WeatherForecast.get_current_weather(search_location, default_location)
-    five_day_weather, five_day_log_data = WeatherForecast.get_five_day_weather(search_location, default_location)
-    hourly_weather, hourly_log_data = WeatherForecast.get_hourly_weather(search_location, default_location)
+    current_weather, current_log_data = WeatherForecast.get_current_weather(search_location, default_location, api_key)
+    five_day_weather, five_day_log_data = WeatherForecast.get_five_day_weather(search_location, default_location, api_key)
+    hourly_weather, hourly_log_data = WeatherForecast.get_hourly_weather(search_location, default_location, api_key)
 
-    search_results, search_log_data = autocomplete(search_location)
+    search_results, search_log_data = autocomplete(search_location, api_key)
     search_results = json_.dumps(search_results, sort_keys=True)
 
     if search_location:
@@ -33,21 +35,23 @@ def index(request):
 
                 # return first result from search results
                 updated_location = updated_results[3]
-                current_weather, current_log_data = WeatherForecast.get_current_weather(search_location, updated_location)
-                five_day_weather, five_day_log_data = WeatherForecast.get_five_day_weather(search_location, updated_location)
-                hourly_weather, hourly_log_data = WeatherForecast.get_hourly_weather(search_location, updated_location)
+                current_weather, current_log_data = WeatherForecast.get_current_weather(search_location, updated_location, api_key)
+                five_day_weather, five_day_log_data = WeatherForecast.get_five_day_weather(search_location, updated_location, api_key)
+                hourly_weather, hourly_log_data = WeatherForecast.get_hourly_weather(search_location, updated_location, api_key)
 
         except IndexError:
             print(search_results)
 
     print(search_results)
 
+    # Update Developer Log if New Request is Made
     developer_log_data.append(current_log_data)
     developer_log_data.append(five_day_log_data)
     developer_log_data.append(hourly_log_data)
-    developer_log_data.append("searchText: " + search_log_data + search_location + " 200 OK")
+    developer_log_data.append("searchText: " + str(search_log_data) + str(search_location) + " 200 OK")
 
-    print(developer_log_data)
+    # DEBUGGING PURPOSES ONLY
+    # print(developer_log_data)
 
     geo_data = {'weather': current_weather, 'forecast': five_day_weather, 'search_results': search_results, 'hourly_weather': json_.dumps(hourly_weather),
                 'developer_log': developer_log_data}
@@ -55,8 +59,7 @@ def index(request):
     return render(request, 'weather/main_weather.html', geo_data)
 
 
-def autocomplete(location):
-    api_key = config.get('SETUP', 'api_key')
+def autocomplete(location, api_key):
     location = urllib.parse.quote(str(location))
 
     weather_response = requests.get(
@@ -87,8 +90,7 @@ def autocomplete(location):
 
 
 class WeatherForecast:
-    def get_five_day_weather(self, location):
-        api_key = config.get('SETUP', 'api_key')
+    def get_five_day_weather(self, location, api_key):
 
         current_day = 0
         five_day_weather = {}
@@ -123,10 +125,7 @@ class WeatherForecast:
 
         return five_day_weather, log_data
 
-    def get_current_weather(self, location):
-        api_key = config.get('SETUP', 'api_key')
-        # location = 'London, United Kingdom'
-        # location = urllib.parse.quote(location)
+    def get_current_weather(self, location, api_key):
 
         weather_response = requests.get(
             'http://api.worldweatheronline.com/premium/v1/weather.ashx?key=' + api_key + '&q=' + location + '&num_of_days=5&isDayTime&tp=24&format=json')
@@ -149,8 +148,7 @@ class WeatherForecast:
 
         return current_weather, log_data
 
-    def get_hourly_weather(self, location):
-        api_key = config.get('SETUP', 'api_key')
+    def get_hourly_weather(self, location, api_key):
         location = urllib.parse.quote(str(location))
 
         current_day = 0
@@ -234,13 +232,3 @@ class WeatherForecast:
         log_data = "getHourlyWeather: " + location + " " + str(search_status_code) + " OK"
 
         return hourly_weather, log_data
-
-    def update_log(self, data):
-
-        developer_log = list([])
-        developer_log.append('<div class="log-info"> <b>POST </b> / HTTP 1.1 ' + data + '</div>')
-
-        return developer_log
-
-
-
