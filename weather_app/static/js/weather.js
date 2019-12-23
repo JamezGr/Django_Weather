@@ -181,30 +181,6 @@ window.addEventListener('load', function () {
      });
 
 
-     $("#search-results-text").keyup(function(e){
-        // console.log($("#search").val());
-
-        var search_text = $("#search-text").val();
-        var csrftoken = $('input[name=csrfmiddlewaretoken]').val();
-
-
-        $.ajax({
-        type: "POST",
-        url: "http://127.0.0.1:8000/",
-        data:{
-            searchText: search_text,
-            csrfmiddlewaretoken: csrftoken,
-        },
-
-        success: function() {
-            console.log("Typing");
-            $( ".log-content-area").append( '<div class="log-info"><b>POST </b> / HTTP 1.1 searchText: ' + $("#search-text").val() + '</div>'
-            + '<div class="log-info"><b>POST </b> / HTTP 1.1 location: ' + $(".current-location-text").text() + '</div>');
-        }
-
-        });
-     });
-
      $('.developer-log-text').click(function() {
         console.log('Developer Log');
 

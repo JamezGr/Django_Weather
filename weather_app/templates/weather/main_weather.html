@@ -77,18 +77,10 @@
                 </div>
 
             <div class="log-content-area">
-                <div class="log-info">
-                    <b>GET </b> / HTTP 1.1
-                </div>
 
-                <div class="log-info">
-                    <b>POST </b> / HTTP 1.1
-                    searchText: None
-                </div>
-
-                <div class="log-info">
-                    <b>POST </b> / HTTP 1.1 location: London, United Kingdom
-                </div>
+                {% for log_data in developer_log %}
+                    <div class="log-info"><b>POST </b> / HTTP 1.1 {{ log_data }}</div>
+                {% endfor %}
 
             </div>
 

@@ -19,7 +19,7 @@ def index(request):
     default_location = urllib.parse.quote(default_location)
 
     search_location = request.POST.get('searchText')
-    current_weather, current_weather_log_data = WeatherForecast.get_current_weather(search_location, default_location)
+    current_weather, current_log_data = WeatherForecast.get_current_weather(search_location, default_location)
     five_day_weather, five_day_log_data = WeatherForecast.get_five_day_weather(search_location, default_location)
     hourly_weather, hourly_log_data = WeatherForecast.get_hourly_weather(search_location, default_location)
 
@@ -33,33 +33,24 @@ def index(request):
 
                 # return first result from search results
                 updated_location = updated_results[3]
-                current_weather = WeatherForecast.get_current_weather(search_location, updated_location)
-                five_day_weather = WeatherForecast.get_five_day_weather(search_location, updated_location)
-                hourly_weather = WeatherForecast.get_hourly_weather(search_location, updated_location)
+                current_weather, current_log_data = WeatherForecast.get_current_weather(search_location, updated_location)
+                five_day_weather, five_day_log_data = WeatherForecast.get_five_day_weather(search_location, updated_location)
+                hourly_weather, hourly_log_data = WeatherForecast.get_hourly_weather(search_location, updated_location)
 
         except IndexError:
             print(search_results)
 
-    # if request.is_ajax():
-        # print(search_results + "\n")
-        # print(requests.post("http://127.0.0.1:8000", search_results))
-
-    # DEBUG PURPOSES
-    # print(hourly_weather)
-
     print(search_results)
 
-    # location = search_results.split('"')
-    # print(location[3])
-
-    developer_log_data.append('<div class="log-info"> <b>POST </b> / HTTP 1.1 ' + current_weather_log_data + '</div>')
-    developer_log_data.append('<div class="log-info"> <b>POST </b> / HTTP 1.1 ' + five_day_log_data + '</div>')
-    developer_log_data.append('<div class="log-info"> <b>POST </b> / HTTP 1.1 ' + hourly_log_data + '</div>')
-    developer_log_data.append('<div class="log-info"> <b>POST </b> / HTTP 1.1 ' + search_log_data + '</div>')
+    developer_log_data.append(current_log_data)
+    developer_log_data.append(five_day_log_data)
+    developer_log_data.append(hourly_log_data)
+    developer_log_data.append("searchText: " + search_log_data + search_location + " 200 OK")
 
     print(developer_log_data)
 
-    geo_data = {'weather': current_weather, 'forecast': five_day_weather, 'search_results': search_results, 'hourly_weather': json_.dumps(hourly_weather)}
+    geo_data = {'weather': current_weather, 'forecast': five_day_weather, 'search_results': search_results, 'hourly_weather': json_.dumps(hourly_weather),
+                'developer_log': developer_log_data}
 
     return render(request, 'weather/main_weather.html', geo_data)
 
@@ -84,18 +75,13 @@ def autocomplete(location):
             ]
             current_result += 1
 
-        result = str(search_results[0]).split("'")
-        search_status_code = str(weather_response.status_code)
-
-        log_data = "searchText: " + result[1] + " " + str(search_status_code) + " OK"
-        print(WeatherForecast.update_log(location, log_data))
+        log_data = ""
 
     except KeyError:
         search_results = json['data']['error'][0]['msg']
 
         search_status_code = str(weather_response.status_code)
         log_data = "searchText: No Results Found " + str(search_status_code) + " OK"
-        print(WeatherForecast.update_log(location, log_data))
 
     return search_results, log_data
 
@@ -110,6 +96,9 @@ class WeatherForecast:
         weather_response = requests.get(
             'http://api.worldweatheronline.com/premium/v1/weather.ashx?key=' + api_key + '&q=' + location + '&num_of_days=5&isDayTime&tp=24&format=json')
         weather_json = weather_response.json()
+
+        # DEBUGGING PURPOSES
+        # print(weather_json)
 
         # TODO: include Weather Condition for Each Day
         while current_day < 5:
@@ -131,7 +120,6 @@ class WeatherForecast:
         search_status_code = str(weather_response.status_code)
 
         log_data = "getFiveDayWeather: " + location + " " + str(search_status_code) + " OK"
-        print(WeatherForecast.update_log(location, log_data))
 
         return five_day_weather, log_data
 
@@ -158,7 +146,6 @@ class WeatherForecast:
         search_status_code = str(weather_response.status_code)
 
         log_data = "currentLocation: " + location + " " + str(search_status_code) + " OK"
-        print(WeatherForecast.update_log(location, log_data))
 
         return current_weather, log_data
 
@@ -245,7 +232,6 @@ class WeatherForecast:
         search_status_code = str(weather_response.status_code)
 
         log_data = "getHourlyWeather: " + location + " " + str(search_status_code) + " OK"
-        print(WeatherForecast.update_log(location, log_data))
 
         return hourly_weather, log_data
 
