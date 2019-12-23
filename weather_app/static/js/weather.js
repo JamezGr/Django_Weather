@@ -77,12 +77,7 @@ window.addEventListener('load', function () {
     }
 
 
-    var search_results = JSON.parse(document.getElementById("results-json").textContent);
-    var change_location = document.getElementById("change-location");
-    var search_box = document.getElementById("search-box");
-    var bg_img = document.getElementById("current_weather_box");
-    var close = document.getElementById("close-icon");
-
+    var search_results = JSON.parse($("#results-json").text());
 
     if (search_results[0] != "Nonette, France") {
         if (search_results[0] != "U" ) {
@@ -105,7 +100,7 @@ window.addEventListener('load', function () {
     $("#change-location").click(function(e){
         e.stopPropagation();
 
-        close.addEventListener('click', function(){
+        $('#close-icon').click (function(){
             e.stopPropagation();
 
             $('#weather-overlay').css('background', 'rgba(0, 0, 0, 0) none repeat scroll 0% 0%');

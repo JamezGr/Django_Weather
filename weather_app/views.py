@@ -44,14 +44,11 @@ def index(request):
 
     print(search_results)
 
-    # Update Developer Log if New Request is Made
-    developer_log_data.append(current_log_data)
-    developer_log_data.append(five_day_log_data)
-    developer_log_data.append(hourly_log_data)
+    # Update Developer Log if New REST Request is Made
+    developer_log_data.append(str(current_log_data))
+    developer_log_data.append(str(five_day_log_data))
+    developer_log_data.append(str(hourly_log_data))
     developer_log_data.append("searchText: " + str(search_log_data) + str(search_location) + " 200 OK")
-
-    # DEBUGGING PURPOSES ONLY
-    # print(developer_log_data)
 
     geo_data = {'weather': current_weather, 'forecast': five_day_weather, 'search_results': search_results, 'hourly_weather': json_.dumps(hourly_weather),
                 'developer_log': developer_log_data}

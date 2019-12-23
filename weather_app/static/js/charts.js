@@ -1,30 +1,7 @@
 window.onload = function ()
 {
 
-var hourly_results = JSON.parse(document.getElementById("hourly-results").innerText);
-console.log(hourly_results)
-
-// Settings To Retrieve Hourly Information Based on Index Of JSON
-updated_hour_stats = {
-    "hour-one": 2,
-    "hour-two": 9,
-    "hour-three": 16,
-    "hour-four": 23,
-    "hour-five": 30,
-    "hour-six": 37,
-    "hour-seven": 44,
-    "hour-eight": 51,
-}
-
-// Settings To Retrieve Daily Information Based on Index Of JSON
-day_stats = {
-    "day_1": 0,
-    "day_2": 1,
-    "day_3": 2,
-    "day_4": 3,
-    "day_5": 4
-}
-
+var hourly_results = JSON.parse($("#hourly-results").text());
 
 var temperature_one = hourly_results[0][2];
 var temperature_two = hourly_results[0][9];
@@ -46,25 +23,45 @@ temperature_seven = temperature_seven.substring(0, temperature_seven.length - 1)
 temperature_eight = temperature_eight.substring(0, temperature_eight.length - 1);
 
 
+console.log(hourly_results)
+
+// Settings To Retrieve Hourly Information Based on Index Of JSON
+updated_hour_stats = {
+
+    "hour-one": 2,
+    "hour-two": 9,
+    "hour-three": 16,
+    "hour-four": 23,
+    "hour-five": 30,
+    "hour-six": 37,
+    "hour-seven": 44,
+    "hour-eight": 51,
+
+}
+
+// Settings To Retrieve Daily Information Based on Index Of JSON
+day_stats = {
+
+    "day_1": 0,
+    "day_2": 1,
+    "day_3": 2,
+    "day_4": 3,
+    "day_5": 4
+
+}
+
+
 createChart(temperature_one, temperature_two, temperature_three, temperature_four,temperature_five, temperature_six,
             temperature_seven, temperature_eight);
 
-
-$("div.hour-one").html("22:00 <br> " + hourly_results[0][2]);
-$("div.hour-two").html("01:00 <br> " + hourly_results[0][9]);
-$("div.hour-three").html("04:00 <br> " + hourly_results[0][16]);
-$("div.hour-four").html("07:00 <br> " + hourly_results[0][23]);
-$("div.hour-five").html("10:00 <br> " + hourly_results[0][30]);
-$("div.hour-six").html("13:00 <br> " + hourly_results[0][37]);
-$("div.hour-seven").html("16:00 <br> " + hourly_results[0][44]);
-$("div.hour-eight").html("19:00 <br> " + hourly_results[0][51]);
+weatherUpdate(day_stats["day_1"])
 
 
 $("#updated-temperature").html(hourly_results[0][2]);
 $("#updated-condition").html(hourly_results[0][1][2]);
-$("div.precipitation").html("<b>" + hourly_results[0][4] + "</b>") ;
-$("div.wind-updated").html("<b>" + hourly_results[0][5] + "</b>");
-$("div.humidity").html("<b>" + hourly_results[0][6] + "</b>");
+$(".precipitation").html("<b>" + hourly_results[0][4] + "</b>") ;
+$(".wind-updated").html("<b>" + hourly_results[0][5] + "</b>");
+$(".humidity").html("<b>" + hourly_results[0][6] + "</b>");
 $("#rain-probability").html("Chance of Rain: " + hourly_results[0][3]);
 
 
@@ -77,6 +74,13 @@ $('.col-sm').click(function(e){
     $('.current-location').css('display', 'none');
     $('.col-sm').css('background-color', 'transparent');
     $('.col-sm').css('box-shadow', 'inset 0 0 0 0px black');
+
+    $('#weather-overlay').css('background', 'rgba(0, 0, 0, 0) none repeat scroll 0% 0%');
+    $('#search-box').css('display', 'none');
+    $('#developer-log').css('display', 'none');
+    $('#current_weather_box').css('opacity', 1);
+    $('.current-location-text').css('opacity', 1);
+    $('.change_location').css('opacity', 1);
 
     $('.date_text').css('box-shadow', 'inset 0 0 0 0px black');
     $('.date_text').css('background-color', 'transparent');
@@ -111,15 +115,7 @@ $('.col-sm').click(function(e){
 
     console.log(selected_day);
     hourUpdate(updated_day);
-
-    $("div.hour-one").html("22:00 <br> " + hourly_results[updated_day][2]);
-    $("div.hour-two").html("01:00 <br> " + hourly_results[updated_day][9]);
-    $("div.hour-three").html("04:00 <br> " + hourly_results[updated_day][16]);
-    $("div.hour-four").html("07:00 <br> " + hourly_results[updated_day][23]);
-    $("div.hour-five").html("10:00 <br> " + hourly_results[updated_day][30]);
-    $("div.hour-six").html("13:00 <br> " + hourly_results[updated_day][37]);
-    $("div.hour-seven").html("16:00 <br> " + hourly_results[updated_day][44]);
-    $("div.hour-eight").html("19:00 <br> " + hourly_results[updated_day][51]);
+    weatherUpdate(updated_day);
 
 });
 
@@ -136,6 +132,20 @@ $("#return-weather").click(function(){
 });
 
 
+function weatherUpdate(day) {
+
+    $(".hour-one").html("22:00 <br> " + hourly_results[day][2]);
+    $(".hour-two").html("01:00 <br> " + hourly_results[day][9]);
+    $(".hour-three").html("04:00 <br> " + hourly_results[day][16]);
+    $(".hour-four").html("07:00 <br> " + hourly_results[day][23]);
+    $(".hour-five").html("10:00 <br> " + hourly_results[day][30]);
+    $(".hour-six").html("13:00 <br> " + hourly_results[day][37]);
+    $(".hour-seven").html("16:00 <br> " + hourly_results[day][44]);
+    $(".hour-eight").html("19:00 <br> " + hourly_results[day][51]);
+
+}
+
+
 function hourUpdate(updated_day) {
     $('.hour-weather').click(function(e){
     var selected_class = this.className.split(" ");
@@ -150,9 +160,9 @@ function hourUpdate(updated_day) {
     if (this.className.toLowerCase().includes(selected_hour)) {
         $("#updated-temperature").html(hourly_results[updated_day][updated_hour_stats[selected_hour]]);
         $("#updated-condition").html(hourly_results[updated_day][updated_hour_stats[selected_hour] - 1][2]);
-        $("div.precipitation").html("<b>" + hourly_results[updated_day][updated_hour_stats[selected_hour] + 2] + "</b>");
-        $("div.wind-text").html("<b>WIND</b> <br> <b>" + hourly_results[updated_day][updated_hour_stats[selected_hour] + 3]);
-        $("div.humidity").html("<b>" + hourly_results[updated_day][updated_hour_stats[selected_hour] + 4] + "</b>");
+        $(".precipitation").html("<b>" + hourly_results[updated_day][updated_hour_stats[selected_hour] + 2] + "</b>");
+        $(".wind-updated").html(hourly_results[updated_day][updated_hour_stats[selected_hour] + 3]);
+        $(".humidity").html("<b>" + hourly_results[updated_day][updated_hour_stats[selected_hour] + 4] + "</b>");
         $("#rain-probability").html("Chance of Rain: " + hourly_results[updated_day][updated_hour_stats[selected_hour] + 1]);
         }
     });
