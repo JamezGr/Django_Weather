@@ -78,16 +78,16 @@ $('.col-sm').click(function(e){
     $('#weather-overlay').css('background', 'rgba(0, 0, 0, 0) none repeat scroll 0% 0%');
     $('#search-box').css('display', 'none');
     $('#developer-log').css('display', 'none');
-    $('#current_weather_box').css('opacity', 1);
+    $('#current-weather-box').css('opacity', 1);
     $('.current-location-text').css('opacity', 1);
-    $('.change_location').css('opacity', 1);
+    $('.change-location').css('opacity', 1);
 
-    $('.date_text').css('box-shadow', 'inset 0 0 0 0px black');
-    $('.date_text').css('background-color', 'transparent');
+    $('.date-text').css('box-shadow', 'inset 0 0 0 0px black');
+    $('.date-text').css('background-color', 'transparent');
 
     $('.' + selected_day).css('box-shadow', 'inset 0 0 0 3px #e7e7e7');
     $('.' + selected_day).css('background-color', '#f3f3f3');
-    $('.date_text').css('box-shadow', 'inset 0 0 0 0px black');
+    $('.date-text').css('box-shadow', 'inset 0 0 0 0px black');
 
     // Hour Temperatures for CanvasJS Charts
     var hour_one = hourly_results[updated_day][0][2];
@@ -124,7 +124,7 @@ $('.col-sm').click(function(e){
 $("#return-weather").click(function(){
 
     $('.col-sm').css('background-color', 'transparent');
-    $('.date_text').css('background-color', 'transparent');
+    $('.date-text').css('background-color', 'transparent');
     $('.hourly-weather').attr('style','display:none');
     $('.current-weather-row ').attr('style','display:flex');
     $('.col-sm').css('box-shadow', 'inset 0 0 0 0px black');

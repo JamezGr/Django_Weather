@@ -42,7 +42,8 @@ def index(request):
         except IndexError:
             print(search_results)
 
-    print(hourly_weather)
+    # DEBUGGING PURPOSES
+    # print(hourly_weather)
 
     # Update Developer Log if New REST Request is Made
     developer_log_data.append(str(current_log_data))

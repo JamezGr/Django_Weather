@@ -7,9 +7,9 @@ console.log(dateTime)
 
 window.addEventListener('load', function () {
 
-    var bg_img = document.getElementById("current_weather_box");
+    var bg_img = document.getElementById("current-weather-box");
 
-    var condition_text = $('.current_condition').text();
+    var condition_text = $('.current-condition').text();
 
     var sunrise_time = $('.sunrise-text').text();
     var sunrise_hour = parseInt(sunrise_time.slice(0,2));
@@ -26,32 +26,32 @@ window.addEventListener('load', function () {
 
     // Sunrise Hour
     if (today.getHours() == sunrise_hour) {
-        $('#current_weather_box').css('background-image', 'url(static/css/img/Background/sunrise_background.png)');
+        $('#current-weather-box').css('background-image', 'url(static/css/img/Background/sunrise_background.png)');
         console.log('Sunrise');
     }
 
     // Sunset Hour
     if (today.getHours() == sunset_hour) {
-        $('#current_weather_box').css('background-image', 'url(static/css/img/Background/sunset_background.png)');
+        $('#current-weather-box').css('background-image', 'url(static/css/img/Background/sunset_background.png)');
         console.log('Sunset');
     }
 
     // If the Current Time is Between Sunrise Time and Sunset Time
     if (today.getHours() > sunrise_hour && today.getHours() < sunset_hour) {
         if (condition_text.toLowerCase().includes("rain") || condition_text.toLowerCase().includes("drizzle")) {
-            $('#current_weather_box').css('background-image', 'url(static/css/img/Background/day_rain_background.png)');
+            $('#current-weather-box').css('background-image', 'url(static/css/img/Background/day_rain_background.png)');
             console.log('Day Rain');
         }
         else if (condition_text.toLowerCase().includes("thunder")) {
-            $('#current_weather_box').css('background-image', 'url(static/css/img/Background/thunder_background.png');
+            $('#current-weather-box').css('background-image', 'url(static/css/img/Background/thunder_background.png');
             console.log('Thunder');
         }
          else if (condition_text.toLowerCase().includes("snow") || condition_text.toLowerCase().includes("sleet") || condition_text.toLowerCase().includes("blizzard")) {
-            $('#current_weather_box').css('background-image', 'url(static/css/img/Background/day_snow_background.png)');
+            $('#current-weather-box').css('background-image', 'url(static/css/img/Background/day_snow_background.png)');
             console.log('Day Snow');
         }
         else {
-            $('#current_weather_box').css('background-image', 'url(static/css/img/Background/day_background.png)');
+            $('#current-weather-box').css('background-image', 'url(static/css/img/Background/day_background.png)');
             console.log('Day Time');
         }
     }
@@ -59,19 +59,19 @@ window.addEventListener('load', function () {
     // If the Current Time is Past Sunset or Before Sunrise
     if (today.getHours() > sunset_hour || today.getHours() < sunrise_hour) {
         if (condition_text.toLowerCase().includes("rain") || condition_text.toLowerCase().includes("drizzle")) {
-            $('#current_weather_box').css('background-image', 'url(static/css/img/Background/night_rain_background.gif)');
+            $('#current-weather-box').css('background-image', 'url(static/css/img/Background/night_rain_background.gif)');
             console.log('Night Rain');
         }
         else if (condition_text.toLowerCase().includes("thunder")) {
-            $('#current_weather_box').css('background-image', 'url(static/css/img/Background/thunder_background.png)');
+            $('#current-weather-box').css('background-image', 'url(static/css/img/Background/thunder_background.png)');
             console.log('Thunder');
         }
         else if (condition_text.toLowerCase().includes("snow") || condition_text.toLowerCase().includes("sleet") || condition_text.toLowerCase().includes("blizzard")) {
-            $('#current_weather_box').css('background-image', 'url(static/css/img/Background/night_snow_background.png)');
+            $('#current-weather-box').css('background-image', 'url(static/css/img/Background/night_snow_background.png)');
             console.log('Night Snow');
         }
         else {
-            $('#current_weather_box').css('background-image', 'url(static/css/img/Background/night_background.jpg)');
+            $('#current-weather-box').css('background-image', 'url(static/css/img/Background/night_background.jpg)');
             console.log('Night');
         }
     }
@@ -111,12 +111,12 @@ window.addEventListener('load', function () {
                 $('#chartContainer').attr('style','display:block');
             }
 
-            $('#current_weather_box').css('opacity', 1);
+            $('#current-weather-box').css('opacity', 1);
 
             $('.current-location-text').css('opacity', 1);
-            $('.change_location').css('opacity', 1);
+            $('.change-location').css('opacity', 1);
             $('.col-sm').css('background-color', 'transparent');
-            $('.date_text').css('background-color', 'transparent');
+            $('.date-text').css('background-color', 'transparent');
 
         })
      });
@@ -186,15 +186,14 @@ window.addEventListener('load', function () {
 
 });
 
-
     function modalClose() {
         $('#weather-overlay').css('background', 'rgba(0, 0, 0, 0) none repeat scroll 0% 0%');
         $('#search-box').css('display', 'none');
-        $('#current_weather_box').css('opacity', 1);
+        $('#current-weather-box').css('opacity', 1);
         $('.current-location-text').css('opacity', 1);
-        $('.change_location').css('opacity', 1);
+        $('.change-location').css('opacity', 1);
         $('.col-sm').css('background-color', 'transparent');
-        $('.date_text').css('background-color', 'transparent');
+        $('.date-text').css('background-color', 'transparent');
         $('#developer-log').css('display', 'none');
 
     }
@@ -203,9 +202,9 @@ window.addEventListener('load', function () {
         $('#chartContainer').css('display', 'none');
         $('.hourly-weather').attr('style','display:none');
         $('.current-location-text').css('opacity', .05);
-        $('.change_location').css('opacity', .05);
+        $('.change-location').css('opacity', .05);
         $('#search-box').css('opacity', 1);
         $('#weather-overlay').css('background', 'rgba(0, 0, 0, 0.8) none repeat scroll 0% 0%');
-        $('#current_weather_box').css('opacity', 0.05);
+        $('#current-weather-box').css('opacity', 0.05);
 
     }

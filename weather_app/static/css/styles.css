@@ -21,7 +21,7 @@ div.current-location {
     -o-animation: fadein 3s;        /* Opera < 12.1 */
 }
 
-div.current_weather {
+div.current-weather {
    position: fixed;
    margin-left: 180px;
    text-align: left;
@@ -45,7 +45,7 @@ img.medium-icon {
     width:40px;
 }
 
-div.current_weather_info {
+div.current-weather-info {
     font-size: 14px;
     font-align: center;
     margin-top: -75px;
@@ -53,17 +53,17 @@ div.current_weather_info {
     position: fixed;
 }
 
-div.precipitation_icon {
+div.precipitation-icon {
     margin-right:20px;
     position: fixed;
 }
 
-div.wind_icon {
+div.wind-icon {
     position: fixed;
     margin-left: 100px;
 }
 
-div.humidity_icon {
+div.humidity-icon {
     margin-left:300px;
     position: fixed;
 }
@@ -76,7 +76,7 @@ div.current-weather-extra-col {
 
 }
 
-div.current_precipitation {
+div.current-precipitation {
     margin-right: 60px;
 
     }
@@ -106,31 +106,31 @@ div.precipitation {
     margin-left: 35px;
 }
 
-img.icon_wind {
+img.icon-wind {
     margin-left: -55px;
     position: fixed;
     -webkit-filter: invert(100%);
 }
 
-img.icon_humidity {
+img.icon-humidity {
     margin-left: -25px;
     position: fixed;
 }
 
-div.current_wind_spd {
+div.current-wind-spd {
     margin-top: -3px;
     margin-left: 130px;
     position: fixed;
 
 }
 
-div.current_humidity {
+div.current-humidity {
     margin-left: -10px;
     position: fixed;
 
 }
 
-div.five_day_forecast {
+div.five-day-forecast {
    text-align: center;
    margin-top: 310px;
    margin-left: 110px;
@@ -144,7 +144,7 @@ div.row {
 
 }
 
-div.date_text {
+div.date-text {
   font-weight: normal;
   font-size: 22px;
   color: #000000;
@@ -160,13 +160,13 @@ div.col-sm {
 
 }
 
-div.date_text {
+div.date-text {
     padding-top: 10px;
     padding-bottom: 10px;
 
 }
 
-div.forecast_temp {
+div.forecast-temp {
     margin-top: -30px;
     text-align: center;
     font-weight: normal;
@@ -175,14 +175,14 @@ div.forecast_temp {
 
 }
 
-div.current_condition {
+div.current-condition {
     font-size:34px;
     font-weight: bold;
     margin-left: 20px;
     margin-top: -20px;
 }
 
-div.current_temperature {
+div.current-temperature {
     text.align:left;
     font-size:86px;
     font-weight: bold;
@@ -191,7 +191,7 @@ div.current_temperature {
 
 }
 
-div.change_location {
+div.change-location {
     z-index: 1;
     color: #000000;
     margin-top: 60px;
@@ -206,13 +206,13 @@ a {
     cursor: pointer;
 }
 
-div.moon_phase {
+div.moon-phase {
     margin-left: 190px;
     margin-top: -100px;
 
 }
 
-span.moon_phase {
+span.moon-phase {
     margin-left: -35px;
     font-weight: bold;
 }
@@ -277,11 +277,11 @@ img.forecast-icon {
 
 }
 
-div.current_weather {
+div.current-weather {
     color: white;
 }
 
-img.icon_moon {
+img.icon-moon {
     -webkit-filter: invert(100%);
 
 }
@@ -294,7 +294,7 @@ img.moonrise-icon {
     -webkit-filter: invert(100%);
 }
 
-div.current_weather {
+div.current-weather {
     height: 300px;
     margin-top: 10px;
     margin-left: 120px;
@@ -306,7 +306,7 @@ div.current_weather {
 }
 
 
-#current_weather_box {
+#current-weather-box {
     background-image: url('../img/Background/day_background.png');
     opacity: 1; /* Change To .05 for Modal */
     height: 300px;
@@ -468,19 +468,17 @@ div.hour-weather {
 
 }
 
-div.updated_precipitation {
+div.updated-precipitation {
     margin-right: 60px;
-
     }
 
-div.updated_wind_spd {
+div.updated-wind-spd {
     margin-top: -1px;
     margin-left: 140px;
     position: fixed;
-
 }
 
-div.updated_humidity {
+div.updated-humidity {
     margin-top: 4px;
     position: fixed;
 
@@ -518,7 +516,7 @@ div.hourly-row {
 
 }
 
-div.location_icon {
+div.location-icon {
     z-index: 1;
     position: absolute;
     margin-left: 45px;
@@ -527,7 +525,7 @@ div.location_icon {
 
 }
 
-div.change_location {
+div.change-location {
     margin-top: -185px;
     margin-left: 760px;
     color: white;
