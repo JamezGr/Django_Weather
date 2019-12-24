@@ -3,14 +3,14 @@ window.onload = function ()
 
 var hourly_results = JSON.parse($("#hourly-results").text());
 
-var temperature_one = hourly_results[0][2];
-var temperature_two = hourly_results[0][9];
-var temperature_three = hourly_results[0][16];
-var temperature_four = hourly_results[0][23];
-var temperature_five = hourly_results[0][30];
-var temperature_six = hourly_results[0][37];
-var temperature_seven = hourly_results[0][44];
-var temperature_eight = hourly_results[0][51];
+var temperature_one = hourly_results[0][0][2];
+var temperature_two = hourly_results[0][1][2];
+var temperature_three = hourly_results[0][2][2];
+var temperature_four = hourly_results[0][3][2];
+var temperature_five = hourly_results[0][4][2];
+var temperature_six = hourly_results[0][5][2];
+var temperature_seven = hourly_results[0][6][2];
+var temperature_eight = hourly_results[0][7][2];
 
 
 temperature_one = temperature_one.substring(0, temperature_one.length - 1);
@@ -28,14 +28,14 @@ console.log(hourly_results)
 // Settings To Retrieve Hourly Information Based on Index Of JSON
 updated_hour_stats = {
 
-    "hour-one": 2,
-    "hour-two": 9,
-    "hour-three": 16,
-    "hour-four": 23,
-    "hour-five": 30,
-    "hour-six": 37,
-    "hour-seven": 44,
-    "hour-eight": 51,
+    "hour-one": 0,
+    "hour-two": 1,
+    "hour-three": 2,
+    "hour-four": 3,
+    "hour-five": 4,
+    "hour-six": 5,
+    "hour-seven": 6,
+    "hour-eight": 7,
 
 }
 
@@ -57,12 +57,12 @@ createChart(temperature_one, temperature_two, temperature_three, temperature_fou
 weatherUpdate(day_stats["day_1"])
 
 
-$("#updated-temperature").html(hourly_results[0][2]);
-$("#updated-condition").html(hourly_results[0][1][2]);
-$(".precipitation").html("<b>" + hourly_results[0][4] + "</b>") ;
-$(".wind-updated").html("<b>" + hourly_results[0][5] + "</b>");
-$(".humidity").html("<b>" + hourly_results[0][6] + "</b>");
-$("#rain-probability").html("Chance of Rain: " + hourly_results[0][3]);
+$("#updated-temperature").html(hourly_results[0][0][2]);
+$("#updated-condition").html(hourly_results[0][0][1][2]);
+$(".precipitation").html("<b>" + hourly_results[0][0][4] + "</b>") ;
+$(".wind-updated").html("<b>" + hourly_results[0][0][5] + "</b>");
+$(".humidity").html("<b>" + hourly_results[0][0][6] + "</b>");
+$("#rain-probability").html("Chance of Rain: " + hourly_results[0][0][3]);
 
 
 $('.col-sm').click(function(e){
@@ -89,14 +89,15 @@ $('.col-sm').click(function(e){
     $('.' + selected_day).css('background-color', '#f3f3f3');
     $('.date_text').css('box-shadow', 'inset 0 0 0 0px black');
 
-    var hour_one = hourly_results[updated_day][2];
-    var hour_two = hourly_results[updated_day][9];
-    var hour_three = hourly_results[updated_day][16];
-    var hour_four = hourly_results[updated_day][23];
-    var hour_five = hourly_results[updated_day][30];
-    var hour_six = hourly_results[updated_day][37];
-    var hour_seven = hourly_results[updated_day][44];
-    var hour_eight = hourly_results[updated_day][51];
+    // Hour Temperatures for CanvasJS Charts
+    var hour_one = hourly_results[updated_day][0][2];
+    var hour_two = hourly_results[updated_day][1][2];
+    var hour_three = hourly_results[updated_day][2][2];
+    var hour_four = hourly_results[updated_day][3][2];
+    var hour_five = hourly_results[updated_day][4][2];
+    var hour_six = hourly_results[updated_day][5][2];
+    var hour_seven = hourly_results[updated_day][6][2];
+    var hour_eight = hourly_results[updated_day][7][2];
 
     hour_one = hour_one.substring(0, hour_one.length - 1);
     hour_two = hour_two.substring(0, hour_two.length - 1);
@@ -134,14 +135,14 @@ $("#return-weather").click(function(){
 
 function weatherUpdate(day) {
 
-    $(".hour-one").html("22:00 <br> " + hourly_results[day][2]);
-    $(".hour-two").html("01:00 <br> " + hourly_results[day][9]);
-    $(".hour-three").html("04:00 <br> " + hourly_results[day][16]);
-    $(".hour-four").html("07:00 <br> " + hourly_results[day][23]);
-    $(".hour-five").html("10:00 <br> " + hourly_results[day][30]);
-    $(".hour-six").html("13:00 <br> " + hourly_results[day][37]);
-    $(".hour-seven").html("16:00 <br> " + hourly_results[day][44]);
-    $(".hour-eight").html("19:00 <br> " + hourly_results[day][51]);
+    $(".hour-one").html("22:00 <br> " + hourly_results[day][0][2]);
+    $(".hour-two").html("01:00 <br> " + hourly_results[day][1][2]);
+    $(".hour-three").html("04:00 <br> " + hourly_results[day][2][2]);
+    $(".hour-four").html("07:00 <br> " + hourly_results[day][3][2]);
+    $(".hour-five").html("10:00 <br> " + hourly_results[day][4][2]);
+    $(".hour-six").html("13:00 <br> " + hourly_results[day][5][2]);
+    $(".hour-seven").html("16:00 <br> " + hourly_results[day][6][2]);
+    $(".hour-eight").html("19:00 <br> " + hourly_results[day][7][2]);
 
 }
 
@@ -158,12 +159,12 @@ function hourUpdate(updated_day) {
     console.log(updated_day);
 
     if (this.className.toLowerCase().includes(selected_hour)) {
-        $("#updated-temperature").html(hourly_results[updated_day][updated_hour_stats[selected_hour]]);
-        $("#updated-condition").html(hourly_results[updated_day][updated_hour_stats[selected_hour] - 1][2]);
-        $(".precipitation").html("<b>" + hourly_results[updated_day][updated_hour_stats[selected_hour] + 2] + "</b>");
-        $(".wind-updated").html(hourly_results[updated_day][updated_hour_stats[selected_hour] + 3]);
-        $(".humidity").html("<b>" + hourly_results[updated_day][updated_hour_stats[selected_hour] + 4] + "</b>");
-        $("#rain-probability").html("Chance of Rain: " + hourly_results[updated_day][updated_hour_stats[selected_hour] + 1]);
+        $("#updated-temperature").html(hourly_results[updated_day][updated_hour_stats[selected_hour]][2]);
+        $("#updated-condition").html(hourly_results[updated_day][updated_hour_stats[selected_hour]][1][2]);
+        $(".precipitation").html("<b>" + hourly_results[updated_day][updated_hour_stats[selected_hour]][4] + "</b>");
+        $(".wind-updated").html(hourly_results[updated_day][updated_hour_stats[selected_hour]][5]);
+        $(".humidity").html("<b>" + hourly_results[updated_day][updated_hour_stats[selected_hour]][6] + "</b>");
+        $("#rain-probability").html("Chance of Rain: " + hourly_results[updated_day][updated_hour_stats[selected_hour]][3]);
         }
     });
 }

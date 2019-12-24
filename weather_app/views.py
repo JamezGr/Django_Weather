@@ -42,7 +42,7 @@ def index(request):
         except IndexError:
             print(search_results)
 
-    print(search_results)
+    print(hourly_weather)
 
     # Update Developer Log if New REST Request is Made
     developer_log_data.append(str(current_log_data))
@@ -149,79 +149,27 @@ class WeatherForecast:
         location = urllib.parse.quote(str(location))
 
         current_day = 0
+        current_hour = 0
         hourly_weather = {}
 
         weather_response = requests.get('http://api.worldweatheronline.com/premium/v1/weather.ashx?key=' + api_key + '&q=' + location + '&num_of_days=5&isDayTime&format=json')
         weather_json = weather_response.json()
 
         while current_day < 5:
-            hourly_weather[str(current_day)] = [
-                "Hour 1",
-                condition(weather_json['data']['weather'][current_day]['hourly'][0]['weatherCode']),   # Weather Code
-                weather_json['data']['weather'][current_day]['hourly'][0]['tempC'][0] + "°",           # Temperature
-                weather_json['data']['weather'][current_day]['hourly'][0]['chanceofrain'] + "%",       # Rain Probability
-                weather_json['data']['weather'][current_day]['hourly'][0]['precipMM'] + "MM",          # Precipitation MM
-                weather_json['data']['weather'][current_day]['hourly'][0]['windspeedMiles'] + " MPH",  # Wind Speed mph
-                weather_json['data']['weather'][current_day]['hourly'][0]['humidity'] + "%",           # Humidity
+            hourly_weather[str(current_day)] = []
 
-                "Hour 2",
-                condition(weather_json['data']['weather'][current_day]['hourly'][1]['weatherCode']),
-                weather_json['data']['weather'][current_day]['hourly'][1]['tempC'][0] + "°",
-                weather_json['data']['weather'][current_day]['hourly'][1]['chanceofrain'] + "%",
-                weather_json['data']['weather'][current_day]['hourly'][1]['precipMM'] + "MM",
-                weather_json['data']['weather'][current_day]['hourly'][1]['windspeedMiles'] + " MPH",
-                weather_json['data']['weather'][current_day]['hourly'][1]['humidity'] + "%",
+            while current_hour < 8:
+                hourly_weather[str(current_day)].append(["Hour " + str(current_hour + 1),
+                                                         condition(weather_json['data']['weather'][current_day]['hourly'][current_hour]['weatherCode']),
+                                                         weather_json['data']['weather'][current_day]['hourly'][current_hour]['tempC'][0] + "°",
+                                                         weather_json['data']['weather'][current_day]['hourly'][current_hour]['chanceofrain'] + "%",
+                                                         weather_json['data']['weather'][current_day]['hourly'][current_hour]['precipMM'] + "MM",
+                                                         weather_json['data']['weather'][current_day]['hourly'][current_hour]['windspeedMiles'] + " MPH",
+                                                         weather_json['data']['weather'][current_day]['hourly'][current_hour]['humidity'] + "%"])
 
-                "Hour 3",
-                condition(weather_json['data']['weather'][current_day]['hourly'][2]['weatherCode']),
-                weather_json['data']['weather'][current_day]['hourly'][2]['tempC'][0] + "°",
-                weather_json['data']['weather'][current_day]['hourly'][2]['chanceofrain'] + "%",
-                weather_json['data']['weather'][current_day]['hourly'][2]['precipMM'] + "MM",
-                weather_json['data']['weather'][current_day]['hourly'][2]['windspeedMiles'] + " MPH",
-                weather_json['data']['weather'][current_day]['hourly'][2]['humidity'] + "%",
+                current_hour += 1
 
-                "Hour 4",
-                condition(weather_json['data']['weather'][current_day]['hourly'][3]['weatherCode']),
-                weather_json['data']['weather'][current_day]['hourly'][3]['tempC'][0] + "°",
-                weather_json['data']['weather'][current_day]['hourly'][3]['chanceofrain'] + "%",
-                weather_json['data']['weather'][current_day]['hourly'][3]['precipMM'] + "MM",
-                weather_json['data']['weather'][current_day]['hourly'][3]['windspeedMiles'] + " MPH",
-                weather_json['data']['weather'][current_day]['hourly'][3]['humidity'] + "%",
-
-                "Hour 5",
-                condition(weather_json['data']['weather'][current_day]['hourly'][4]['weatherCode']),
-                weather_json['data']['weather'][current_day]['hourly'][4]['tempC'][0] + "°",
-                weather_json['data']['weather'][current_day]['hourly'][4]['chanceofrain'] + "%",
-                weather_json['data']['weather'][current_day]['hourly'][4]['precipMM'] + "MM",
-                weather_json['data']['weather'][current_day]['hourly'][4]['windspeedMiles'] + " MPH",
-                weather_json['data']['weather'][current_day]['hourly'][4]['humidity'] + "%",
-
-                "Hour 6",
-                condition(weather_json['data']['weather'][current_day]['hourly'][5]['weatherCode']),
-                weather_json['data']['weather'][current_day]['hourly'][5]['tempC'][0] + "°",
-                weather_json['data']['weather'][current_day]['hourly'][5]['chanceofrain'] + "%",
-                weather_json['data']['weather'][current_day]['hourly'][5]['precipMM'] + "MM",
-                weather_json['data']['weather'][current_day]['hourly'][5]['windspeedMiles'] + " MPH",
-                weather_json['data']['weather'][current_day]['hourly'][5]['humidity'] + "%",
-
-                "Hour 7",
-                condition(weather_json['data']['weather'][current_day]['hourly'][6]['weatherCode']),
-                weather_json['data']['weather'][current_day]['hourly'][6]['tempC'][0] + "°",
-                weather_json['data']['weather'][current_day]['hourly'][6]['chanceofrain'] + "%",
-                weather_json['data']['weather'][current_day]['hourly'][6]['precipMM'] + "MM",
-                weather_json['data']['weather'][current_day]['hourly'][6]['windspeedMiles'] + " MPH",
-                weather_json['data']['weather'][current_day]['hourly'][6]['humidity'] + "%",
-
-                "Hour 8",
-                condition(weather_json['data']['weather'][current_day]['hourly'][7]['weatherCode']),
-                weather_json['data']['weather'][current_day]['hourly'][7]['tempC'][0] + "°",
-                weather_json['data']['weather'][current_day]['hourly'][7]['chanceofrain'] + "%",
-                weather_json['data']['weather'][current_day]['hourly'][7]['precipMM'] + "MM",
-                weather_json['data']['weather'][current_day]['hourly'][7]['windspeedMiles'] + " MPH",
-                weather_json['data']['weather'][current_day]['hourly'][7]['humidity'] + "%"
-
-            ]
-
+            current_hour = 0
             current_day += 1
 
         search_status_code = str(weather_response.status_code)
