@@ -1,12 +1,27 @@
 from django.shortcuts import render
 from .date_to_string_conversion import convert_date
 from .weather_code_to_image import condition
-
+from geopy.geocoders import Nominatim
+from tzwhere import tzwhere
+from pytz import timezone
+from datetime import datetime
 
 import urllib.parse
 import configparser
 import json as json_
 import requests
+
+
+geolocator = Nominatim(user_agent="weather_app")
+location = geolocator.geocode("Bristol, United Kingdom")
+# print("Timezone: " + str(location.latitude), str(location.longitude))
+
+tz = tzwhere.tzwhere()
+print(tz.tzNameAt(location.latitude, location.longitude))
+
+current_time = timezone(tz.tzNameAt(location.latitude, location.longitude))
+real_time = datetime.now(current_time)
+print(real_time)
 
 config = configparser.ConfigParser()
 config_settings = config.read('config/config.ini')
