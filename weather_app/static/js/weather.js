@@ -103,8 +103,7 @@ window.addEventListener('load', function () {
         $('#close-icon').click (function(){
             e.stopPropagation();
 
-            $('#weather-overlay').css('background', 'rgba(0, 0, 0, 0) none repeat scroll 0% 0%');
-            $('#search-box').css('display', 'none');
+            modalClose();
 
             if ($('.current-weather-row').css('display') == "none") {
                 $('.hourly-weather').attr('style','opacity: 1');
@@ -125,13 +124,7 @@ window.addEventListener('load', function () {
 
      $(document).keyup(function(e)  {
             if(e.key === "Escape") {
-                $('#weather-overlay').css('background', 'rgba(0, 0, 0, 0) none repeat scroll 0% 0%');
-                $('#search-box').css('display', 'none');
-                $('#current_weather_box').css('opacity', 1);
-                $('.current-location-text').css('opacity', 1);
-                $('.change_location').css('opacity', 1);
-                $('#developer-log').css('display', 'none');
-
+                modalClose();
 
                 if ($('.current-weather-row').css('display') == "none") {
                     $('.hourly-weather').attr('style','opacity: 1');
@@ -143,8 +136,13 @@ window.addEventListener('load', function () {
         });
 
 
-     $(".search-icon").on("click", function()
-     {
+     $("#change-location").on("click", function() {
+        $('#search-box').css('display', 'block');
+        modalOpen();
+     })
+
+
+     $(".search-icon").on("click", function() {
         $("#search-results-text").submit();
      });
 
@@ -171,14 +169,9 @@ window.addEventListener('load', function () {
         console.log('Developer Log');
 
         if ($('#weather-overlay').css('background-color') == "rgba(0, 0, 0, 0)") {
-            $('#chartContainer').css('display', 'none');
-            $('.hourly-weather').attr('style','display:none');
-            $('.current-location-text').css('opacity', .05);
-            $('.change_location').css('opacity', .05);
-            $('#search-box').css('opacity', 1);
-            $('#weather-overlay').css('background', 'rgba(0, 0, 0, 0.8) none repeat scroll 0% 0%');
-            $('#current_weather_box').css('opacity', 0.05);
+
             $('#developer-log').css('display', 'block');
+            modalOpen();
         }
      });
 
@@ -186,33 +179,33 @@ window.addEventListener('load', function () {
      $('#log-close-icon').click(function(){
         console.log('Clicked');
 
-        $('#weather-overlay').css('background', 'rgba(0, 0, 0, 0) none repeat scroll 0% 0%');
-        $('#developer-log').css('display', 'none');
-        
-        $('#current_weather_box').css('opacity', 1);
-        $('.current-location-text').css('opacity', 1);
-        $('.change_location').css('opacity', 1);
-        $('.col-sm').css('background-color', 'transparent');
-        $('.date_text').css('background-color', 'transparent');
+        modalClose();
 
      });
 
 
 });
 
-    const searchBox = () => {
-    // Black Transparent Overlay OnClick of Change Location
 
-    if ($('#weather-overlay').css('background-color') == "rgba(0, 0, 0, 0)") {
+    function modalClose() {
+        $('#weather-overlay').css('background', 'rgba(0, 0, 0, 0) none repeat scroll 0% 0%');
+        $('#search-box').css('display', 'none');
+        $('#current_weather_box').css('opacity', 1);
+        $('.current-location-text').css('opacity', 1);
+        $('.change_location').css('opacity', 1);
+        $('.col-sm').css('background-color', 'transparent');
+        $('.date_text').css('background-color', 'transparent');
+        $('#developer-log').css('display', 'none');
+
+    }
+
+    function modalOpen() {
         $('#chartContainer').css('display', 'none');
         $('.hourly-weather').attr('style','display:none');
         $('.current-location-text').css('opacity', .05);
         $('.change_location').css('opacity', .05);
         $('#search-box').css('opacity', 1);
-        $('#weather-overlay').css('background', 'rgba(0, 0, 0, 0.8)');
+        $('#weather-overlay').css('background', 'rgba(0, 0, 0, 0.8) none repeat scroll 0% 0%');
         $('#current_weather_box').css('opacity', 0.05);
-        $('#search-box').css('display', 'block');
 
     }
-
-}

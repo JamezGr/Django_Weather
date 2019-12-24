@@ -160,12 +160,12 @@ class WeatherForecast:
 
             while current_hour < 8:
                 hourly_weather[str(current_day)].append(["Hour " + str(current_hour + 1),
-                                                         condition(weather_json['data']['weather'][current_day]['hourly'][current_hour]['weatherCode']),
-                                                         weather_json['data']['weather'][current_day]['hourly'][current_hour]['tempC'][0] + "°",
-                                                         weather_json['data']['weather'][current_day]['hourly'][current_hour]['chanceofrain'] + "%",
-                                                         weather_json['data']['weather'][current_day]['hourly'][current_hour]['precipMM'] + "MM",
-                                                         weather_json['data']['weather'][current_day]['hourly'][current_hour]['windspeedMiles'] + " MPH",
-                                                         weather_json['data']['weather'][current_day]['hourly'][current_hour]['humidity'] + "%"])
+                                                         condition(weather_json['data']['weather'][current_day]['hourly'][current_hour]['weatherCode']),    # Weather Condition
+                                                         weather_json['data']['weather'][current_day]['hourly'][current_hour]['tempC'][0] + "°",            # Temperature for Selected Hour
+                                                         weather_json['data']['weather'][current_day]['hourly'][current_hour]['chanceofrain'] + "%",        # Probability of Rain
+                                                         weather_json['data']['weather'][current_day]['hourly'][current_hour]['precipMM'] + "MM",           # Precipitation
+                                                         weather_json['data']['weather'][current_day]['hourly'][current_hour]['windspeedMiles'] + " MPH",   # Wind Speed MPH
+                                                         weather_json['data']['weather'][current_day]['hourly'][current_hour]['humidity'] + "%"])           # Humidity
 
                 current_hour += 1
 
