@@ -12,17 +12,6 @@ import json as json_
 import requests
 
 
-geolocator = Nominatim(user_agent="weather_app")
-location = geolocator.geocode("Bristol, United Kingdom")
-# print("Timezone: " + str(location.latitude), str(location.longitude))
-
-tz = tzwhere.tzwhere()
-print(tz.tzNameAt(location.latitude, location.longitude))
-
-current_time = timezone(tz.tzNameAt(location.latitude, location.longitude))
-real_time = datetime.now(current_time)
-print(real_time)
-
 config = configparser.ConfigParser()
 config_settings = config.read('config/config.ini')
 developer_log_data = []
@@ -32,13 +21,14 @@ developer_log_data = []
 def index(request):
     api_key = config.get('SETUP', 'api_key')
 
-    default_location = 'London, United Kingdom'
-    default_location = urllib.parse.quote(default_location)
+    default_location_string = 'London, United Kingdom'
+    default_location = urllib.parse.quote(default_location_string)
 
     search_location = request.POST.get('searchText')
     current_weather, current_log_data = WeatherForecast.get_current_weather(search_location, default_location, api_key)
     five_day_weather, five_day_log_data = WeatherForecast.get_five_day_weather(search_location, default_location, api_key)
     hourly_weather, hourly_log_data = WeatherForecast.get_hourly_weather(search_location, default_location, api_key)
+    get_time = WeatherForecast.get_current_time(search_location, default_location_string)
 
     search_results, search_log_data = autocomplete(search_location, api_key)
     search_results = json_.dumps(search_results, sort_keys=True)
@@ -47,9 +37,9 @@ def index(request):
         try:
             if search_results != "Unable to find any matching weather location to the query submitted!":
                 updated_results = search_results.split('"')
-
-                # return first result from search results
                 updated_location = updated_results[3]
+
+                get_time = WeatherForecast.get_current_time(search_location, updated_location)
                 current_weather, current_log_data = WeatherForecast.get_current_weather(search_location, updated_location, api_key)
                 five_day_weather, five_day_log_data = WeatherForecast.get_five_day_weather(search_location, updated_location, api_key)
                 hourly_weather, hourly_log_data = WeatherForecast.get_hourly_weather(search_location, updated_location, api_key)
@@ -66,8 +56,10 @@ def index(request):
     developer_log_data.append(str(hourly_log_data))
     developer_log_data.append("searchText: " + str(search_log_data) + str(search_location) + " 200 OK")
 
+    print(get_time)
+
     geo_data = {'weather': current_weather, 'forecast': five_day_weather, 'search_results': search_results, 'hourly_weather': json_.dumps(hourly_weather),
-                'developer_log': developer_log_data}
+                'developer_log': developer_log_data, 'current_time': get_time}
 
     return render(request, 'weather/main_weather.html', geo_data)
 
@@ -193,3 +185,18 @@ class WeatherForecast:
         log_data = "getHourlyWeather: " + location + " " + str(search_status_code) + " OK"
 
         return hourly_weather, log_data
+
+
+    def get_current_time(self, location):
+
+        geolocator = Nominatim(user_agent="weather_app")
+        selected_location = geolocator.geocode(location)
+        print("Location: " + str(selected_location.latitude), str(selected_location.longitude))
+
+        tz = tzwhere.tzwhere()
+
+        current_time = timezone(tz.tzNameAt(selected_location.latitude, selected_location.longitude))
+        real_time = datetime.now(current_time)
+        real_time = str(real_time)[11:19]
+
+        return real_time
