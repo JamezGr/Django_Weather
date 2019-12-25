@@ -1,11 +1,14 @@
-var today = new Date();
-var date = today.getFullYear()+ '-' + (today.getMonth()+1) + '-' + today.getDate();
-var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-var dateTime = date + ' ' + time;
-
-console.log(dateTime)
-
 window.addEventListener('load', function () {
+
+    var current_time = $('#current-time').text();
+    var current_hour = current_time.slice(0,2);
+    var current_minute = current_time.slice(3,5);
+    
+    current_hour = parseInt(current_hour);
+    current_minute = parseInt(current_minute);
+
+    console.log(current_time);
+
 
     var bg_img = document.getElementById("current-weather-box");
 
@@ -25,19 +28,19 @@ window.addEventListener('load', function () {
     // Dynamic Weather Background Images
 
     // Sunrise Hour
-    if (today.getHours() == sunrise_hour) {
+    if (current_hour == sunrise_hour) {
         $('#current-weather-box').css('background-image', 'url(static/css/img/Background/sunrise_background.png)');
         console.log('Sunrise');
     }
 
     // Sunset Hour
-    if (today.getHours() == sunset_hour) {
+    if (current_hour == sunset_hour) {
         $('#current-weather-box').css('background-image', 'url(static/css/img/Background/sunset_background.png)');
         console.log('Sunset');
     }
 
     // If the Current Time is Between Sunrise Time and Sunset Time
-    if (today.getHours() > sunrise_hour && today.getHours() < sunset_hour) {
+    if (current_hour > sunrise_hour && current_hour < sunset_hour) {
         if (condition_text.toLowerCase().includes("rain") || condition_text.toLowerCase().includes("drizzle")) {
             $('#current-weather-box').css('background-image', 'url(static/css/img/Background/day_rain_background.png)');
             console.log('Day Rain');
@@ -57,7 +60,7 @@ window.addEventListener('load', function () {
     }
 
     // If the Current Time is Past Sunset or Before Sunrise
-    if (today.getHours() > sunset_hour || today.getHours() < sunrise_hour) {
+    if (current_hour > sunset_hour || current_hour < sunrise_hour) {
         if (condition_text.toLowerCase().includes("rain") || condition_text.toLowerCase().includes("drizzle")) {
             $('#current-weather-box').css('background-image', 'url(static/css/img/Background/night_rain_background.gif)');
             console.log('Night Rain');
