@@ -57,6 +57,7 @@ def index(request):
     developer_log_data.append("searchText: " + str(search_log_data) + str(search_location) + " 200 OK")
 
     print(get_time)
+    print(hourly_weather)
 
     geo_data = {'weather': current_weather, 'forecast': five_day_weather, 'search_results': search_results, 'hourly_weather': json_.dumps(hourly_weather),
                 'developer_log': developer_log_data, 'current_time': get_time}
@@ -169,7 +170,7 @@ class WeatherForecast:
             while current_hour < 8:
                 hourly_weather[str(current_day)].append(["Hour " + str(current_hour + 1),
                                                          condition(weather_json['data']['weather'][current_day]['hourly'][current_hour]['weatherCode']),    # Weather Condition
-                                                         weather_json['data']['weather'][current_day]['hourly'][current_hour]['tempC'][0] + "°",            # Temperature for Selected Hour
+                                                         weather_json['data']['weather'][current_day]['hourly'][current_hour]['tempC'] + "°",            # Temperature for Selected Hour
                                                          weather_json['data']['weather'][current_day]['hourly'][current_hour]['chanceofrain'] + "%",        # Probability of Rain
                                                          weather_json['data']['weather'][current_day]['hourly'][current_hour]['precipMM'] + "MM",           # Precipitation
                                                          weather_json['data']['weather'][current_day]['hourly'][current_hour]['windspeedMiles'] + " MPH",   # Wind Speed MPH

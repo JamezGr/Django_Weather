@@ -99,14 +99,14 @@ $('.col-sm').click(function(e){
     var hour_seven = hourly_results[updated_day][6][2];
     var hour_eight = hourly_results[updated_day][7][2];
 
-    hour_one = hour_one.substring(0, hour_one.length - 1);
-    hour_two = hour_two.substring(0, hour_two.length - 1);
-    hour_three = hour_three.substring(0, hour_three.length - 1);
-    hour_four = hour_four.substring(0, hour_four.length - 1);
-    hour_five = hour_five.substring(0, hour_five.length - 1);
-    hour_six = hour_six.substring(0, hour_six.length - 1);
-    hour_seven = hour_seven.substring(0, hour_seven.length - 1);
-    hour_eight = hour_eight.substring(0, hour_eight.length - 1);
+    hour_one = hour_one.substring(0, hour_one.length);
+    hour_two = hour_two.substring(0, hour_two.length);
+    hour_three = hour_three.substring(0, hour_three.length);
+    hour_four = hour_four.substring(0, hour_four.length);
+    hour_five = hour_five.substring(0, hour_five.length);
+    hour_six = hour_six.substring(0, hour_six.length);
+    hour_seven = hour_seven.substring(0, hour_seven.length);
+    hour_eight = hour_eight.substring(0, hour_eight.length);
 
 
     $('.hourly-weather').attr('style','display:block');
